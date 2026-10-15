@@ -1,0 +1,83 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "msn"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Oświadczenie o ochronie prywatności"
+  - "Lista partnerów (dostawców)"
+  - "Akceptuję"
+  - "Odrzuć wszystkie"
+  - "Zarządzaj preferencjami"
+layer1_emphasised: "brak wyroznienia - „Akceptuję” i „Odrzuć wszystkie” maja identyczne niebieskie wypelnienie rgb(19,113,195), ta sama szerokosc i wysokosc"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć wszystkie"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć wszystkie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Trzecia akcja "Zarzadzaj preferencjami" otwiera druga warstwe, ktorej nie
+  otwierano, bo pelna odmowa dostepna jest jednym klknieciem na pierwszej warstwie. Do uzupelnienia
+  w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: 960
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Nieosiagalne w praktyce. Baner zapowiada wprost: 'Mozesz zmienic swoj wybor lub wycofac zgode
+  w obszarze Zarzadzaj preferencjami na dole tej strony'. MSN jest jednak nieskonczonym
+  strumieniem - wysokosc dokumentu rosnie w miare przewijania (1000 px, po trzech blokach
+  przewijania 1868 px i dalej), wiec 'dol tej strony' nie istnieje. Po akceptacji skan calej
+  zaladowanej strony nie znajduje ani jednego linku ze slowem preferencje, cookie czy
+  ciasteczka.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "msn_desktop_01-landing_20260902.png"
+  - "msn_desktop_02-layer1_20260902.png"
+  - "msn_desktop_05-after-reject_20260902.png"
+  - "msn_desktop_90-extra-microsoft-com_20260902.png"
+  - "msn_desktop_90-extra-bing_20260902.png"
+observations: >-
+  PELNA ODMOWA JEDNYM KLKNIECIEM, POTWIERDZONA. "Odrzuc wszystkie" daje purpose.consents = {},
+  purpose.legitimateInterests = {} i zero dostawcow z uzasadnionym interesem. tcString
+  CQp6gYAQp6gYAHjABBPLCQFgAAAAAAAAACiQAAAAAAAA. Ustawiaja sie eupubconsent-v2,
+  OptanonAlertBoxClosed i OptanonConsent. To najwiekszy sposrod badanych serwisow z pelna odmowa
+  w jednym klknieciu: 960 partnerow, a mimo to jeden przycisk zalatwia sprawe.
+
+  PRZYCISKI SA IDENTYCZNE. "Akceptuje" i "Odrzuc wszystkie" maja to samo niebieskie tlo
+  rgb(19,113,195), te sama szerokosc i wysokosc, ulozone jeden pod drugim. Akceptacja jest wyzej,
+  ale to jedyna roznica. Trzecia opcja, "Zarzadzaj preferencjami", jest zwyklym odnosnikiem.
+
+  TRZY WITRYNY MICROSOFTU, TRZY UKLADY, TEN SAM WYBOR. Zrzuty dodatkowe pokazuja, ze
+  microsoft.com/pl-pl uzywa waskiego paska u gory strony z przyciskami "Akceptuje", "Odrzucam" i
+  "Zarzadzaj plikami cookie" (wszystkie szare, tej samej wielkosci), a bing.com dolnego panelu z
+  przyciskami "Akceptuj" i "Odrzuc" (oba niebieskie, wypelnione) oraz odnosnikiem "Wiecej opcji".
+  Etykiety roznia sie forma gramatyczna ("Odrzuc wszystkie", "Odrzucam", "Odrzuc"), ale we
+  wszystkich trzech przypadkach odmowa jest dostepna jednym klknieciem i ma te sama wage wizualna
+  co akceptacja. Zaden z trzech serwisow nie ukrywa odmowy na drugiej warstwie.
+
+  BANER NIE BLOKUJE STRONY. body ma overflow visible, tresc nad banerem laduje sie i przewija.
+
+  CIASTECZKA PRZED DECYZJA. Juz przed klknieciem w cokolwiek w przegladarce sa MUID, MSFPC,
+  ai_session i _C_Auth. Nie sprawdzano, ktore z nich sa niezbedne.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 6 UIA, 877 dostawcow ze zgoda, 331 z UIA. akceptacja jednym
+  klknieciem, 'Akceptuje' niebieski wypelniony, 'Odrzuc wszystkie' bialy obramowany, 'Zarzadzaj
+  preferencjami' jako zwykly link ponizej. Baner deklarowal 960 dostawcow.

@@ -1,0 +1,90 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "ceneo"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x891 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "nasi partnerzy (186 partnerów)"
+  - "polityce"
+  - "Ok, zgadzam się"
+  - "Dostosuj zgody"
+  - "Nie zgadzam się"
+layer1_emphasised: "Ok, zgadzam się"
+m1_reject_on_first_layer: true
+m1_reject_label: "Nie zgadzam się"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Nie zgadzam się"
+m5_toggles_default_on: 7
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Dostosuj zgody") ma 23 wlasciwe pola wyboru (plus dwa sterujace zbiorczo:
+  js_all-tcf-purposes i js_all-partners-selected). Domyslnie wlaczonych jest 7. Sa to: "Necessary"
+  (oznaczone jako zawsze aktywne) oraz szesc pozycji IAB, ktore w standardzie TCF nie wymagaja
+  zgody - "Zapewnienie bezpieczenstwa, zapobieganie oszustwom i naprawianie bledow",
+  "Dostarczanie i prezentowanie reklam i tresci", "Zapisanie decyzji dotyczacych prywatnosci oraz
+  informowanie o nich", "Dopasowanie i laczenie danych z innych zrodel", "Laczenie roznych
+  urzadzen" i "Identyfikacja urzadzen na podstawie informacji przesylanych automatycznie".
+  Wylaczone sa wszystkie kategorie wlasne (Advertising, Analytical, Functional) i wszystkie 11
+  celow zgody IAB. Brak osobnych przelacznikow sprzeciwu wobec uzasadnionego interesu. Przyciski
+  panelu: "Potwierdz wybor" (niebieski), "Zaznacz wszystkie" i "< Powrot".
+m4_partner_screens: null
+m4_partner_count_shown: 186
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po odmowie skan calej strony (3250 px) znajduje wylacznie „Polityka prywatnosci” (x=231,
+  y=3066) oraz „Polityka prywatnosci Ceneo” i „Polityka prywatnosci Google” w stopce - same
+  dokumenty. Nie ma linku otwierajacego panel zgod ani plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ZAPIS DOSLOWNY, JEDNA WIZYTA. Zgodnie z uwaga zlecajacego, ze baner Ceneo bywa rozny miedzy
+  wizytami, notuje dokladnie to, co bylo widoczne 3 wrzesnia 2026 okolo godziny 02:30 czasu
+  polskiego, przy pierwszym w historii tej przegladarki wejsciu na ceneo.pl. Pierwsza warstwa:
+  naglowek "Dbamy o Twoja prywatnosc, zapoznaj sie z informacja:", dwie kolumny tekstu i trzy
+  akcje ulozone pionowo w prawej kolumnie - "Ok, zgadzam sie" (niebieskie wypelnienie, bialy
+  tekst), "Dostosuj zgody >" (biale tlo, niebieski tekst, obramowanie) i "Nie zgadzam sie" (biale
+  tlo, ciemny tekst, obramowanie). Wszystkie trzy tej samej szerokosci. To jedna obserwacja z
+  jednej wizyty i nie wolno na jej podstawie twierdzic, ze tak wyglada baner Ceneo zawsze.
+
+  ODMOWA JEDNYM KLKNIECIEM. "Nie zgadzam sie" jest na pierwszej warstwie i konczy sprawe. Pod
+  wzgledem samej dostepnosci odmowy Ceneo wypada lepiej niz rp.pl (gdzie odmowy nie ma wcale),
+  wykop, rmf24 i wyborcza (gdzie trzeba wejsc glebiej).
+
+  SIEDEM PRZELACZNIKOW DOMYSLNIE WLACZONYCH. W panelu "Dostosuj zgody" wlaczone sa "Necessary"
+  i szesc pozycji IAB z grupy celow specjalnych i funkcji: bezpieczenstwo, dostarczanie reklam i
+  tresci, zapisanie decyzji o prywatnosci, dopasowanie i laczenie danych z innych zrodel,
+  laczenie roznych urzadzen, identyfikacja urzadzen na podstawie informacji przesylanych
+  automatycznie. Formalnie sa to pozycje, ktore w standardzie TCF nie wymagaja zgody, ale
+  uzytkownik widzi je jako wlaczone suwaki obok wylaczonych - i to jest to, co mierzy m5.
+
+  TCF ZNIKA PO ODMOWIE. Przed decyzja window.__tcfapi istnieje; po klknieciu "Nie zgadzam sie"
+  nie istnieje juz wcale, wiec nie powstaje zaden TC string. Nie da sie zatem potwierdzic odmowy
+  przez odczyt TCF - jedynym dowodem jest znikniecie banera i powrot body do overflow visible.
+  Zaden inny badany serwis nie zachowal sie w ten sposob.
+
+  ZNACZNIKI REKLAMOWE OBECNE PO ODMOWIE. Po pelnej odmowie w przegladarce sa: ai_user i
+  ai_session (Azure Application Insights, te same co na x-komie), __rtbh.uid, __rtbh.aid i
+  __rtbh.lid (identyfikatory RTB House, platformy retargetingowej), appType, browserBlStatus,
+  cProdCompare_v2. Nie udalo sie czysto odczytac listy ciasteczek sprzed decyzji - odczyt zostal
+  uciety - wiec nie twierdze, ze zostaly ustawione przed odmowa; stwierdzam tylko, ze po odmowie
+  tam sa. Do domkniecia w kolejnym przebiegu.
+
+  BANER NIE BLOKUJE STRONY: tresc jest przewijalna i klikalna przy widocznym banerze.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Druga warstwa
+  zostala otwarta i zmierzona przed odmowa, potem wrocono przyciskiem "< Powrot" na pierwsza
+  warstwe i tam wykonano odmowe - dlatego m2_clicks_refuse = 1, bo tyle wynosi rzeczywisty koszt
+  dla uzytkownika, ktory od razu wybiera odmowe.

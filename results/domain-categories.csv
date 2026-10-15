@@ -1,0 +1,49 @@
+domena,kategoria,firma
+ad-delivery.net,reklama_lub_analityka,ad-delivery.net
+adform.net,reklama_lub_analityka,Adform
+adnxs-simple.com,reklama_lub_analityka,Microsoft (Xandr)
+adnxs.com,reklama_lub_analityka,Microsoft (Xandr)
+adtrafficquality.google,reklama_lub_analityka,Google (reklama)
+amazon-adsystem.com,reklama_lub_analityka,Amazon
+btloader.com,reklama_lub_analityka,Blockthrough
+casalemedia.com,reklama_lub_analityka,Index Exchange
+clarity.ms,reklama_lub_analityka,Microsoft Clarity
+creativecdn.com,reklama_lub_analityka,RTB House
+criteo.com,reklama_lub_analityka,Criteo
+criteo.net,reklama_lub_analityka,Criteo
+doubleclick.net,reklama_lub_analityka,Google (reklama)
+doubleverify.com,reklama_lub_analityka,DoubleVerify
+facebook.com,reklama_lub_analityka,Meta
+facebook.net,reklama_lub_analityka,Meta (piksel)
+gemius.pl,reklama_lub_analityka,Gemius
+google-analytics.com,reklama_lub_analityka,Google (analityka)
+googleadservices.com,reklama_lub_analityka,Google (reklama)
+googlesyndication.com,reklama_lub_analityka,Google (reklama)
+hotjar.com,reklama_lub_analityka,Hotjar
+media.net,reklama_lub_analityka,Media.net
+openx.net,reklama_lub_analityka,OpenX
+outbrain.com,reklama_lub_analityka,Outbrain
+pubmatic.com,reklama_lub_analityka,PubMatic
+rtbhouse.com,reklama_lub_analityka,RTB House
+rubiconproject.com,reklama_lub_analityka,Magnite
+smartadserver.com,reklama_lub_analityka,Equativ
+taboola.com,reklama_lub_analityka,Taboola
+teads.tv,reklama_lub_analityka,Teads
+yahoo.com,reklama_lub_analityka,Yahoo
+consensu.org,platforma_zgody,IAB
+cookiebot.com,platforma_zgody,Cookiebot
+cookielaw.org,platforma_zgody,OneTrust
+didomi.io,platforma_zgody,Didomi
+fundingchoicesmessages.google.com,platforma_zgody,Google (CMP)
+onetrust.com,platforma_zgody,OneTrust
+privacy-mgmt.com,platforma_zgody,Sourcepoint
+akamaized.net,infrastruktura,
+bootstrapcdn.com,infrastruktura,
+cloudflare.com,infrastruktura,
+cloudfront.net,infrastruktura,
+googleapis.com,infrastruktura,
+gstatic.com,infrastruktura,
+jquery.com,infrastruktura,
+jsdelivr.net,infrastruktura,
+sentry.io,infrastruktura,
+unpkg.com,infrastruktura,

@@ -1,0 +1,69 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "biedronka"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Zapoznaj się z Polityką Plików Cookies"
+  - "Ustawienia plików cookie"
+  - "Akceptuj"
+layer1_emphasised: "Akceptuj"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Ustawienia plików cookie"
+  - "Odrzucenie wszystkich"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel ustawien (OneTrust, wariant bez IAB TCF) ma trzy kategorie: "Pliki cookie niezbedne do
+  prawidlowego dzialania" (oznaczona "Zawsze aktywne", bez suwaka), "Analizy i ocena wydajnosci"
+  (C0002) i "Reklamowe pliki cookie" (C0003) - obie opcjonalne domyslnie wylaczone. Domyslnie
+  wlaczonych suwakow jest zero. Brak osobnych przelacznikow uzasadnionego interesu, brak IAB TCF.
+  Panel miesci sie na jednym ekranie, nie wymaga przewijania. Przyciski panelu: "Zapisz",
+  "Odrzucenie wszystkich" i "Zezwolenie na wszystkie".
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: "Brak. Baner deklaruje „Zgode mozesz wycofac w kazdej chwili”, ale po odmowie skan calej strony (6047 px) znajduje w stopce wylacznie „Polityka Prywatnosci” i „Polityka Cookies”, czyli dokumenty, a nie wejscie do ustawien. Nie ma tez plywajacej ikony."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE, MIMO ZE BANER O NIEJ MOWI. Tekst banera brzmi: "Mozesz tez
+  odrzucic cookies inne niz niezbedne albo dostosowac ustawienia" - ale zadnego przycisku odmowy
+  na tej warstwie nie ma. Sa tylko "Ustawienia plikow cookie" (bialy, czerwony tekst) i
+  "Akceptuj" (czerwony, wypelniony). Zeby odmowic, trzeba wejsc w ustawienia i tam kliknac
+  "Odrzucenie wszystkich" - dwa klikniecia. Baner zapowiada wiec mozliwosc, ktorej sam nie daje.
+
+  OBIETNICA WYCOFANIA ZGODY BEZ POKRYCIA. Baner mowi "Zgode mozesz wycofac w kazdej chwili".
+  Po odmowie na calej stronie glownej nie ma zadnego wejscia do ustawien cookies - ani linku
+  w stopce, ani plywajacej ikony. W stopce sa wylacznie "Polityka Prywatnosci" i
+  "Polityka Cookies", czyli dokumenty do czytania. To najslabszy wynik m9 w grupie polskiej
+  obok onetu, wp i x-komu.
+
+  BANER NIE BLOKUJE STRONY. body ma overflow visible; baner to pasek u dolu ekranu. Przy wejsciu
+  na strone niezaleznie od banera otwiera sie osobne okno z gazetka promocyjna, z wlasnym
+  krzyzykiem - nie ma zwiazku ze zgoda.
+
+  ZAPIS ODMOWY POTWIERDZONY. Po klknieciu ustawia sie OptanonAlertBoxClosed, a grupy w
+  OptanonConsent maja wartosci C0001:1, C0002:0, C0003:0.
+
+  TYLKO DWIE KATEGORIE OPCJONALNE. Biedronka dzieli zgode na "Analizy i ocena wydajnosci" oraz
+  "Reklamowe pliki cookie" - to najprostszy podzial wsrod badanych polskich serwisow. Dla
+  porownania DOZ.pl ma trzy kategorie z licznikami, a x-kom cztery.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2.

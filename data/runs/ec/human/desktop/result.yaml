@@ -1,0 +1,68 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) do przebiegu 3. Krok D nie dotyczy - brak krzyzyka.
+site: "ec"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "stronę o plikach cookie"
+  - "Akceptuj wszystkie pliki cookie"
+  - "Akceptuj tylko niezbędne pliki cookie"
+layer1_emphasised: "brak wyroznienia - oba przyciski maja identyczne niebieskie wypelnienie rgb(0,70,255), bialy tekst i wysokosc 52 px; odmowa jest nawet szersza (349 px wobec 300 px), bo ma dluzszy napis"
+m1_reject_on_first_layer: true
+m1_reject_label: "Akceptuj tylko niezbędne pliki cookie"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Akceptuj tylko niezbędne pliki cookie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Brak drugiej warstwy w banerze. Nie ma przycisku "ustawienia" ani "dostosuj" - jedyna droga do
+  szczegolow to zwykly odnosnik "strone o plikach cookie", ktory prowadzi na osobna podstrone,
+  a nie otwiera panelu. Brak IAB TCF, brak OneTrust, Didomi i CookieYes - wlasny mechanizm
+  Komisji (ciasteczko cck1).
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „Pliki cookie” w stopce, y=4646 przy wysokosci strony 4782 px. Baner zapowiadal go: „wejdz na nasza strone o plikach cookie lub kliknij link w ktorejkolwiek stopce”."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  BANER PO POLSKU, MIMO ZALOZENIA. Serwis dodano do badania jako "grupa instytucje (baner po
+  angielsku)", ale commission.europa.eu wykrywa jezyk i pokazuje caly baner po polsku, razem z
+  etykietami przyciskow. Strona przelacza sie na wersje /index_pl. To odwrotnosc przypadku
+  washingtonpost.com, ktory przy polskim IP i polskiej przegladarce zostal przy angielskim.
+
+  JEDYNY SERWIS, KTORY PO ODMOWIE FAKTYCZNIE USUWA CIASTECZKA ANALITYCZNE. Przed decyzja w
+  przegladarce byly ustawione _pk_id i _pk_ses, czyli identyfikatory Matomo. Po klknieciu
+  "Akceptuj tylko niezbedne pliki cookie" znikaja - zostaje wylacznie cck1 o wartosci
+  {"cm":true,"all1st":false}. Zaden inny z 35 badanych serwisow tego nie robi: DOZ.pl zostawia
+  komplet ciasteczek Google Analytics, x-kom zostawia ai_user i ai_session, gazeta.pl i
+  washingtonpost zostawiaja dostawcow na uzasadnionym interesie.
+
+  ODMOWA NAZWANA PRZEZ AKCEPTACJE. "Akceptuj tylko niezbedne pliki cookie", nie "Odrzuc". Ten sam
+  wzorzec co OLX, otomoto, tvn24, zalando i biedronka - z ta roznica, ze tu obie akcje sa
+  dostepne od razu i wygladaja identycznie.
+
+  DWA PRZYCISKI, ZERO HIERARCHII. Oba maja to samo niebieskie wypelnienie rgb(0,70,255), ten sam
+  bialy tekst i te sama wysokosc 52 px. Odmowa jest szersza od akceptacji, bo ma dluzszy napis.
+  Razem z youtube, washingtonpost, linkedin, spotify i gemini nalezy do najbardziej symetrycznych
+  banerow w badaniu.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow hidden auto, baner to pasek pod trescia, bez
+  nakladki przyciemniajacej.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Odmowa zadzialala za pierwszym
+  klknieciem, bez powtorzen.

@@ -1,0 +1,77 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "facebook"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Produktów Meta"
+  - "Zasadach dotyczących plików cookie"
+  - "Odrzuć opcjonalne pliki cookie"
+  - "Zezwól na wszystkie pliki cookie"
+layer1_emphasised: "Zezwól na wszystkie pliki cookie"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć opcjonalne pliki cookie"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć opcjonalne pliki cookie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Brak drugiej warstwy w klasycznym rozumieniu. Modal nie ma przycisku "Ustawienia" ani listy
+  suwakow - sa tylko dwie akcje i odnosniki do dokumentow. W prawym gornym rogu modala jest
+  ikona trzech kropek, ktorej dzialania nie sprawdzano w tym przebiegu.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Pliki cookie' w stopce ekranu logowania, y=943 przy wysokosci strony 1012 px, obok
+  'Zasady ochrony prywatnosci' i 'Centrum ochrony prywatnosci'. Prowadzi do Zasad dotyczacych
+  plikow cookie, w ktorych - zgodnie z trescia samego banera - mozna 'w dowolnej chwili
+  sprawdzic lub zmienic swoje wybory'. Nie jest to panel ustawien otwierany jednym klknieciem.
+close_x_present: false
+close_x_result: "Modal nie ma przycisku X ani „Zamknij”. Jest ikona trzech kropek w prawym gornym rogu, ale nie jest to zamkniecie."
+screenshots:
+  - "facebook_desktop_01-landing_20260902.png"
+  - "facebook_desktop_02-layer1_20260902.png"
+  - "facebook_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, ALE WYRAZNIE ODCHUDZONA WIZUALNIE. "Odrzuc opcjonalne pliki cookie"
+  jest zwyklym tekstem bez tla, ustawionym po lewej. "Zezwol na wszystkie pliki cookie" to
+  niebieski przycisk z bialym napisem, po prawej. Rozmiar czcionki podobny, ale tylko akceptacja
+  wyglada jak przycisk. To rownowaga posrednia miedzy YouTube (dwa identyczne przyciski) a
+  wydawcami, ktorzy odmowy nie daja wcale.
+
+  ODMOWA JEST TYLKO CZESCIOWA Z DEFINICJI. Etykieta mowi "odrzuc OPCJONALNE pliki cookie", a tekst
+  banera dzieli ciasteczka na niezbedne (wymagane do korzystania z Produktow Meta) i pliki cookie
+  innych firm (opcjonalne). Nie ma wiec zadnej sciezki do odrzucenia calosci, ale tez nic nie
+  sugeruje, ze taka istnieje.
+
+  BRAK MOZLIWOSCI WERYFIKACJI. Facebook trzyma ciasteczka jako HttpOnly - document.cookie zwraca
+  pusty ciag zarowno przed, jak i po decyzji. Nie ma tez IAB TCF. Skutecznosc odmowy potwierdza
+  tylko to, ze modal zniknal i nie wraca po przeladowaniu strony.
+
+  BANER BLOKUJE STRONE wizualnie: modal na przyciemnionym tle. Formularz logowania po prawej jest
+  widoczny, ale zakryty nakladka.
+
+  ZRZUTY. Karta dwukrotnie przestala odpowiadac na Page.captureScreenshot i raz zwrocila obraz w
+  zlej skali; poprawne zrzuty powstaly po przeladowaniu strony. Nie logowano sie na zadne konto.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami; przed przebiegiem wszystkie 26 adresow zostalo raz otwartych
+  w celu autoryzacji domen w rozszerzeniu, bez klikania w baner.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem, 'Zezwol na wszystkie pliki cookie'
+  niebieski wypelniony. Ciasteczka Meta sa HttpOnly, wiec document.cookie nic nie pokazuje -
+  skutecznosc potwierdzona zniknieciem banera.

@@ -1,0 +1,72 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "zabka"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "nasi partnerzy"
+  - "Polityka prywatności"
+  - "Zarządzaj cookies"
+  - "Odrzuć wszystkie"
+  - "Zaakceptuj wszystkie"
+layer1_emphasised: "Zaakceptuj wszystkie - nie kolorem, tylko szerokoscia i pozycja: wszystkie trzy przyciski maja identyczne ciemnozielone wypelnienie rgb(0,100,32), bialy tekst i wysokosc 44 px, ale akceptacja stoi sama w drugim rzedzie i ma 387 px szerokosci, podczas gdy „Zarządzaj cookies” i „Odrzuć wszystkie” dziela pierwszy rzad po 190 px"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć wszystkie"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć wszystkie"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel "Zarzadzaj cookies" (CMP CookieYes) ma trzy suwaki: ckySwitchfunctional,
+  ckySwitchanalytics i ckySwitchadvertisement - wszystkie domyslnie wylaczone. Kategoria
+  "Niezbedne pliki cookie" jest zawsze aktywna i nie ma suwaka. Brak IAB TCF (window.__tcfapi
+  nie istnieje), brak osobnych przelacznikow uzasadnionego interesu. Panel ma 1197 px przy
+  558 px widocznych, czyli 3 ekrany.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Plywajaca ikona 45x45 px w lewym dolnym rogu ekranu (cky-btn-revisit-wrapper, pozycja x=15, y=852), widoczna caly czas, bez przewijania. Jedyny badany serwis z takim rozwiazaniem - u pozostalych wejscie jest linkiem w stopce albo nie ma go wcale."
+close_x_present: true
+close_x_result: "Baner ma krzyzyk X w prawym gornym rogu panelu. Nie testowano - test krzyzyka zostaje na przebieg 3, zeby nie zuzyc stanu poczatkowego przed pomiarem sciezki odmowy."
+screenshots: []
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE KOLOREM. "Zarzadzaj cookies", "Odrzuc wszystkie"
+  i "Zaakceptuj wszystkie" maja to samo ciemnozielone wypelnienie rgb(0,100,32) i bialy tekst.
+  Roznica jest w ukladzie: dwa pierwsze dziela gorny rzad po 190 px, a akceptacja zajmuje caly
+  dolny rzad, 387 px. Wyroznienie przez powierzchnie i pozycje, nie przez kolor - to inny wzorzec
+  niz rossmann (gdzie odmowa jest podkreslonym napisem) i niz onet czy interia (gdzie akceptacja
+  jest kolorowa, a odmowa szara).
+
+  PLYWAJACA IKONA WYCOFANIA ZGODY. Zabka jest jedynym z 35 badanych serwisow, ktory po decyzji
+  zostawia stale widoczna ikone otwierajaca panel zgod - male kolo 45x45 px w lewym dolnym rogu.
+  U wszystkich pozostalych, ktore w ogole maja wejscie, jest to link w stopce, czesto po
+  kilkunastu czy kilkudziesieciu ekranach przewijania (tvn24 y=30194, bild y=27770,
+  washingtonpost y=13163, ikea y=13585).
+
+  BANER NIE BLOKUJE STRONY: body pozostaje przewijalne, baner to panel w lewym dolnym rogu.
+
+  ZAPIS ODMOWY POTWIERDZONY. Ciasteczko cookieyes-consent zmienia sie z action pustego na
+  action:yes, przy consent:no, necessary:yes, functional:no, analytics:no, advertisement:no,
+  other:no. Przed decyzja bylo to jedyne ciasteczko w przegladarce - zaden znacznik analityczny
+  ani reklamowy nie byl ustawiony przed wyborem. To wynik lepszy niz DOZ.pl czy x-kom.
+
+  UWAGA NARZEDZIOWA. Pierwsze dwa klikniecia wspolrzednymi nie zadzialaly, skuteczne bylo
+  trzecie, po przewinieciu strony na gore klawiszem Home. Czwarte klikniecie trafilo juz w tresc
+  strony pod znikajacym banerem i otworzylo plik PDF; wrocono na strone glowna, stan zgody byl
+  poprawnie zapisany. Dla uzytkownika jest to jedno klikniecie i tak zapisano m2_clicks_refuse.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy.

@@ -1,0 +1,92 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "wykop"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x891 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "partnerów spełniających wymogi TCF"
+  - "partnerów reklamowych"
+  - "liście partnerów"
+  - "Dostosuj wybory"
+  - "Zaakceptuj wszystko"
+layer1_emphasised: "Zaakceptuj wszystko"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Dostosuj wybory"
+  - "Odrzuć wszystko"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa (CMP by tri-table, wariant IAB TCF) ma 20 wlasciwych pol wyboru, wszystkie
+  domyslnie wylaczone. Dwudziesty pierwszy checkbox znaleziony w DOM to switch-night-mode, czyli
+  przelacznik trybu dziennego samego Wykopu, nie element panelu zgod - nie liczono go. Panel ma
+  3293 px przy 622 px widocznych, czyli 6 ekranow. Brak osobnych przelacznikow sprzeciwu wobec
+  uzasadnionego interesu w samym panelu: baner odsyla w tej sprawie do listy partnerow ("Dowiedz
+  sie, w jaki sposob mozesz sprzeciwic sie takiemu przetwarzaniu, przechodzac na liste
+  partnerow"), wiec sprzeciw jest o jeden poziom glebiej niz zgoda. Przyciski panelu:
+  "Zapisz i wyjdz" (bialy), "Odrzuc wszystko" i "Zaakceptuj wszystko" (oba niebieskie), wszystkie
+  trzy widoczne bez przewijania panelu.
+m4_partner_screens: null
+m4_partner_count_shown: 1021
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link „Ustawienia prywatności” w stopce prawej kolumny (nav.cmp wewnatrz footer.footer w
+  section.sidebar), pozycja x=1425, y=2157. Baner obiecuje co innego - patrz observations.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  BANER WSKAZUJE ZLE MIEJSCE WYCOFANIA ZGODY. Tekst mowi doslownie: "W kazdej chwili mozesz
+  edytowac wyrazone zgody (rowniez calkowicie je wycofac) klikajac w ikone ustawien (⚙)
+  znajdujaca sie na dole strony po lewej". Po odmowie przeszukano cala strone (8419 px) i lewa
+  kolumne, ktora ma wlasne przewijanie: nie ma tam zadnej ikony zebatki ani wejscia do ustawien
+  zgod. Na dole lewej kolumny sa Ranking, Osiagniecia, FAQ, O nas, Kontakt, Reklama, Regulamin i
+  przelacznik "Tryb dzienny". Wejscie faktycznie istnieje, ale nazywa sie "Ustawienia
+  prywatnosci", jest zwyklym linkiem tekstowym bez ikony i lezy w stopce PRAWEJ kolumny
+  (x=1425), pod "Polityka prywatnosci i cookies". Instrukcja z banera prowadzi wiec uzytkownika
+  w przeciwna strone ekranu i kaze mu szukac ikony, ktorej nie ma. W polu m9 wpisano true, bo
+  wejscie istnieje i jest widoczne, ale rozbieznosc jest istotna dla raportu.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Dwie akcje: "Dostosuj wybory" i "Zaakceptuj wszystko".
+  Slowo "odrzuc" nie pada na pierwszej warstwie ani razu. Pelna odmowa wymaga wejscia w
+  ustawienia i klkniecia "Odrzuc wszystko" - dwa klikniecia, bez przewijania.
+
+  UWAGA O WYROZNIENIU PRZYCISKOW. Na zrzucie ekranu "Dostosuj wybory" jest bialy z niebieskim
+  tekstem i obramowaniem, a "Zaakceptuj wszystko" niebieski z bialym tekstem rgb(54,116,161).
+  Odczyt getComputedStyle zwraca dla obu to samo tlo rgb(54,116,161), co jest sprzeczne z
+  wygladem - najprawdopodobniej biale wypelnienie pierwszego przycisku pochodzi z pseudoelementu.
+  Do layer1_emphasised wpisano to, co widac na zrzucie, i odnotowuje sie tu rozbieznosc odczytu.
+
+  GOOGLE ANALYTICS PRZED DECYZJA. Zanim uzytkownik cokolwiek kliknie, w przegladarce sa juz
+  ustawione _ga i _ga_DPEMGJP3G5. Po pelnej odmowie oba nadal tam sa; dochodza euconsent-v2,
+  tt_vlH i tt_cons_addtl. Ten sam wzorzec co na DOZ.pl i x-komie.
+
+  ODMOWA DZIALA CZYSTO. Odczyt TCF po "Odrzuc wszystko" daje zero we wszystkich czterech polach:
+  zero celow zgody, zero celow na uzasadnionym interesie, zero dostawcow ze zgoda, zero z UIA.
+  tcString CQp9zUAQp9zUAA9ADCPLCuFgAAAAAAAAAB5YAAAAAAAA.IMzNR. To wynik na poziomie OLX, otomoto,
+  tvn24, MSN i lidla - mimo ze sciezka do niego jest dluzsza.
+
+  LICZBA PARTNEROW. Baner deklaruje "1019 partnerow spelniajacych wymogi TCF oraz 2 partnerow
+  reklamowych", razem 1021 - i taka liczbe wpisano do m4_partner_count_shown, zgodnie z
+  konwencja przyjeta przy tvn24 (161 IAB + 30 innych = 191). Nie zmierzono, ile to ekranow
+  przewijania.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji, po odmowie wraca do visible.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym - nigdy wczesniej
+  nie odwiedzany w tej przegladarce. Kroki A i B wykonano od razu, bez czekania na czyszczenie
+  danych. Druga warstwa zmierzona przed odmowa, w tej samej sesji panelu, wiec liczba klkniec
+  odmowy obejmuje otwarcie panelu.

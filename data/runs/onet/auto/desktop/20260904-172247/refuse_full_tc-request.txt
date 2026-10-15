@@ -1,0 +1,8 @@
+# onet.pl, run 20260904-172247, state refuse_full (after full refusal)
+# First request to Google ad servers carrying the TC string; other query
+# parameters removed.
+time: 2026-09-04T17:23:45.969Z
+method: GET
+url: https://pagead2.googlesyndication.com/gampad/ads
+gdpr: 1
+gdpr_consent: CQqBGQAQqBGQAEYACAENCtFgAIAAAEPgAB5YMxQAAZiaj-N_62vLf82Cvw3bIcxi_7_AH3YhiCA2RRMwLmXUtyRgFvsImSJE0YEQQMiABRqCCQAJSIDCIiIFCEQAqXiHYAJohwnaQA8DJAGYyxECgAJCfFxbGsgEzwdT86o7pEhtZwbXtsrlks2BHPuVa8ckqoTE4UwYKO9bcxCYh9eQo7uiV7RaR-Y3SJIAwAjf7KpTLwmw1xfOUrTVia8jk6Yk--6Lnu-l2idu197rp9ZUlr_W3xcutzN9-WfP--rv5-__2z3_rj9sy_-___94AAAA.IMxNR_G__bXlv-bb36btkeYxf9_hr7sQxBgbIsm4FzLvW7JwG32EbJEyatiIKmRIAu3DBIQNtHBjURUChKIAVLzDsaE2U4TtKJ-BkiHMZYytQCExvm4tjeQCZ4ur_90d0mR-t6dr-2dzy27hnn3a9fuS1UJydKYetHfv-ZhOS-_IU9_x-_4v4_MbpEm0eSVv9tUtt4zc64vv6dpuxt-Tyff6f__f73fS7X__e__33_8qX3_r76-___3-_v___ff_________9__-_______8.cAAAAbgAAIAA

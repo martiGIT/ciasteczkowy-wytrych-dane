@@ -1,0 +1,87 @@
+# STATUS: kroki A, B, D wykonane (krok B nadrobiony w przebiegu 2). Krok C (m2_clicks_accept) do przebiegu 3.
+site: "reddit"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "X (zamknij)"
+  - "jak serwis Reddit używa plików cookie"
+  - "Odrzuć opcjonalne pliki cookie"
+  - "Zaakceptuj wszystkie"
+layer1_emphasised: "Zaakceptuj wszystkie"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć opcjonalne pliki cookie"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć opcjonalne pliki cookie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: "Brak drugiej warstwy. Karta ma tylko dwie akcje, X i odnosnik do informacji."
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po odmowie skan calej strony glownej (wylogowany) nie znajduje zadnego linku ze slowem
+  cookie, ciasteczka, ustawienia ani preferencje. Reddit trzyma ustawienia zgody w ustawieniach
+  konta, a wiec za logowaniem.
+close_x_present: true
+close_x_result: >-
+  Krzyzyk w prawym gornym rogu karty. Po klknieciu karta zostala jeszcze przez chwile w DOM, ale po
+  odswiezeniu strony baner NIE wrocil, a w przegladarce pojawilo sie ciasteczko eu_cookie_opted.
+  Klikniecie X jest wiec traktowane jako podjecie decyzji i zamyka temat na stale - tyle ze
+  uzytkownik nie dowiaduje sie, jaka decyzje w jego imieniu zapisano. Nie udalo sie ustalic, czy
+  X liczy sie jako zgoda, czy jako odmowa: nie ma ciasteczka z czytelna wartoscia ani TCF do
+  odczytu.
+screenshots:
+  - "reddit_desktop_01-landing_20260902.png"
+  - "reddit_desktop_02-layer1_20260902.png"
+  - "reddit_desktop_09-close-x_20260902.png"
+observations: >-
+  USTALENIE KLUCZOWE. Krzyzyk zamyka sprawe na stale. Po klknieciu X i przeladowaniu strony baner
+  juz nie wraca, a ustawia sie ciasteczko o nazwie eu_cookie_opted, czyli "zdecydowal". Reddit
+  traktuje wiec zamkniecie okna jako decyzje, mimo ze uzytkownik nie wybral ani akceptacji, ani
+  odmowy. To jest dokladnie ten wzorzec, ktorego szuka krok D protokolu.
+
+  BLAD METODOLOGICZNY, KTORY TRZEBA NAPRAWIC. Wykonalem krok D (test X) przed krokiem B (sciezka
+  odmowy), zeby zmiescic oba w jednej wizycie - przy zalozeniu, ze X nie zapisuje decyzji i baner
+  wroci. Zalozenie okazalo sie falszywe i tym samym zuzylem stan nowego uzytkownika. Klikniecia w
+  "Odrzuc opcjonalne pliki cookie" NIE wykonano. Wartosc m2_clicks_refuse = 1 pochodzi z obserwacji
+  ukladu pierwszej warstwy (jeden przycisk odmowy, widoczny bez przewijania), a nie z wykonanego
+  pomiaru; skutecznosc tej odmowy jest niesprawdzona. Do powtorzenia w przebiegu 2, w wlasciwej
+  kolejnosci.
+
+  WYROZNIENIE PRZYCISKOW. "Zaakceptuj wszystkie" ma czarne wypelnienie i bialy tekst,
+  "Odrzuc opcjonalne pliki cookie" jest jasnoszary rgb(229,235,238) z ciemnym tekstem. Oba tej
+  samej wysokosci, obok siebie, odmowa po lewej. Roznica jest, ale znacznie mniejsza niz u polskich
+  wydawcow.
+
+  BANER NIE BLOKUJE STRONY. Karta siedzi w prawym dolnym rogu, feed jest w pelni czytelny i
+  przewijalny. Reklamy (u/AMDOfficial, u/lenovo) wyswietlaja sie zarowno przed decyzja, jak i po
+  zamknieciu karty.
+
+  ODMOWA JEST Z DEFINICJI CZESCIOWA. Etykieta mowi "odrzuc OPCJONALNE pliki cookie". Tekst karty
+  dzieli cookies na niezbedne (dzialanie witryny, zapobieganie oszustwom, monitorowanie wydajnosci)
+  i te wymagajace zgody (personalizacja rekomendacji i reklam, mierzenie skutecznosci reklam,
+  opracowywanie nowych funkcji).
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - NADROBIONY KROK B z przebiegu 1. Baner pojawil sie w stanie czystym, pelna odmowa
+  jednym klknieciem przyciskiem 'Odrzuc opcjonalne pliki cookie' (bialy, obramowany) obok
+  'Zaakceptuj wszystkie' (czarny, wypelniony). Po odmowie ustawia sie wylacznie
+  eu_cookie_opted=1 - dokladnie ta sama wartosc, ktora w przebiegu 1 ustawil krzyzyk X. Z
+  ciasteczek czytelnych dla JavaScriptu nie da sie odroznic zgody od odmowy ani od zamkniecia
+  krzyzykiem; sama tresc wyboru jest po stronie serwera, powiazana z loid. Sciezka akceptacji
+  dla reddita zostaje na przebieg 3.

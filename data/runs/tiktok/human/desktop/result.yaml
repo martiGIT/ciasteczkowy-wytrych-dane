@@ -1,0 +1,75 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "tiktok"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Polityką cookie"
+  - "Odrzuć opcjonalne pliki cookie"
+  - "Zezwól na wszystkie lokalizacje"
+layer1_emphasised: "brak wyroznienia - oba przyciski biale, obramowane, tej samej wielkosci"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć opcjonalne pliki cookie"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć opcjonalne pliki cookie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Brak drugiej warstwy. Baner ma tylko dwie akcje i odnosnik do Polityki cookie. Nie ma przycisku
+  "Ustawienia" ani listy suwakow. Brak IAB TCF.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po akceptacji skan calej strony nie znajduje zadnego elementu ze slowem cookie,
+  ciasteczka, preferencje ani zarzadzaj. Rozwiniecie grupy 'Warunki i polityki' w lewym pasku
+  takze nic takiego nie pokazuje. Baner odsylal do 'Polityka cookie', ale to dokument, nie
+  ustawienia.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "tiktok_desktop_01-landing_20260902.png"
+  - "tiktok_desktop_02-layer1_20260902.png"
+  - "tiktok_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI ROWNE. Oba przyciski sa biale z obramowaniem, tej samej
+  wielkosci, obok siebie. Zaden nie jest wyrozniony kolorem. Po klknieciu pojawia sie komunikat
+  "Zapisano!" i baner znika.
+
+  BLAD TLUMACZENIA W ETYKIECIE AKCEPTACJI. Przycisk akceptacji nazywa sie doslownie "Zezwol na
+  wszystkie lokalizacje", co nie ma sensu w kontekscie plikow cookie - to najwyrazniej zle
+  przetlumaczone "Allow all". Odczytane z DOM i widoczne na zrzucie. Odpowiednik odmowy jest
+  przetlumaczony poprawnie: "Odrzuc opcjonalne pliki cookie".
+
+  ODMOWA JEST SKUTECZNA I SPRAWDZALNA. Ciasteczko cookie-consent po odmowie ma wartosc
+  {"optional":false,"ga":false,"af":false,"fbp":false,"lip":false,"bing":false,"ttads":false,
+  "reddit":false,"hubspot":false,"version":"v10"} - czyli wszystkie opcjonalne kategorie i wszyscy
+  wymienieni z nazwy odbiorcy (Google Analytics, AppsFlyer, Facebook Pixel, LinkedIn Insight, Bing,
+  TikTok Ads, Reddit, HubSpot) sa wylaczone. To jedyny badany serwis, w ktorym stan zgody da sie
+  odczytac wprost, w czytelnym JSON-ie, bez dekodowania.
+
+  BANER NIE BLOKUJE STRONY. Film odtwarza sie normalnie za banerem, ktory zajmuje dolny pas ekranu.
+  body ma overflow auto.
+
+  OSOBNY KOMUNIKAT O RODO. Nad banerem cookie wisi drugi pasek, o przekazywaniu danych uzytkownikow
+  z EOG do Chin i decyzji irlandzkiej DPC z kwietnia 2025, z przyciskiem "Rozumiem". Nie jest to
+  element zgody na cookies i nie liczy sie do zadnej metryki, ale warto go odnotowac jako kontekst.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem. Ciasteczko cookie-consent po
+  akceptacji: optional:true, ga:true, af:true, fbp:true, lip:true, bing:true...

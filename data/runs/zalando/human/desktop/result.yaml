@@ -1,0 +1,79 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "zalando"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "polityką prywatności"
+  - "informacją prawną"
+  - "Tylko niezbędne"
+  - "Ustaw preferencje"
+  - "Akceptuj wszystko"
+layer1_emphasised: "Akceptuj wszystko"
+m1_reject_on_first_layer: true
+m1_reject_label: "Tylko niezbędne"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Tylko niezbędne"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Srodkowa akcja "Ustaw preferencje" otwiera druga warstwe, ktorej nie otwierano,
+  bo odmowa dostepna jest jednym klknieciem. Do uzupelnienia w przebiegu 2. Brak IAB TCF
+  (window.__tcfapi nie istnieje).
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Preferencje plikow cookie' w stopce, y=2618 przy wysokosci strony 2760 px, obok
+  'Polityka prywatnosci'.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "zalando_desktop_01-landing_20260902.png"
+  - "zalando_desktop_02-layer1_20260902.png"
+  - "zalando_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, ALE SCHOWANA W CZERNI. To ciekawy przypadek posredni. Wszystkie trzy
+  akcje leza w jednym rzedzie na dole czarnego panelu. "Akceptuj wszystko" ma biale wypelnienie
+  rgb(255,255,255) i wyglada jak przycisk. "Tylko niezbedne" i "Ustaw preferencje" maja tlo
+  rgb(0,0,0), czyli dokladnie takie samo jak panel pod nimi - w efekcie wygladaja jak zwykly tekst,
+  a nie jak klikalne przyciski, mimo ze technicznie sa elementami button tej samej wysokosci co
+  akceptacja. Rozroznienie jest wiec zbudowane wylacznie kolorem tla, a nie rozmiarem czy
+  pozycja.
+
+  ODMOWA JEST NAZWANA PRZEZ AKCEPTACJE. "Tylko niezbedne", nie "Odrzuc". Ten sam wzorzec co OLX,
+  otomoto i tvn24.
+
+  BANER MOWI WPROST O STANACH ZJEDNOCZONYCH I CHINACH. Tekst: "Wybor opcji Akceptuj wszystko jest
+  rownoznaczny z wyrazeniem zgody na udostepnianie przez nas tych informacji stronom trzecim,
+  takim jak nasi partnerzy marketingowi. Moze to oznaczac, ze Twoje dane beda rowniez przetwarzane
+  w Stanach Zjednoczonych i Chinach". Wyjasnia tez skutek odmowy: "Wybor opcji Tylko niezbedne
+  sprawi, ze bedziemy uzywac tylko niezbednych plikow cookie i nie bedziesz otrzymywac zadnych
+  spersonalizowanych reklam". To rzadka i konkretna informacja, podobnie jak na x-komie.
+
+  BANER BLOKUJE STRONE. Panel zajmuje dolna trzecia czesc ekranu, body ma overflow hidden auto.
+  Po odmowie panel znika i strona dziala normalnie.
+
+  BRAK MOZLIWOSCI WERYFIKACJI. Zalando nie ma IAB TCF, wiec skutecznosc odmowy potwierdza tylko
+  zniknicie banera.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie i nie dokonano zadnego zakupu.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem. Po akceptacji dochodza _ga,
+  _ga_MDW1S9PQPW, _gcl_au i FPLC (Google Analytics + Google Ads), ktorych przed decyzja nie bylo
+  - przed decyzja byly tylko frsx, mpulseinject, bm_so, bm_sz, bm_lso, _abck i language-
+  preference.

@@ -1,0 +1,173 @@
+{
+ "site": "gemini",
+ "url": "https://gemini.pl/",
+ "viewport": "desktop",
+ "run_id": "20260904-144039",
+ "started_at": "2026-09-04T14:40:39",
+ "emulation": false,
+ "device": "1920x1080",
+ "headless": false,
+ "settle_ms": 10000,
+ "banner_wait_ms": 45000,
+ "layer_wait_ms": 3000,
+ "nav_timeout_ms": 60000,
+ "banner_delay_s": 10.0,
+ "banner_delay_by_state": {
+  "pre": 0.0,
+  "reject": 0.0,
+  "refuse_full": 0.0,
+  "accept": 0.0
+ },
+ "exit": {
+  "country": "PL",
+  "network": "Polish residential ISP, not a data centre"
+ },
+ "chromium": "151.0.7922.34",
+ "webdriver_flag": true,
+ "m8_cmp": "OneTrust",
+ "m8_tcf_version": null,
+ "no_banner": false,
+ "m1_reject_on_first_layer": true,
+ "m1_reject_label": "Nie zgadzam się",
+ "m2_clicks_accept": 1,
+ "m2_accept_path": [
+  "Zgadzam się"
+ ],
+ "m2_clicks_refuse": 1,
+ "m2_refuse_path": [
+  "Nie zgadzam się"
+ ],
+ "m2_clicks_refuse_full": 2,
+ "m2_refuse_full_path": [
+  "Zarządzaj zgodami cookies",
+  "Nie zgadzam się"
+ ],
+ "li_object_found": false,
+ "m7_consent_wall": null,
+ "m7_wording": null,
+ "m7_price": null,
+ "m7_text": null,
+ "m2_refuse_blocked_by_wall": false,
+ "m9_withdraw_entry_visible": true,
+ "m9_withdraw_entry_labels": [
+  "Zarządzaj zgodami cookies"
+ ],
+ "m2_clicks_to_wall": null,
+ "m3": null,
+ "m3_by_state": {
+  "pre": null,
+  "reject": null,
+  "refuse_full": null,
+  "accept": null
+ },
+ "m4": null,
+ "m4_method": null,
+ "m6": {
+  "pre": {
+   "cookies_first": 3,
+   "cookies_third": 0,
+   "hosts_first": [
+    "gemini.pl"
+   ],
+   "hosts_third": [
+    "ceneo.pl",
+    "cookielaw.org",
+    "facebook.net",
+    "google-analytics.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "onetrust.com",
+    "sentry.io"
+   ],
+   "requests": 112
+  },
+  "reject": {
+   "cookies_first": 4,
+   "cookies_third": 0,
+   "hosts_first": [
+    "gemini.pl"
+   ],
+   "hosts_third": [
+    "ceneo.pl",
+    "cookielaw.org",
+    "facebook.net",
+    "google-analytics.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "onetrust.com",
+    "sentry.io"
+   ],
+   "requests": 118
+  },
+  "refuse_full": {
+   "cookies_first": 4,
+   "cookies_third": 0,
+   "hosts_first": [
+    "gemini.pl"
+   ],
+   "hosts_third": [
+    "ceneo.pl",
+    "cookielaw.org",
+    "facebook.net",
+    "google-analytics.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "onetrust.com",
+    "sentry.io"
+   ],
+   "requests": 125
+  },
+  "accept": {
+   "cookies_first": 20,
+   "cookies_third": 29,
+   "hosts_first": [
+    "gemini.pl"
+   ],
+   "hosts_third": [
+    "1rx.io",
+    "360yield.com",
+    "3lift.com",
+    "adnxs.com",
+    "agkn.com",
+    "bidswitch.net",
+    "bing.com",
+    "bing.net",
+    "casalemedia.com",
+    "ceneo.pl",
+    "cookielaw.org",
+    "creativecdn.com",
+    "criteo.com",
+    "demdex.net",
+    "doubleclick.net",
+    "facebook.com",
+    "facebook.net",
+    "google-analytics.com",
+    "google.com",
+    "google.pl",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "hotjar.com",
+    "id5-sync.com",
+    "media.net",
+    "on.aws",
+    "onetrust.com",
+    "outbrain.com",
+    "postrelease.com",
+    "pubmatic.com",
+    "sentry.io",
+    "smartadserver.com",
+    "taboola.com",
+    "teads.tv",
+    "tiktok.com",
+    "tiktokw.us",
+    "tremorhub.com",
+    "unrulymedia.com",
+    "yieldlab.net"
+   ],
+   "requests": 180
+  }
+ },
+ "discrepancy_notes": [
+  "refuse_full: no legitimate-interest objection control found; path equals reject"
+ ]
+}

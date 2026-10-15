@@ -1,0 +1,83 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "natemat"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x891 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "partnerzy"
+  - "WIĘCEJ OPCJI"
+  - "ZGADZAM SIĘ"
+layer1_emphasised: "ZGADZAM SIĘ"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 4
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "WIĘCEJ OPCJI"
+  - "UZASADNIONY INTERES"
+  - "WSZYSTKIE – SPRZECIW"
+  - "ZAPISZ I ZAMKNIJ"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa (CMP Google Funding Choices, ciasteczko FCCDCF) ma zakladke glowna z 12 celami
+  zgody, wszystkie oznaczone "WYŁ.", oraz dwie zakladki na dole: "PARTNERZY" i "UZASADNIONY
+  INTERES". Naglowek podaje "Cele (174 partnerzy)" i przy kazdym celu liczbe partnerow, ktorzy
+  moga go uzyc (161 przy przechowywaniu informacji na urzadzeniu, 116 przy ograniczonych danych
+  do wyboru reklam). W zakladce glownej sa tez dwa skroty tekstowe: "ODRZUCENIE" i "AKCEPTACJA".
+  Zakladka "Uzasadniony interes" wymienia cele przetwarzane bez zgody (39 partnerow przy wyborze
+  reklam, 45 przy pomiarze efektywnosci reklam, 14 przy pomiarze efektywnosci tresci, 25 przy
+  statystykach) i ma u gory dwa skroty: "WSZYSTKIE – SPRZECIW" i "AKCEPTACJA". Stan poszczegolnych
+  pozycji uzasadnionego interesu jest widoczny dopiero po rozwinieciu kazdej z osobna, wiec nie
+  policzono ich jako przelacznikow; w zakladce glownej zadna pozycja nie jest domyslnie wlaczona.
+  Panel ma 7996 px tresci przy 500 px widocznych, czyli 16 ekranow.
+m4_partner_screens: 16
+m4_partner_count_shown: 365
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po pelnej odmowie skan calej strony (12345 px) znajduje wylacznie link „Prywatność”
+  (x=1113, y=12191) w stopce. Nie ma wejscia do panelu zgod ani plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ODMOWA CZYSTA, ALE ZA CZTERY KLIKNIECIA. Sciezka: "WIECEJ OPCJI", zakladka "UZASADNIONY
+  INTERES", skrot "WSZYSTKIE – SPRZECIW", "ZAPISZ I ZAMKNIJ". Odczyt TCF po zapisie daje zero we
+  wszystkich polach: zero celow zgody, zero celow na uzasadnionym interesie, pusty
+  publisher.legitimateInterests, zero dostawcow ze zgoda i zero z uzasadnionym interesem.
+  tcString CQp9zUAQp9zUAAKA8DPLCuFgAAAAAAAAAB5YAAAAAAAA. Pod tym wzgledem naTemat wypada lepiej
+  niz rmf24 i wyborcza, gdzie po analogicznym zbiorczym sprzeciwie zostawal uzasadniony interes
+  wydawcy.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Dwie akcje: "WIECEJ OPCJI" (biale tlo, niebieski tekst,
+  obramowanie) i "ZGADZAM SIE" (niebieskie wypelnienie, bialy tekst). Slowo "odrzuc" pojawia sie
+  dopiero na drugiej warstwie, jako maly tekstowy skrot "ODRZUCENIE" w prawym gornym rogu listy
+  celow - nie jako przycisk.
+
+  ZNACZNIKI POJAWIAJA SIE MIMO PELNEJ ODMOWY. Przed decyzja w przegladarce bylo dziewiec
+  ciasteczek: __utmc, __utmz, _ga, usprivacy, FCCDCF, __utma, _ga_9WC7PXBQ1J, _ga_8YYRMDZMMC,
+  __utmb - czyli komplet Google Analytics juz przed jakimkolwiek klknieciem. Po pelnej odmowie
+  lista rosnie do osiemnastu i dochodza miedzy innymi _fbp (piksel Meta), _clck i _clsk
+  (Microsoft Clarity), __eoi (Google) oraz _ht_s i _ht_v. Nie da sie na podstawie tych dwoch
+  odczytow wskazac dokladnego momentu, w ktorym zostaly ustawione - miedzy nimi otwierano panele
+  i klikano - ale stan koncowy jest jednoznaczny: TCF deklaruje zero zgod i zero uzasadnionych
+  interesow, a w przegladarce siedza identyfikatory Meta i Microsoft Clarity.
+
+  365 PARTNEROW deklarowanych w banerze, 174 wymienionych w naglowku listy celow.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow visible.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Kroki A i B
+  wykonano od razu. Nie testowano, co robi sam skrot "ODRZUCENIE" bez wejscia w zakladke
+  uzasadnionego interesu - to naturalny odpowiednik testu, ktory na wyborcza.pl pokazal roznice
+  333 dostawcow wobec 18. Do wykonania w kolejnym przebiegu na czystym stanie.

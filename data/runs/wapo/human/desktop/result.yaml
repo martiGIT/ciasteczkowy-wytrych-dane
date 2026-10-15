@@ -1,0 +1,96 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "wapo"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "en"
+banner_blocks_content: true
+layer1_buttons:
+  - "Privacy Policy"
+  - "List of Partners (vendors)"
+  - "I Accept"
+  - "Reject All"
+  - "Show Purposes"
+layer1_emphasised: "brak wyroznienia - „I Accept” i „Reject All” maja identyczne czarne wypelnienie rgb(17,17,17)"
+m1_reject_on_first_layer: true
+m1_reject_label: "Reject All"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Reject All"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 6
+m5_notes: >-
+  ZMIERZONE W PRZEBIEGU 2. Panel "About Your Privacy" (OneTrust, wariant IAB TCF) ma 17
+  wlasciwych pol wyboru, wszystkie domyslnie wylaczone. Siedem kategorii jest oznaczonych jako
+  "Always Active" i nie ma przy nich suwaka. Szesc osobnych przyciskow "Object to Legitimate
+  Interests" - sprzeciw wobec uzasadnionego interesu jest oddzielony od zgody. Przy celach podane
+  liczby partnerow: 111, 84, 85 i 29. Panel ma 1332 px przy 559 px widocznych, czyli 3 ekrany.
+m4_partner_screens: 3
+m4_partner_count_shown: 114
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Cookie Settings' w stopce, y=13163 przy wysokosci strony 13528 px, obok 'Privacy
+  Policy'. Baner zapowiadal 'Manage Preferences link on the bottom of the webpage' - w stopce
+  nazywa sie to jednak 'Cookie Settings', nie 'Manage Preferences'.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "wapo_desktop_01-landing_20260902.png"
+  - "wapo_desktop_02-layer1_20260902.png"
+  - "wapo_desktop_05-after-reject_20260902.png"
+observations: >-
+  BANER PO ANGIELSKU MIMO POLSKIEGO IP I POLSKIEJ PRZEGLADARKI. To jedyny serwis w calym badaniu,
+  ktory nie przetlumaczyl banera. Jezyk przegladarki byl ustawiony na polski (navigator.languages =
+  ["pl","en-US","en"]), IP polskie, a mimo to caly baner, wszystkie etykiety przyciskow i cala
+  lista celow sa po angielsku. Dla porownania amazon.de, czyli domena niemiecka, pokazal baner po
+  polsku.
+
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE. "I Accept" i "Reject All" maja to samo czarne
+  wypelnienie rgb(17,17,17), ta sama szerokosc i wysokosc, ulozone jeden pod drugim. Trzeci,
+  "Show Purposes", jest bialy.
+
+  JEDEN DOSTAWCA ZOSTAJE NA UZASADNIONYM INTERESIE. Po "Reject All" odczyt TCF daje
+  purpose.consents = {} i purpose.legitimateInterests = {}, ale liczba dostawcow z aktywnym
+  uzasadnionym interesem wynosi 1. tcString CQp6XlgQp6XlgAcABBENCuFwAAAAAAAAACiQAAAYCgAgY.
+  Nie ustalono, ktory to dostawca. To znacznie lepszy wynik niz gazeta.pl (244 dostawcow), ale
+  nie jest to czyste zero, jakie daja OLX, otomoto, tvn24 czy MSN.
+
+  OFERTA SUBSKRYPCJI ZARAZ PO ODMOWIE. W chwili, gdy baner znikl, otworzylo sie okno "A smarter
+  fall starts now" z cena przekreslona 80 euro i obnizona 10 euro za pierwszy rok. Nie jest to
+  sciana zgody w rozumieniu protokolu - platnosc nie jest przedstawiona jako alternatywa dla zgody
+  na sledzenie, tylko jako zwykla promocja prenumeraty, a tresc serwisu jest dostepna. Odnotowuje
+  jednak sekwencje, bo pojawienie sie oferty dokladnie po odmowie moze byc przypadkiem albo nie.
+  Zrzut 05-after-reject to dokumentuje. m7_consent_wall = false.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji, potem wraca do clip visible.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie i nie wykupiono zadnej subskrypcji.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 6 UIA, 111 dostawcow ze zgoda, 47 z UIA. AKCEPTACJA JEDNYM
+  KLKNIECIEM, ale trzeba bylo trzech prob narzedziowych - baner ignorowal klikniecia
+  wspolrzednymi i przez referencje az do przeladowania strony. To ograniczenie sterowania, nie
+  interfejsu; uzytkownik klika raz.
+
+  DRUGA WARSTWA ZMIERZONA (uzupelnienie m5 z przebiegu 1). Panel 'About Your Privacy' (OneTrust
+  IAB TCF) ma 17 wlasciwych pol wyboru, wszystkie domyslnie wylaczone - m5_toggles_default_on =
+  0. Siedem kategorii oznaczonych 'Always Active' bez suwaka. Szesc osobnych przyciskow 'Object
+  to Legitimate Interests', czyli sprzeciw wobec uzasadnionego interesu jest oddzielony od zgody
+  - m5_li_toggles_separate = 6. Przy celach podane liczby partnerow: 111, 84, 85, 29. Panel ma
+  1332 px przy 559 px widocznych, czyli 3 ekrany.
+
+  UZASADNIONY INTERES DZIALA PRZED DECYZJA. Odczyt TCF przy widocznym banerze, przed
+  jakimkolwiek klknieciem: purpose.consents = 0, ale purpose.legitimateInterests = 6 i 47
+  dostawcow z aktywnym uzasadnionym interesem. Po akceptacji: 11 celow zgody, 6 UIA, 111
+  dostawcow ze zgoda, 47 z UIA - liczba UIA nie zmienia sie ani o jeden. Po pelnej odmowie w
+  przebiegu 1 zostawal 1 dostawca z UIA.

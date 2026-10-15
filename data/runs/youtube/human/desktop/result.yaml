@@ -1,0 +1,134 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "youtube"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "pl"
+  - "Zaloguj się"
+  - "plików cookie"
+  - "Odrzuć wszystko"
+  - "Zaakceptuj wszystko"
+  - "Więcej opcji"
+  - "Polityka prywatności"
+  - "Warunki korzystania z usługi"
+layer1_emphasised: "brak wyroznienia - „Odrzuć wszystko” i „Zaakceptuj wszystko” maja identyczne czarne wypelnienie rgb(15,15,15)"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć wszystko"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć wszystko"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  ZMIERZONE PO UZYSKANIU DOSTEPU DO DOMENY consent.youtube.com. Przycisk "Wiecej opcji"
+  wyprowadza z youtube.com na consent.youtube.com/d, na strone "Ustawienia personalizacji i
+  pliki cookie". Nie jest to panel zgod w rozumieniu protokolu - nie ma listy celow ani listy
+  dostawcow. Sa dwa ustawienia, kazde jako para przyciskow "Wyl." i "Wl.": "Historia na YouTube"
+  i "Personalizacja reklam na YouTube". ZADEN Z NICH NIE JEST WSTEPNIE WYBRANY - oba przyciski w
+  kazdej parze maja identyczne biale wypelnienie rgb(255,255,255) i te sama ramke
+  rgba(0,0,0,0.1), wiec domyslnie wlaczonych ustawien jest zero. Brak mechanizmu uzasadnionego
+  interesu, brak IAB TCF. Ponizej dwie sekcje rozwijane, obie czysto informacyjne: "Zarzadzanie
+  plikami cookie w przegladarce" (instrukcja, jak wejsc w ustawienia Chrome) i "Zarzadzanie
+  danymi o odwiedzanych stronach zbieranymi w Google Analytics" (odnosnik do dodatku blokujacego
+  Google Analytics, ktory trzeba pobrac i zainstalowac). Przyciski na dole: "Odrzuc wszystko" i
+  "Potwierdz ustawienia" - oba czarne wypelnione, bez wyroznienia; nie ma tu przycisku
+  akceptacji wszystkiego. Strona ma 1121 px tresci przy zwinietych sekcjach i 1399 px przy
+  rozwinietych. Pomiar wykonany przy oknie 1045x488 CSS px, a nie przy standardowym 1907x912
+  uzywanym w reszcie badania, wiec liczby ekranow nie sa porownywalne i pola m4 pozostawiono bez
+  przeliczenia.
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak na youtube.com. Po akceptacji w lewym pasku jest tylko link 'Prywatnosc' (/t/privacy),
+  czyli polityka prywatnosci. Baner zapowiada 'W kazdej chwili mozesz tez wejsc na
+  g.co/privacytools', ale zaden element strony tam nie prowadzi - trzeba przepisac adres
+  recznie.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "youtube_desktop_01-landing_20260902.png"
+  - "youtube_desktop_02-layer1_20260902.png"
+  - "youtube_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE. "Odrzuc wszystko" i "Zaakceptuj wszystko" maja
+  to samo czarne wypelnienie rgb(15,15,15), ta sama wysokosc i te sama typografie; roznia sie
+  tylko szerokoscia wynikajaca z dlugosci napisu. Odmowa stoi po lewej, czyli pierwsza w
+  kolejnosci czytania. Trzeci przycisk, "Wiecej opcji", jest bialy. Po klknieciu ustawia sie
+  ciasteczko SOCS o wartosci zaczynajacej sie od CAESEwgDEgk...
+
+  KOSZT ODMOWY JEST WIDOCZNY OD RAZU. Po odrzuceniu strona glowna YouTube jest pusta - zamiast
+  rekomendacji pojawia sie komunikat "Historia w YouTube jest wylaczona" i przycisk "Zaktualizuj
+  ustawienie". Zaden inny badany serwis nie pokazuje tak wyraznie, co uzytkownik traci przez
+  odmowe. Zrzut 05-after-reject to dokumentuje.
+
+  BANER JEST W RAMCE Z INNEJ DOMENY. Tresc zgody siedzi w iframe consent.youtube.com, przez co
+  odczyt DOM z poziomu youtube.com nic nie widzi - przyciski byly klikane po wspolrzednych ze
+  zrzutu. Z tego samego powodu "Wiecej opcji" wyprowadza poza domene i drugiej warstwy nie udalo
+  sie zbadac.
+
+  BRAK IAB TCF. Google nie uzywa TC stringa, wiec nie ma tu ani celow, ani listy dostawcow w
+  rozumieniu protokolu. Pola m4 zostaja puste, a nie zerowe, bo serwis dziala w innym modelu.
+
+  BANER BLOKUJE STRONE wizualnie: modal na przyciemnionym tle zaslania cala tresc, mimo ze
+  body ma overflow auto scroll.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami; przed przebiegiem wszystkie 26 adresow zostalo raz otwartych
+  w celu autoryzacji domen w rozszerzeniu, bez klikania w baner. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem. SOCS po akceptacji = CAISEwgDEgk...,
+  po odmowie w przebiegu 1 = CAESEwgDEgk... Druga warstwa ('Wiecej opcji') nadal niezmierzona:
+  prowadzi na consent.youtube.com, rozszerzenie zwrocilo 'Permission denied for this action on
+  this domain'. POTRZEBNA ZGODA UZYTKOWNIKA NA DOMENE consent.youtube.com.
+
+  DRUGA WARSTWA ZMIERZONA (uzupelnienie z 3 wrzesnia). Wczesniejsza proba nie powiodla sie, bo
+  rozszerzenie zwracalo "Permission denied for this action on this domain" dla
+  consent.youtube.com. Przy powtorzeniu w nowej grupie kart domena otworzyla sie bez zadnego
+  pytania o zgode - blokada byla wiec zwiazana z sesja narzedzia, a nie z uprawnieniami do
+  domeny.
+
+  DRUGA WARSTWA NIE JEST DRUGA WARSTWA BANERA. To osobna strona na innej domenie, dotyczaca
+  ustawien Google, a nie zgod dla witryny. Nie ma tam ani listy celow, ani listy dostawcow -
+  dlatego pola m4 zostaja zerowe lub puste, a nie "niezmierzone". YouTube jest w tym czwartym
+  przypadkiem tego samego wzorca co reddit (zgody za logowaniem), facebook (odeslanie do Zasad
+  plikow cookie) i tiktok (brak czegokolwiek).
+
+  DWA USTAWIENIA, ZADNE NIE WYBRANE. "Historia na YouTube" i "Personalizacja reklam na YouTube",
+  kazde jako para "Wyl." / "Wl.". Zaden z czterech przyciskow nie jest zaznaczony przy wejsciu.
+  Uzytkownik musi wiec podjac dwie osobne decyzje, zanim "Potwierdz ustawienia" bedzie cokolwiek
+  znaczylo.
+
+  NAJWAZNIEJSZE ZDANIE NA TEJ STRONIE. "Jesli nie wybierzesz Odrzuc wszystko, Google bedzie
+  takze uzywac plikow cookie i adresow IP do wyswietlania reklam i mierzenia ich skutecznosci
+  oraz do opracowywania i udoskonalania nowych uslug". Oznacza to, ze dwa widoczne ustawienia
+  dotycza wylacznie personalizacji. Samo wyswietlanie reklam, pomiar ich skutecznosci i rozwoj
+  uslug odbywaja sie niezaleznie od nich, chyba ze uzytkownik wybierze osobna, trzecia akcje.
+  Przejscie do drugiej warstwy po to, zeby "dostosowac" ustawienia, i zatwierdzenie ich
+  przyciskiem "Potwierdz ustawienia" nie jest wiec rownowazne odmowie - a jest to jedyna
+  sciezka, ktora sugeruje etykieta "Wiecej opcji".
+
+  WYJSCIE Z GOOGLE ANALYTICS WYMAGA INSTALACJI DODATKU. Sekcja "Zarzadzanie danymi o
+  odwiedzanych stronach zbieranymi w Google Analytics" nie ma zadnego przelacznika. Jej jedyna
+  trescia jest odnosnik "pobrac i zainstalowac ten dodatek do przegladarki". Druga sekcja,
+  "Zarzadzanie plikami cookie w przegladarce", to instrukcja obslugi ustawien Chrome. Obie
+  przenosza ciezar na uzytkownika i jego przegladarke.
+
+  METODA. Zeby baner wrocil, usunieto ciasteczka SOCS i PREF przez document.cookie na
+  youtube.com (nie sa HttpOnly) i przeladowano strone - baner pojawil sie ponownie w pelnej
+  postaci. Nie jest to reset do stanu nowego uzytkownika w scislym sensie, tak samo jak przy
+  x-komie. Na drugiej warstwie nie klikano ani "Odrzuc wszystko", ani "Potwierdz ustawienia",
+  zeby nie zapisywac decyzji - odczytano wylacznie stan poczatkowy.

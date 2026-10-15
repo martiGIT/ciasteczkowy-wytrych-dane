@@ -1,0 +1,77 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) do przebiegu 3. Krok D nie dotyczy - brak krzyzyka.
+site: "mbank"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Polityce Cookie"
+  - "zarządzaj"
+  - "odrzuć"
+  - "akceptuję"
+layer1_emphasised: "akceptuję"
+m1_reject_on_first_layer: true
+m1_reject_label: "odrzuć"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "odrzuć"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Tu mozesz zmienic ustawienia dotyczace plikow cookie w serwisach mBanku S.A.")
+  ma dwa pola wyboru: "analityczne cookie" i "reklamowe cookie" - oba domyslnie odznaczone.
+  Kategoria niezbedna nie jest w ogole pokazana jako pozycja do przelaczenia. Brak IAB TCF
+  (window.__tcfapi nie istnieje), brak OneTrust, Didomi i CookieYes - wlasne rozwiazanie mBanku.
+  Caly panel miesci sie na jednym ekranie. Przyciski panelu: "zapisz moje ustawienia" (szary),
+  "odrzuc wszystkie i zapisz" (bialy z obramowaniem) i "wlacz wszystkie i zapisz" (czerwony).
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „ustawienia cookie” w stopce, y=5683 przy wysokosci strony 6184 px, tuz pod „polityka cookie”. Baner zapowiadal to precyzyjnie: „Zmiane ustawien plikow cookie znajdziesz w stopce tej strony w kolumnie bezpieczenstwo i prawo” - jedyny baner w badaniu, ktory podaje nie tylko strone, ale i kolumne."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, TRZY AKCJE W JEDNYM RZEDZIE. "zarzadzaj", "odrzuc" i "akceptuje"
+  maja te sama wysokosc 44 px i niemal te sama szerokosc (125, 120, 127 px). Dwa pierwsze sa
+  biale z czerwonym tekstem rgb(174,0,0), akceptacja jest czerwona z bialym tekstem. Wyroznienie
+  jest wiec wylacznie kolorem wypelnienia, przy zachowanym rozmiarze - to lagodniejszy wzorzec
+  niz rossmann, gdzie odmowa jest podkreslonym napisem bez ramki.
+
+  NAJDOKLADNIEJSZA ZAPOWIEDZ WYCOFANIA ZGODY W CALYM BADANIU. Baner nie mowi ogolnie "w
+  ustawieniach", tylko: "Zmiane ustawien plikow cookie znajdziesz w stopce tej strony w kolumnie
+  bezpieczenstwo i prawo". I rzeczywiscie tam jest. Dla porownania MSN odsyla na "dol strony",
+  ktorej nie ma, a biedronka obiecuje wycofanie i nie daje zadnego wejscia.
+
+  BANK WYMIENIA PARTNEROW Z NAZWY. W drugiej warstwie jest zdanie "Sprawdz polityke prywatnosci
+  dla Meta Platforms Inc. i Google Ireland Limited" z odnosnikami. Zaden inny badany serwis nie
+  nazywa swoich odbiorcow danych wprost w panelu zgod - pozostale odsylaja do list liczacych
+  setki lub tysiace podmiotow.
+
+  CZYSTY STAN PRZED DECYZJA. Przed klknieciem w przegladarce sa tylko dwa ciasteczka wlasne:
+  __mpl-last-site i darkMode. Zadnego znacznika analitycznego ani reklamowego. Po odmowie dochodzi
+  gdpr_consents o wartosci {"timestamp":...,"analytics":false,"marketing":false,"bid":"..."}.
+  Razem z Zabka to najczystszy start wsrod polskich serwisow.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow visible, choc modal wizualnie zaslania srodek ekranu.
+
+  UWAGA NARZEDZIOWA. Trzy klikniecia wspolrzednymi nie zadzialaly, skuteczne bylo dopiero
+  dwuklik. Dla uzytkownika jest to jedno klikniecie i tak zapisano m2_clicks_refuse.
+
+  ZAKRES BADANIA. Zgodnie z ustaleniem odwiedzono wylacznie strone glowna mbank.pl i zbadano sam
+  baner zgody. Nie logowano sie, nie otwierano bankowosci elektronicznej ani zadnej podstrony
+  zwiazanej z kontem.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy.

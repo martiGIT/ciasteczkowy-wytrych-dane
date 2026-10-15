@@ -1,0 +1,78 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "booking"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Odrzuć"
+  - "Akceptuj"
+  - "Zarządzaj ustawieniami"
+layer1_emphasised: "brak wyroznienia - „Odrzuć” i „Akceptuj” maja identyczne niebieskie wypelnienie i ta sama wielkosc"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Trzecia akcja "Zarzadzaj ustawieniami" otwiera druga warstwe, ktorej nie
+  otwierano, bo odmowa dostepna jest jednym klknieciem. Z tekstu banera wynika, ze kategorie sa
+  dwie: analityczne pliki cookie i marketingowe pliki cookie. Do uzupelnienia w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Zarzadzaj ustawieniami dotyczacymi plikow cookie' w stopce, y=1970 przy wysokosci strony
+  2469 px.
+close_x_present: false
+close_x_result: >-
+  Panel zgody nie ma przycisku X. Krzyzyk widoczny na zrzucie 01-landing nalezy do osobnego okna
+  „Zaloguj sie i oszczedzaj" (program Genius), a nie do banera cookie.
+screenshots:
+  - "booking_desktop_01-landing_20260902.png"
+  - "booking_desktop_02-layer1_20260902.png"
+  - "booking_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE, ODMOWA PIERWSZA. "Odrzuc" i "Akceptuj" maja to
+  samo niebieskie wypelnienie i te sama wielkosc, ulozone jeden pod drugim, przy czym "Odrzuc" jest
+  wyzej. Trzecia opcja, "Zarzadzaj ustawieniami", to podkreslony odnosnik pod nimi. Etykiety sa
+  jednowyrazowe, tak jak na LinkedInie.
+
+  DWA OKNA NARAZ. Przy pierwszym wejsciu na strone panel zgody na cookies na dole ekranu jest
+  czesciowo przykryty osobnym oknem promocyjnym programu Genius ("Zaloguj sie i oszczedzaj",
+  z przyciskiem "Zaloguj sie lub zarejestruj" i wlasnym krzyzykiem). Uzytkownik dostaje wiec dwie
+  nakladki jednoczesnie, a ta na wierzchu dotyczy sprzedazy, nie prywatnosci. Zrzut 01-landing to
+  dokumentuje.
+
+  ZAKRES ZGODY OPISANY WPROST. Tekst: "Kiedy korzystasz z platformy Booking.com, my (Booking.com i
+  nasi partnerzy) uzywamy nastepujacych kategorii plikow cookie (i podobnych technologii), ktore
+  wymagaja Twojej zgody: analityczne pliki cookie i marketingowe pliki cookie". Dwie kategorie,
+  bez listy dostawcow i bez IAB TCF.
+
+  BANER BLOKUJE STRONE. body ma overflow hidden do momentu decyzji.
+
+  UWAGI TECHNICZNE. Odczyty DOM na booking.com sa czesciowo blokowane przez filtr narzedzia, bo
+  adres strony zawiera dlugi ciag parametrow sledzacych (aid, label z identyfikatorem sesji).
+  Zrzut 05-after-reject powstal po przeladowaniu strony.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie i nie dokonano zadnej rezerwacji.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF (OneTrust bez wariantu IAB). akceptacja jednym klknieciem, 'Akceptuj'
+  i 'Odrzuc' to dwa identyczne niebieskie przyciski jeden pod drugim, trzecia akcja 'Zarzadzaj
+  ustawieniami' jako link. Po akceptacji dochodzi caly zestaw znacznikow zewnetrznych: _ga,
+  _gcl_au, FPAU, FPLC (Google), _rdt_uuid (Reddit), cto_bundle (Criteo), _yjsu_yjad (Yahoo
+  Japan), cgumid.

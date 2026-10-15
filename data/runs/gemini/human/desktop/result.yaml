@@ -1,0 +1,71 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "gemini"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Polityce Prywatności"
+  - "Polityce cookies."
+  - "Lista Partnerów (dostawców)."
+  - "Zgadzam się"
+  - "Nie zgadzam się"
+  - "ZARZĄDZAJ ZGODAMI COOKIES"
+layer1_emphasised: "brak wyroznienia miedzy zgoda a odmowa - „Zgadzam się” i „Nie zgadzam się” maja identyczne pomaranczowe wypelnienie rgb(191,70,4), te sama szerokosc 501 px i wysokosc 48 px; wyrozniony jest tylko trzeci przycisk „ZARZĄDZAJ ZGODAMI COOKIES”, bialy z obramowaniem"
+m1_reject_on_first_layer: true
+m1_reject_label: "Nie zgadzam się"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Nie zgadzam się"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel "Zarzadzaj zgodami cookies" (OneTrust, wariant bez IAB TCF) ma trzy pola wyboru:
+  C0003 (funkcjonalne), C0002 (wydajnosciowe) i C0004 (reklamowe) - wszystkie domyslnie
+  wylaczone. Kategoria niezbedna jest oznaczona jako "Zawsze aktywne" i nie ma suwaka, wiec
+  domyslnie wlaczonych suwakow jest zero. Brak osobnych przelacznikow uzasadnionego interesu.
+  Panel ma 655 px przy 559 px widocznych, czyli 2 ekrany. Nie zmierzono, ile podmiotow
+  wymienia "Lista Partnerow (dostawcow)" - do uzupelnienia.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Przycisk „Zarządzaj zgodami cookies” w stopce, y=9675 przy wysokosci strony 9973 px, obok „Polityka cookies”. Baner zapowiadal go wprost: „Swoja decyzje mozesz zmienic w dowolnym momencie w sekcji Zarzadzaj zgodami cookies w stopce strony”."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE. "Zgadzam sie" i "Nie zgadzam sie" maja to samo
+  pomaranczowe wypelnienie rgb(191,70,4), te sama szerokosc (501 px) i wysokosc (48 px), ulozone
+  jeden pod drugim. Zgoda stoi wyzej. Trzeci przycisk, "ZARZADZAJ ZGODAMI COOKIES", jest bialy
+  z obramowaniem. To jeden z najbardziej symetrycznych banerow w calym badaniu - obok youtube,
+  washingtonpost, linkedin i spotify.
+
+  BANER NIE BLOKUJE STRONY. body ma overflow visible, tresc pod banerem jest przewijalna i
+  klikalna. Baner zajmuje dolna czesc ekranu, ale nie ma nakladki przyciemniajacej. Wsrod
+  polskich aptek internetowych to roznica wobec DOZ.pl, gdzie modal blokuje wszystko.
+
+  BANER TLUMACZY, CO ZNACZY ODMOWA. "Klikajac Nie zgadzam sie, odrzucasz opcjonalne pliki
+  cookies i zezwalasz wylacznie na stosowanie tych niezbednych do prawidlowego dzialania
+  portalu". Taka informacja pada tylko na kilku badanych serwisach (x-kom, zalando).
+
+  ZAPIS ODMOWY POTWIERDZONY. Po klknieciu ustawia sie OptanonAlertBoxClosed, a w OptanonConsent
+  grupy maja wartosci C0001:1, C0003:0, C0002:0, C0004:0 - czyli wlaczona tylko kategoria
+  niezbedna. Przed decyzja w przegladarce byly tylko xAnonymousCustomerUniqueId i OptanonConsent.
+
+  UWAGA NARZEDZIOWA. Trzy klikniecia wspolrzednymi nie zadzialaly, skuteczne bylo dopiero
+  klikniecie przez referencje elementu. To ograniczenie sterowania przegladarka, nie interfejsu -
+  dla uzytkownika jest to jedno klikniecie i tak zapisano m2_clicks_refuse.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy.

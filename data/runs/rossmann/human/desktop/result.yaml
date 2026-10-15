@@ -1,0 +1,77 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "rossmann"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Polityce plików cookie."
+  - "Zgoda na wszystkie"
+  - "Zarządzaj zgodami"
+  - "Odrzuć wszystkie"
+layer1_emphasised: "Zgoda na wszystkie"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć wszystkie"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć wszystkie"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel "Zarzadzaj zgodami" (CMP consentmanager.net) pokazuje liste celow z suwakami, wszystkie
+  domyslnie wylaczone. Widoczne bez przewijania: "Poznanie zachowan uzytkownika", "Optymalizacja
+  tresci serwisu i aplikacji", "Remarketing", "Rozszerzony pomiar skutecznosci reklam",
+  "Personalizacja tresci" - piec suwakow, kazdy z rozwijana strzalka ze szczegolami. Panel ma
+  850 px przy 670 px widocznych, czyli 2 ekrany, wiec ponizej sa jeszcze pojedyncze pozycje;
+  dokladnej liczby nie udalo sie odczytac, bo CMP siedzi w ramce z innej domeny i nie odpowiada
+  na odczyt DOM ani na przewijanie kolkiem myszy. Brak IAB TCF (window.__tcfapi nie istnieje),
+  brak osobnych przelacznikow uzasadnionego interesu. Przyciski panelu: "Zgoda na wszystkie"
+  (czerwony, u gory), "Odrzuc wszystkie" (podkreslony tekst) i "Zapisz ustawienia zgod"
+  (czerwony, na dole).
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „Ustawienia plików cookies” w stopce, y=4705 przy wysokosci strony 5188 px, w jednym bloku z „Polityka plikow cookie” i „Lista plikow cookies”."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ODMOWA JEST NAJSLABSZA WIZUALNIE Z TRZECH AKCJI. Wszystkie trzy leza jedna pod druga w prawej
+  kolumnie banera i maja te sama szerokosc 250 px, ale roznia sie forma: "Zgoda na wszystkie" to
+  czerwony przycisk rgb(200,16,46) z bialym tekstem i wysokoscia 38 px, "Zarzadzaj zgodami" to
+  bialy przycisk z obramowaniem, tez 38 px, a "Odrzuc wszystkie" to podkreslony czarny napis bez
+  tla i bez obramowania, o wysokosci 30 px. Odmowa stoi na koncu kolejnosci czytania i jest
+  jedyna, ktora nie wyglada jak przycisk. Formalnie odmowa jest dostepna jednym klknieciem na
+  pierwszej warstwie - i tak zapisano m1 - ale hierarchia wizualna jest tu wyrazniejsza niz na
+  zalando czy lidlu, gdzie odmowa miala przynajmniej te sama wysokosc co akceptacja.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji, po odmowie wraca do auto.
+
+  IDENTYFIKATOR POKAZANY WPROST. W panelu ustawien widnieje "Identyfikator uzytkownika:
+  [identyfikator usuniety]" z wyjasnieniem, ze bedzie uzywany jako unikalny identyfikator
+  przy przechowywaniu preferencji. Zaden inny badany serwis nie pokazuje uzytkownikowi jego
+  identyfikatora.
+
+  CIASTECZKA CMP PRZED DECYZJA. Zanim uzytkownik cokolwiek kliknie, sa juz ustawione __cmpcc,
+  __cmpiuid, __cmpcvc, __cmpcpc, __cmpcccx120627 i OptanonConsent. Po odmowie dochodzi
+  __cmpconsentx120627. Sama obecnosc OptanonConsent obok ciasteczek consentmanager.net sugeruje,
+  ze w serwisie sa slady dwoch roznych CMP.
+
+  UWAGA NARZEDZIOWA. Cztery klikniecia w "Odrzuc wszystkie" nie zadzialaly; skuteczne bylo
+  dopiero piate, po przewinieciu strony na sama gore klawiszem Home. Baner siedzi w ramce z innej
+  domeny, przez co narzedzie find go nie widzi. Dla uzytkownika jest to jedno klikniecie i tak
+  zapisano m2_clicks_refuse.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy.

@@ -1,0 +1,85 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+# Brak zrzutu 03-layer2-defaults i 04-partners (powod w observations).
+site: "otomoto"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Polityka cookies,"
+  - "Polityka Prywatności"
+  - "Lista partnerów (dostawców)"
+  - "Zezwól na wszystkie"
+  - "Zezwól tylko na niezbędne"
+  - "Ustaw preferencje"
+layer1_emphasised: "brak wyroznienia miedzy „Zezwól na wszystkie” a „Zezwól tylko na niezbędne” - oba niebieskie, wypelnione, tej samej wielkosci"
+m1_reject_on_first_layer: true
+m1_reject_label: "Zezwól tylko na niezbędne"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Zezwól tylko na niezbędne"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel preferencji OneTrust ma 21 pol wyboru, wszystkie domyslnie wylaczone. Brak osobnych
+  przelacznikow uzasadnionego interesu jako oddzielnych kontrolek. Przyciski panelu: "Zezwolenie
+  na wszystkie", "Odrzucenie wszystkich", "Potwierdzenie moich wyborow". Kontener panelu ma
+  1259 px przy 618 px widocznych, czyli 3 ekrany.
+m4_partner_screens: null
+m4_partner_count_shown: 374
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia plikow cookie' w stopce, y=2558 przy wysokosci strony 2972 px.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "otomoto_desktop_01-landing_20260902.png"
+  - "otomoto_desktop_02-layer1_20260902.png"
+  - "otomoto_desktop_05-after-reject_20260902.png"
+observations: >-
+  PELNA ODMOWA JEDNYM KLKNIECIEM. "Zezwol tylko na niezbedne" na pierwszej warstwie daje
+  purpose.consents = {}, purpose.legitimateInterests = {} i zero uzasadnionych interesow dla
+  dostawcow. tcString CQp6XlgQp6XlgAcABBPLCuFgAAAAAAAAAAYgAAAAAAFBAIAADg. Ustawiaja sie
+  OptanonAlertBoxClosed, OptanonConsent i eupubconsent-v2. Zero przewijania.
+
+  ZGODA NIE JEST WSPOLDZIELONA W GRUPIE. Otomoto i OLX naleza do tej samej grupy i uzywaja tego
+  samego CMP (OneTrust w wariancie IAB TCF), ale odmowa zapisana chwile wczesniej na olx.pl nie
+  przeniosla sie na otomoto - baner pojawil sie normalnie, TCF byl pusty. To wazne dla wiarygodnosci
+  calego badania: kolejne serwisy startuja ze stanu nowego uzytkownika mimo wspolnego wlasciciela.
+
+  ETYKIETA NIE MOWI "ODRZUC". Tak jak na OLX, przycisk odmowy nazywa sie przez akceptacje:
+  "Zezwol tylko na niezbedne". Slowo "odrzucenie" pojawia sie dopiero w panelu preferencji.
+  Wizualnie oba przyciski sa rowne: niebieskie wypelnienie rgb(13,97,171), ta sama szerokosc,
+  jeden pod drugim.
+
+  BANER NIE BLOKUJE STRONY, w przeciwienstwie do OLX. body ma overflow visible, nie ma nakladki
+  przyciemniajacej. Ten sam CMP, ta sama grupa wlascicielska, inna konfiguracja.
+
+  KLIKNIECIA WSPOLRZEDNYMI NIE DZIALALY. Piec kolejnych klikniec w srodek przycisku, we
+  wspolrzednych zgodnych ze zrzutem i z getBoundingClientRect, nie wywolalo zadnego efektu -
+  baner zostawal, ciasteczko OptanonAlertBoxClosed sie nie ustawialo. Zadzialalo dopiero
+  klikniecie przez referencje elementu z drzewa dostepnosci. To ograniczenie narzedzia, nie
+  wlasciwosc serwisu, ale odnotowuje, bo wplywa na to, jak liczone sa klikniecia: do
+  m2_clicks_refuse wpisano 1, czyli liczbe skutecznych interakcji potrzebnych uzytkownikowi.
+
+  ZRZUTY. Po otwarciu panelu preferencji Page.captureScreenshot wygasal po 30 sekundach albo
+  zwracal obraz w zlej skali. Przeladowanie strony przywraca poprawne zrzuty i tak powstal
+  05-after-reject. Zrzut 03-layer2-defaults trzeba dorobic recznie; wszystkie liczby pochodza
+  z odczytu DOM.
+
+  UWAGI METODOLOGICZNE. Druga warstwa zmierzona osobno przed sciezka odmowy, potem przeladowanie
+  i wlasciwa sciezka jednym klknieciem. Badanie prowadzone w trzech przebiegach z recznym
+  czyszczeniem danych przegladarki miedzy przebiegami.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 0 UIA, 352 dostawcow ze zgoda, 0 z UIA.

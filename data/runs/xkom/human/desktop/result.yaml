@@ -1,0 +1,86 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "xkom"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "ciasteczek"
+  - "polityce prywatności"
+  - "Ustawienia"
+  - "W porządku"
+layer1_emphasised: "W porządku"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Ustawienia"
+  - "Zapisz"
+m5_toggles_default_on: 1
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Ustawienia ciasteczek") ma cztery suwaki: "Ciasteczka, dzieki ktorym dziala
+  strona" (wlaczony, zielony, niezbedne), "Ciasteczka, dzieki ktorym poznamy Twoje potrzeby",
+  "Ciasteczka, dzieki ktorym dopasujemy do Ciebie reklamy" i "Ciasteczka, dzieki ktorym dopasujemy
+  do Ciebie strone" - te trzy domyslnie wylaczone. Wlaczony jest wiec tylko suwak niezbedny.
+  Brak mechanizmu uzasadnionego interesu, brak IAB TCF (window.__tcfapi nie istnieje), brak
+  OneTrust i Didomi - to wlasne rozwiazanie x-komu oparte o React.
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Skan calej strony (8848 px) po akceptacji: tylko 'polityce prywatnosci', 'Polityka
+  prywatnosci' i 'Polityka cookies' - same dokumenty, zadnego wejscia do ustawien zgody. Brak
+  plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "xkom_desktop_01-landing_20260902.png"
+  - "xkom_desktop_02-layer1_20260902.png"
+  - "xkom_desktop_03-layer2-defaults_20260902.png"
+  - "xkom_desktop_05-after-reject_20260902.png"
+  - "xkom_desktop_90-extra-baner-po-28-sekundach_20260902.png"
+observations: >-
+  BANER POJAWIA SIE Z OPOZNIENIEM OKOLO 28 SEKUND. To jedyny taki przypadek w calej grupie
+  polskiej. Po wejsciu na strone przez pierwsze pol minuty nie ma zadnego banera, zadnego okna,
+  zadnej informacji o ciasteczkach - zrzut 01-landing zrobiony 10 sekund po zaladowaniu pokazuje
+  czysta strone glowna. Pomiar powtorzony dwa razy, za kazdym razem baner wjezdzal miedzy 25 a 30
+  sekunda. Zrzut 90-extra-baner-po-28-sekundach dokumentuje moment, w ktorym sie pojawia.
+
+  CIASTECZKA ANALITYCZNE USTAWIANE PRZED BANEREM. W chwili, gdy banera jeszcze nie ma, w
+  przegladarce sa juz ustawione ai_user i ai_session, czyli identyfikatory Azure Application
+  Insights, oraz komplet utm_source, utm_medium, utm_campaign, utm_term i utm_content. Zadne z nich
+  nie wynika ze zgody, bo zgody jeszcze nie bylo o co poprosic.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Sa dwie akcje: "Ustawienia" (zwykly tekst, bez tla) i
+  "W porzadku" (czarny przycisk, wypelniony). Slowo "odrzuc" nie pada nigdzie. Pelna odmowa wymaga
+  wejscia w Ustawienia i klikniecia "Zapisz", przy czym trzy opcjonalne suwaki sa juz wylaczone,
+  wiec nic nie trzeba przelaczac - to dwa klikniecia.
+
+  CIEKAWE SFORMULOWANIE. Baner mowi wprost: "Jesli sie nie zgodzisz, reklamy nadal beda sie
+  wyswietlac, ale nie beda dopasowane do Ciebie". To rzadka i uczciwa informacja - wiekszosc
+  badanych serwisow nie tlumaczy, co odmowa faktycznie zmienia.
+
+  ZAPIS ODMOWY. Po klknieciu "Zapisz" modal znika i ustawia sie ciasteczko
+  trackingPermissionConsentsValue. Ciasteczka ai_user i ai_session zostaja.
+
+  UWAGI METODOLOGICZNE. Zrzut 02-layer1 powstal przy powtorzonym podejsciu: skasowalem ciasteczko
+  trackingPermissionConsentsValue przez document.cookie (nie jest HttpOnly), przeladowalem strone i
+  odczekalem ponad 28 sekund. Nie jest to reset do stanu nowego uzytkownika w scislym sensie, bo
+  reszta ciasteczek zostala, ale baner zachowal sie identycznie. Badanie prowadzone w trzech
+  przebiegach z recznym czyszczeniem danych przegladarki miedzy przebiegami.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. baner pojawil sie ponownie z opoznieniem (miedzy 35 a 55 sekunda).
+  Po 'W porzadku' ciasteczko trackingPermissionConsentsValue = cookies_analytics:true,
+  cookies_personalization:true, cookies_ad...:true

@@ -1,0 +1,78 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "ikea"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Dowiedz się więcej"
+  - "Akceptuj wszystkie cookies"
+  - "Akceptuj tylko niezbędne"
+  - "Ustawienia cookies"
+layer1_emphasised: "brak wyroznienia - wszystkie trzy przyciski maja identyczne czarne wypelnienie rgb(17,17,17) i te sama wielkosc"
+m1_reject_on_first_layer: true
+m1_reject_label: "Akceptuj tylko niezbędne"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Akceptuj tylko niezbędne"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Trzecia akcja "Ustawienia cookies" otwiera druga warstwe, ktorej nie otwierano,
+  bo odmowa dostepna jest jednym klknieciem. Z tekstu karty wynika, ze kategorie sa trzy:
+  analityczne, personalizacja tresci oraz marketingowe, reklamowe i media spolecznosciowe.
+  Do uzupelnienia w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia plikow cookie' w stopce, y=13585 przy wysokosci strony 13750 px, czyli okolo
+  15 ekranow w dol.
+close_x_present: false
+close_x_result: "Karta nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "ikea_desktop_01-landing_20260902.png"
+  - "ikea_desktop_02-layer1_20260902.png"
+  - "ikea_desktop_05-after-reject_20260902.png"
+observations: >-
+  TRZY PRZYCISKI, ZERO WYROZNIENIA. "Akceptuj wszystkie cookies", "Akceptuj tylko niezbedne" i
+  "Ustawienia cookies" maja identyczne czarne wypelnienie rgb(17,17,17), te sama wysokosc i sa
+  ulozone jeden pod drugim w kolejnosci od akceptacji. Zaden nie jest wiekszy, jasniejszy ani w
+  kolorze marki. To najbardziej neutralny wizualnie uklad w calym badaniu - nawet YouTube i MSN,
+  ktore maja rowne przyciski, wyrozniaja trzecia opcje innym stylem.
+
+  ODMOWA NAZWANA PRZEZ AKCEPTACJE. "Akceptuj tylko niezbedne", nie "Odrzuc". Ten sam wzorzec co
+  OLX, otomoto, tvn24 i zalando.
+
+  NAGLOWEK MOWI WPROST O DECYZJI UZYTKOWNIKA: "Ty decydujesz jakich ciasteczek uzyjemy".
+  Wyliczenie kategorii jest konkretne: uzywane do analizy sposobu korzystania ze strony,
+  umozliwiajace personalizacje prezentowanych tresci oraz marketingowe, reklamowe i na potrzeby
+  mediow spolecznosciowych.
+
+  KARTA NIE BLOKUJE STRONY. Niewielka biala karta w lewym dolnym rogu, body ma overflow visible,
+  cala strona jest widoczna i klikalna. Zajmuje okolo jednej czwartej szerokosci ekranu.
+
+  ZAPIS DECYZJI. Po odmowie ustawiaja sie OptanonAlertBoxClosed, OptanonConsent oraz
+  ikea_cookieconsent_pl - czyli pod spodem pracuje OneTrust, mimo ze wyglad karty jest calkowicie
+  wlasny, bez charakterystycznego ukladu OneTrust widocznego na OLX, otomoto, gazecie i tvn24.
+
+  UWAGI TECHNICZNE. Karta trzykrotnie przestala odpowiadac na Page.captureScreenshot i dwa razy
+  zwrocila obraz w zlej skali; poprawne zrzuty powstaly po przeladowaniu strony.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie i nie dokonano zadnego zakupu.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem. Trzy akcje jedna pod druga w lewym
+  dolnym rogu: 'Akceptuj wszystkie cookies', 'Akceptuj tylko niezbedne', 'Ustawienia cookies'.
+  Po akceptacji ikea_cookieconsent_pl = {1:true,2:true,3:true,4:true}.

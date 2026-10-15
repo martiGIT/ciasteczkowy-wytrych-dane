@@ -1,0 +1,65 @@
+# STATUS: kroki A, B, D wykonane. Krok C nie dotyczy - brak banera. KOMPLET.
+site: "apple"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: null
+banner_blocks_content: false
+layer1_buttons: []
+layer1_emphasised: ""
+m1_reject_on_first_layer: null
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 0
+m2_scrolls_refuse: 0
+m2_refuse_path: []
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: "Brak drugiej warstwy, bo nie ma pierwszej. Zadnego CMP na stronie."
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Bez zmian - brak banera, wiec kroku C nie ma czego zmierzyc. Wejscie 'Wykorzystanie plikow
+  cookie' w stopce, tak jak w przebiegu 1.
+close_x_present: false
+close_x_result: "Nie dotyczy - nie ma banera."
+screenshots:
+  - "apple_desktop_01-landing_20260902.png"
+  - "apple_desktop_90-extra-stopka-bez-banera_20260902.png"
+observations: >-
+  BRAK BANERA ZGODY. Apple nie pokazuje zadnego banera, okna ani paska dotyczacego plikow cookie.
+  Sprawdzone przez 40 sekund od zaladowania strony, z trzema kolejnymi odczytami DOM w poszukiwaniu
+  elementow position fixed lub sticky zawierajacych slowa "cookie", "ciasteczk" lub "prywatnosc" -
+  za kazdym razem zero trafien. To nie jest przypadek opoznionego banera jak na x-komie, gdzie po
+  28 sekundach cos sie pojawilo.
+
+  JEDNO CIASTECZKO. Po wejsciu na strone i po 40 sekundach w przegladarce jest dokladnie jedno
+  ciasteczko: geo. Zadnych identyfikatorow analitycznych, zadnych ciasteczek reklamowych, zadnego
+  IAB TCF, zadnego OneTrust ani Didomi.
+
+  ZGODA ZALATWIONA W STOPCE. Jedyny slad tematu to odnosnik "Wykorzystanie plikow cookie" w stopce,
+  w jednym rzedzie z "Polityka prywatnosci", "Warunki korzystania", "Sprzedaz i zwroty",
+  "Informacje prawne" i "Mapa witryny". Zrzut 90-extra-stopka-bez-banera to dokumentuje.
+
+  DLACZEGO TO JEST WYNIK, A NIE BRAK WYNIKU. Apple w tym zestawieniu jest punktem odniesienia:
+  serwis o skali globalnej, ktory na polskim IP i przy polskim jezyku przegladarki nie prosi o
+  zadna zgode, bo najwyrazniej nie ustawia niczego, co jej wymaga. Metryki m1, m2 i m4 nie maja
+  tu zastosowania; m2_clicks_refuse = 0, bo uzytkownik nie musi wykonac zadnej czynnosci, zeby nie
+  byc sledzonym.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami; przed przebiegiem wszystkie 26 adresow zostalo raz otwartych w
+  celu autoryzacji domen w rozszerzeniu, bez klikania w cokolwiek. Warto to sprawdzic ponownie na
+  calkowicie czystym profilu w przebiegu 2, zeby wykluczyc, ze brak banera wynika z wczesniejszej
+  wizyty.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Odczyt po akceptacji: brak IAB TCF.
+  NIE DOTYCZY. Apple nie pokazuje zadnego banera, wiec m2_clicks_accept zostaje null.

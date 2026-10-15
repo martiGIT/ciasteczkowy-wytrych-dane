@@ -1,0 +1,100 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+# Krok C (akceptacja, m9) do uzupelnienia w przebiegu 2. Krok D rozstrzygniety obserwacyjnie.
+site: "wp"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "ekran 2560x1440 CSS px (3840x2160 fiz. @150%), okno Chrome viewport 1416x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Zaloguj"
+  - "ustawień zaawansowanych"
+  - "Odrzucam i chcę dowiedzieć się więcej"
+  - "Akceptuję i przechodzę do serwisu"
+layer1_emphasised: "Akceptuję i przechodzę do serwisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzucam i chcę dowiedzieć się więcej"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 15
+m5_notes: >-
+  Druga warstwa ma 30 przelacznikow (role=switch) w dwoch kolumnach: "Zgoda" i "Uzasadniony
+  interes", czyli 15 celow razy dwie podstawy prawne. Wszystkie 30 sa domyslnie wylaczone
+  (aria-checked=false), lacznie z kolumna uzasadnionego interesu. Pod tym wzgledem WP wypada
+  lepiej niz onet. Sekcje: Wirtualna Polska Cele, Zaufani Partnerzy IAB Cele, Cele specjalne,
+  Funkcje, Funkcje specjalne. Lista dostawcow dokłada 1298 przelacznikow, rowniez wylaczonych.
+m4_partner_screens: 138
+m4_partner_count_shown: 1019
+m7_consent_wall: true
+m7_price: "od 5,75 do 7,50 zl / miesiac"
+m7_wording: >-
+  Naglowek: "Odrzucam zgody i placę od 5,75 do 7,50 zl / miesiąc". Tresc: "Wirtualna Polska oferuje
+  wszystkie swoje tresci za darmo, tak dlugo, jak zarabia na reklamach. Jesli chcesz nam
+  uniemozliwic dopasowywanie reklam do Ciebie, to od 27.11.2025 dajemy alternatywe w postaci
+  symbolicznego abonamentu." Przyciski: "Nadal odrzucam, chce zaplacic" (bialy, podkreslony tekst)
+  oraz "Nie chce placic, jednak akceptuje zgody" (niebieski, wyrozniony).
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Skan calej strony (19695 px) po akceptacji, takze po przewinieciu do stopki: jedyne
+  trafienie to link 'Prywatnosc' na pozycji 19501, czyli polityka prywatnosci. Brak wejscia do
+  ustawien cookies.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "wp_desktop_01-landing_20260902.png"
+  - "wp_desktop_02-layer1_20260902.png"
+  - "wp_desktop_03-layer2-defaults_20260902.png"
+  - "wp_desktop_07-consent-wall_20260902.png"
+observations: >-
+  USTALENIE KLUCZOWE. Na wp.pl pelna odmowa bez zaplaty jest niemozliwa. Obie sciezki konczą sie
+  ta sama sciana platnosci. Sciezka krotka: klikniecie "Odrzucam i chce dowiedziec sie wiecej"
+  (1 klikniecie) natychmiast otwiera ekran "Odrzucam zgody i place od 5,75 do 7,50 zl / miesiac",
+  na ktorym sa juz tylko dwie opcje: zaplacic albo zaakceptowac zgody. Nie ma przycisku powrotu
+  ani zamkniecia. Sciezka dluga: "ustawien zaawansowanych" (1 klikniecie), wszystkie 30
+  przelacznikow juz wylaczone, wiec wystarczy zapisac przyciskiem "Zapisuje i chce dowiedziec sie
+  wiecej" (2 klikniecie) - i uzytkownik lądude na dokladnie tej samej scianie platnosci.
+  Do m2_clicks_refuse wpisano 1, czyli liczbe klikniec do najdalszego osiagalnego stanu bez
+  platnosci, zgodnie z instrukcja z kroku B protokolu.
+
+  JEZYK PRZYCISKOW. Zadna z dwoch akcji odmowy nie nazywa sie po prostu "Odrzuc". Sa to
+  "Odrzucam i chce dowiedziec sie wiecej" oraz "Zapisuje i chce dowiedziec sie wiecej". Fraza
+  "chce dowiedziec sie wiecej" sugeruje informacje, a prowadzi do oferty platnej subskrypcji.
+  Przycisk akceptacji na scianie platnosci nazywa sie "Nie chce placic, jednak akceptuje zgody",
+  czyli wprost ustawia zgode jako cene za darmowy dostep.
+
+  STAN TCF PO ZAPISIE ODMOWY. Po zapisaniu ustawien z wszystkimi przelacznikami wylaczonymi odczyt
+  __tcfapi getTCData v2 daje purpose.consents = {} ale purpose.legitimateInterests = {1:false,
+  2:true, 3:false, 4:false, 5:false, 6:false, 7:true, 8:true, 9:true, 10:true, 11:true}, czyli
+  szesc celow na uzasadnionym interesie jest aktywnych mimo wylaczonej calej kolumny "Uzasadniony
+  interes" w interfejsie. Odczyt zrobiony w momencie, gdy na ekranie stala juz sciana platnosci,
+  wiec stan moze byc przejsciowy - wymaga potwierdzenia w osobnym przebiegu.
+
+  LISTA PARTNEROW. Pierwsza warstwa deklaruje 1019 Zaufanych Partnerow IAB i 846 pozostalych
+  Zaufanych Partnerow, razem 1865. Po klknieciu "Zobacz liste Zaufanych Partnerow IAB" kontener
+  listy ma scrollHeight 54388 px przy clientHeight 396 px, czyli 138 pelnych ekranow, i zawiera
+  1298 przelacznikow. To o jedna trzecia dluzsza lista niz na onecie (104 ekrany).
+
+  BRAK ZRZUTOW LISTY PARTNEROW. Po wyrenderowaniu listy 1019 dostawcow karta przestala odpowiadac
+  na zadania zrzutu ekranu (CDP Page.captureScreenshot timeout po 30 s, trzy proby). Liczby
+  4_partner_screens i liczba przelacznikow pochodza z odczytu DOM, ktory dzialal normalnie.
+  Zrzuty 04-partners-p1 i 04-partners-end trzeba dorobic recznie albo w osobnym podejsciu.
+
+  METODA. Kolejnosc badania byla nietypowa: najpierw sciezka "Odrzucam i chce dowiedziec sie
+  wiecej", ktora doprowadzila do sciany platnosci, potem przeladowanie strony (stan nadal
+  dziewiczy, TCF pusty, zadna zgoda nie byla zapisana) i sciezka przez "ustawienia zaawansowane".
+  Przeladowanie nie bylo resetem po zapisanej decyzji, tylko powrotem do tego samego stanu
+  poczatkowego. Badanie prowadzone w trzech przebiegach przez cala liste serwisow z recznym
+  czyszczeniem danych przegladarki miedzy przebiegami. CMP wp.pl zyje w shadow DOM, wiec odczyty
+  wymagaja przechodzenia przez shadowRoot.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 6 UIA, 935 dostawcow ze zgoda, 363 z UIA. skuteczne bylo drugie
+  klikniecie

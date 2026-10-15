@@ -1,0 +1,73 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "lidl"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Jako operator"
+  - "w tym jako odrębnych"
+  - "Odrzuć"
+  - "Dostosuj"
+  - "Zgadzam się"
+layer1_emphasised: "Zgadzam się"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel "Dostosuj" (OneTrust, wariant IAB TCF) ma 29 wlasciwych pol wyboru, wszystkie domyslnie
+  wylaczone: kategorie wlasne C0002, C0003, C0004, C0042, C0045-C0049, C0055, C0060, C0061,
+  C0068 oraz cele IAB (IAB2V2_1, _2, _3, _4, _7, _9, _10 i funkcja specjalna ISF2V2_1) z
+  towarzyszacymi im grupami BG4120-BG4127. Zadna kategoria nie jest oznaczona jako "Zawsze
+  aktywne" i nie ma osobnych przelacznikow uzasadnionego interesu. Panel ma 1404 px przy 770 px
+  widocznych, czyli 2 ekrany. Przyciski panelu: "Odrzuc wszystko", "Akceptuj wybrane",
+  "Zaakceptuj wszystkie".
+m4_partner_screens: null
+m4_partner_count_shown: 6
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „Zarządzaj plikami cookie” w stopce, y=14590 przy wysokosci strony 14733 px, tuz pod „Polityka prywatnosci” i „Polityka cookie”."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, ALE BEZ TLA. Trzy akcje leza w jednym rzedzie: "Odrzuc" i "Dostosuj"
+  sa bialymi napisami w kolorze rgb(0,80,170) bez wypelnienia, a "Zgadzam sie" jest niebieskim
+  przyciskiem rgb(0,80,170) z bialym tekstem. Wysokosc wszystkich trzech jest identyczna (45 px),
+  roznica jest wylacznie w wypelnieniu. Ten sam wzorzec co na zalando, tylko w odwrotnej
+  kolorystyce.
+
+  ODMOWA DZIALA CZYSTO. Po klknieciu "Odrzuc" odczyt TCF daje zero we wszystkich czterech
+  polach: zero celow zgody, zero celow na uzasadnionym interesie, zero dostawcow ze zgoda, zero
+  dostawcow z uzasadnionym interesem. tcString CQp6gYAQp6gYAAcABBPLCuFwAAAAAAAAAAYgAAAAAACBIAQAFQ.
+  Ustawiaja sie OptanonAlertBoxClosed i eupubconsent-v2. To jeden z niewielu serwisow z pelnym
+  zerem, obok OLX, otomoto, tvn24 i MSN.
+
+  TYLKO SZESCIU PARTNEROW IAB. Baner mowi wprost: "w zwiazku z IAB TCF lacznie 6 partnerow".
+  To najmniejsza liczba w calym badaniu - dla porownania interia 1984, wp 1865, onet 1173,
+  gazeta 671, bild 308, tvn24 191, washingtonpost 114, spotify 95. Lidl uzywa tego samego
+  standardu, ale w zupelnie innej skali.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow visible, choc modal wizualnie zaslania srodek
+  ekranu.
+
+  UWAGA NARZEDZIOWA. Pierwsze klikniecie przez referencje elementu nie zadzialalo, skuteczne
+  bylo klikniecie wspolrzednymi. Dla uzytkownika jest to jedno klikniecie i tak zapisano
+  m2_clicks_refuse.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy.

@@ -1,0 +1,103 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "rmf24"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x891 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "zaufanymi partnerami IAB (1019)"
+  - "innymi zaufanymi partnerami (489)"
+  - "polityce prywatności"
+  - "Zaufanych Partnerów IAB"
+  - "Polityce cookies"
+  - "Ustawienia zaawansowane"
+  - "Przejdź do serwisu"
+layer1_emphasised: "Przejdź do serwisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 4
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Ustawienia zaawansowane"
+  - "Uzasadniony interes"
+  - "Wyrażam sprzeciw na przetwarzanie moich danych ma podstawie Uzasadnionego Interesu"
+  - "Zapisz i wyjdź"
+m5_toggles_default_on: 363
+m5_li_toggles_separate: 363
+m5_notes: >-
+  Druga warstwa ma trzy zakladki przelaczane linkami na dole panelu: "Partnerzy IAB",
+  "Inni partnerzy" i "Uzasadniony interes". W widoku glownym jest 15 pol wyboru zgody,
+  wszystkie domyslnie WYLACZONE. W zakladce "Uzasadniony interes" jest 363 osobnych
+  przelacznikow, po jednym na partnera IAB, i wszystkie 363 sa domyslnie WLACZONE, opisane
+  slowami "Brak Sprzeciwu". Stad m5_toggles_default_on = 363 i m5_li_toggles_separate = 363.
+  Na gorze tej zakladki jest jedno zbiorcze pole wyboru, ktore jednym klknieciem gasi wszystkie
+  363 - i jest widoczne od razu, bez przewijania. Zakladka "Inni partnerzy" nie dokłada zadnych
+  kontrolek, to lista informacyjna. Panel nie ma przycisku "odrzuc wszystko"; sa tylko
+  "Zapisz i wyjdz" oraz "Zgadzam sie".
+m4_partner_screens: 31
+m4_partner_count_shown: 1508
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po pelnej odmowie skan calej strony (8472 px) znajduje w stopce wylacznie
+  „Polityka Cookies” (x=784, y=8382) i „Prywatność” (x=982, y=8382), czyli dokumenty do
+  czytania. Nie ma linku otwierajacego panel zgod ani plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  NAJWIEKSZA LICZBA DOMYSLNIE WLACZONYCH PRZELACZNIKOW W CALYM BADANIU. 363 przelaczniki
+  uzasadnionego interesu, po jednym na kazdego partnera IAB, wszystkie ustawione na "Brak
+  Sprzeciwu" zanim uzytkownik cokolwiek zrobi. Dla porownania: interia 9, onet 7, wp 0 (cala
+  kolumna uzasadnionego interesu domyslnie wylaczona), wiekszosc pozostalych serwisow 0.
+  Jednoczesnie wszystkie 15 przelacznikow zgody jest domyslnie wylaczonych - czyli podzial
+  przebiega dokladnie wzdluz podstawy prawnej: o zgode sie pyta, uzasadniony interes jest
+  ustawiony z gory.
+
+  ZBIORCZY SPRZECIW DZIALA I JEST NA WIERZCHU. To roznica na korzysc wobec onetu. Pole
+  "Wyrazam sprzeciw na przetwarzanie moich danych ma podstawie Uzasadnionego Interesu w
+  odniesieniu do wszystkich wymienionych ponizej partnerow IAB i ich celow" lezy na samej gorze
+  zakladki, widoczne bez przewijania, i jednym klknieciem gasi wszystkie 363 przelaczniki
+  (sprawdzone: po klknieciu liczba wlaczonych spada z 363 do 0). Na onecie ten sam mechanizm byl
+  schowany 8 ekranow nizej i bez zadnego odnosnika prowadzacego do niego.
+
+  LITEROWKA W TYM SAMYM ZDANIU. W etykiecie zbiorczego sprzeciwu jest "ma podstawie" zamiast
+  "na podstawie". Odczytane z DOM. Drugi taki przypadek w badaniu po inposcie ("ODRZUC WSZYSKO"),
+  i znowu dotyczy przycisku odmowy, a nie akceptacji.
+
+  PELNA ODMOWA NIE OBEJMUJE WYDAWCY. Po czterech klknieciach - ustawienia zaawansowane,
+  zakladka uzasadnionego interesu, zbiorczy sprzeciw, zapis - odczyt TCF daje purpose.consents
+  puste i zero dostawcow zarowno ze zgoda, jak i z uzasadnionym interesem. Ale
+  purpose.legitimateInterests nadal ma piec aktywnych celow (2, 7, 8, 9, 10), a
+  publisher.legitimateInterests piec kolejnych (2, 3, 4, 5, 6), czyli miedzy innymi tworzenie
+  profili do personalizacji reklam, wybor reklam i personalizacja tresci. Zbiorczy sprzeciw
+  dotyczy wylacznie partnerow IAB; sam wydawca zostaje poza jego zasiegiem.
+  tcString CQp9zUAQp9zUAFKADAPLCuFgAAAAAEPAAB5YAAAAAAAA.IMzNR_G__bXlv-bb36btkeYxf9_hr7sQxBgbIsm4FzLvW7JwG32EbJEyatiIKmRIAu3DBIQNtHBjURUChKIAVrzDsaE2U4TtKJ-BkiHMZYytQCExvm4tjeQCZ4ur_90d0mR-t6dr-2dzy27hnn3a9fuS1UJydKYetHfv-ZhOS-_IU9_x-_4v4_MbpEm0eSVv9tUtt4zc64vv6dpuxt-Tyff6f__f73fS7X__e__33_8qX3_r76-___3__v___ff_________9__-________wAAA.YAAAD4AAAAAA
+
+  CZTERY KLIKNIECIA TO NAJWIECEJ W CALYM BADANIU. Poprzedni rekord nalezal do onetu (3
+  klikniecia i 8 przewiniec). Tu przewijac nie trzeba, ale trzeba wiedziec, ze istnieje zakladka
+  "Uzasadniony interes" - z pierwszej warstwy nic na nia nie wskazuje.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Dwie akcje: "Ustawienia zaawansowane" (bez tla, niebieski
+  tekst rgb(34,71,141)) i "Przejdz do serwisu" (niebieskie wypelnienie, bialy tekst). Obie maja
+  identyczna szerokosc 324 px i wysokosc 34 px - wyroznienie jest wylacznie kolorem. Przycisk
+  akceptacji nie zawiera slowa "zgoda": mowi "Przejdz do serwisu", a dopiero tekst wyzej
+  wyjasnia, ze "Przechodzac do serwisu zgadzasz sie na wskazane dzialania". Ten sam wzorzec co
+  na onecie.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Kroki A i B
+  wykonano od razu. Zakladka "Inni partnerzy" (489 podmiotow, 22340 px tresci przy 540 px
+  widocznych, czyli 41 ekranow) zostala otwarta tylko w celu sprawdzenia, czy zawiera kontrolki -
+  nie zawiera, wiec to klikniecie nie jest liczone do sciezki odmowy. Do m4_partner_screens
+  wpisano 31 ekranow, czyli dlugosc listy partnerow IAB w zakladce uzasadnionego interesu
+  (16630 px przy 540 px widocznych).

@@ -1,0 +1,95 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+# Brak zrzutu 03-layer2-defaults i 04-partners (powod w observations).
+site: "interia"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Ustawienia prywatności"
+  - "Przejdź do serwisu"
+  - "Przypomnij później"
+layer1_emphasised: "Przejdź do serwisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Ustawienia prywatności"
+  - "Nie wyrażam zgody"
+m5_toggles_default_on: 9
+m5_li_toggles_separate: 9
+m5_notes: >-
+  Druga warstwa ma 23 suwaki. Wlaczonych domyslnie jest 9 i wszystkie 9 dotyczy przetwarzania na
+  podstawie prawnie uzasadnionego interesu: 6 suwakow z klasa tcf-leg-int (cele IAB) oraz 3 suwaki
+  Interii (jeden zbiorczy "all-interia" i dwa szczegolowe). Suwaki zgody sa domyslnie wylaczone:
+  11 celow TCF plus 2 funkcje specjalne. Baner mowi to wprost: "Bez dokonania zmian Twoje dane beda
+  przetwarzane takze przez nas, czyli INTERIA.PL sp. z o.o. ... na podstawie prawnie uzasadnionego
+  interesu".
+m4_partner_screens: 58
+m4_partner_count_shown: 1206
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia preferencji.' w stopce, y=23211 przy wysokosci strony 23263 px, czyli w
+  ostatnim ekranie z okolo 25.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”. Jest za to „Przypomnij później”, ktore odklada decyzje, ale nie jest odmowa."
+screenshots:
+  - "interia_desktop_01-landing_20260902.png"
+  - "interia_desktop_02-layer1_20260902.png"
+  - "interia_desktop_05-after-reject_20260902.png"
+observations: >-
+  BANER NIE BLOKUJE STRONY. To wyjatek na tle onetu i wp: body ma overflow visible, nie ma
+  przyciemnionego tla ani nakladki na cala szerokosc. Modal .rodo-popup (1100x663 px, position
+  fixed) zaslania srodek ekranu, ale tresc dookola jest widoczna i strona sie przewija.
+
+  ODMOWA W DWOCH KLIKNIECIACH, ALE NIEZWERYFIKOWANA. Sciezka to "Ustawienia prywatnosci", potem
+  "Nie wyrazam zgody" - oba przyciski widoczne bez przewijania, wiec m2_scrolls_refuse = 0. Baner
+  znika, ustawia sie ciasteczko inplrd. Nie udalo sie potwierdzic, czy ta akcja sklada tez sprzeciw
+  wobec 9 domyslnie wlaczonych suwakow uzasadnionego interesu: __tcfapi getTCData nie odpowiada na
+  interii (callback nie wraca, timeout 6 s), a ponowne otwarcie ustawien pokazuje pierwsza warstwe
+  od nowa, nie stan zapisany. Do potwierdzenia w osobnym podejsciu.
+
+  PUNKT WYCOFANIA ZGODY POKAZUJE BANER OD NOWA. Link "Ustawienia preferencji." w stopce nie otwiera
+  panelu z aktualnymi ustawieniami, tylko pierwsza warstwe banera z tym samym tekstem "Drogi
+  Uzytkowniku" i tymi samymi przyciskami co przy pierwszej wizycie. Uzytkownik, ktory chce zmienic
+  decyzje, dostaje wiec ponownie prosbe o zgode zamiast swoich ustawien.
+
+  "PRZYPOMNIJ POZNIEJ" JEST POZA ZASIEGIEM. Tekst banera mowi: "Mozesz nie udzielic zgody klikajac
+  w przycisk Przypomnij pozniej". Ten przycisk istnieje, ale lezy na samym dole przewijanej tresci
+  modala (1664 px przy 475 px widocznych, czyli 4 ekrany w dol) i przy pierwszym otwarciu jest
+  niewidoczny. Trzeba przewinac wnetrze banera, zeby go zobaczyc. Nie jest to zreszta odmowa, tylko
+  odlozenie decyzji.
+
+  LISTA PARTNEROW. Pierwsza warstwa deklaruje 778 partnerow reklamowych IAB oraz 1206 partnerow
+  Google i pozostalych. Rozwiniecie listy Google i pozostalych ("Pokaz liste partnerow") rozciaga
+  kontener .rodo-popup-content z 1449 px do 27264 px przy 475 px widocznych, czyli 58 pelnych
+  ekranow. Lista IAB jest osobna, rozwijana per cel (19 osobnych przyciskow "Pokaz liste
+  partnerow"), i nie zostala zmierzona.
+
+  BRAK ZRZUTOW DRUGIEJ WARSTWY. Po otwarciu ustawien prywatnosci karta przestaje odpowiadac na
+  Page.captureScreenshot (timeout 30 s) albo zwraca obraz w zlej skali, kilkakrotnie
+  powiekszony. To samo zachowanie co na wp.pl. Odczyty DOM przez Runtime.evaluate dzialaja
+  normalnie i z nich pochodza wszystkie liczby. Po zamknieciu modala zrzuty znowu dzialaja
+  poprawnie, co potwierdza, ze przyczyna jest ciezar renderowania panelu z ponad tysiacem
+  dostawcow. Zrzuty 03-layer2-defaults i 04-partners trzeba dorobic recznie.
+
+  UWAGI METODOLOGICZNE. Okno przegladarki zmienilo sie w trakcie sesji: onet i wp mierzone przy
+  viewport 1416x912, interia i kolejne serwisy przy 1906x986. Liczby ekranow zaleza od wysokosci
+  okna, wiec porownania miedzy tymi dwiema grupami maja okolo 8 procent luzu. Przed wlasciwym
+  przebiegiem wszystkie 26 adresow zostalo raz otwartych w celu autoryzacji domen w rozszerzeniu,
+  bez zadnego klikniecia w baner; sama wizyta nie zapisuje decyzji (sprawdzone na onecie i wp,
+  TCF zostaje pusty). Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. skuteczne
+  bylo drugie klikniecie; TCF na interii nie odpowiada

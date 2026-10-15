@@ -1,0 +1,68 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "linkedin"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Zasadach korzystania z plików cookie"
+  - "ustawieniach"
+  - "Zaakceptuj"
+  - "Odrzuć"
+layer1_emphasised: "brak wyroznienia - „Zaakceptuj” i „Odrzuć” sa biale, obramowane, tej samej wysokosci"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Brak drugiej warstwy w banerze. Tekst odsyla do "ustawien" jako miejsca, w ktorym mozna zmienic
+  wybor, ale nie ma przycisku otwierajacego panel z suwakami z poziomu banera.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia goscia' w stopce, y=5820 przy wysokosci strony 5846 px, czyli w ostatnim
+  ekranie z okolo szesciu. Obok 'Zasady korzystania z plikow cookie' (y=5786). Sam baner mial
+  tez link 'ustawieniach' w tresci, ale znika razem z banerem.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "linkedin_desktop_01-landing_20260902.png"
+  - "linkedin_desktop_02-layer1_20260902.png"
+  - "linkedin_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI ROWNE. "Zaakceptuj" i "Odrzuc" to dwa biale przyciski z
+  szarym obramowaniem, tej samej wysokosci, obok siebie, akceptacja po lewej. Zaden nie ma
+  wypelnienia kolorem marki. Po klknieciu "Odrzuc" baner znika i nie wraca po przeladowaniu.
+
+  ETYKIETY SA KROTKIE I JEDNOZNACZNE. To najkrotsze etykiety w calym badaniu: jedno slowo na
+  akcje. Tekst nad przyciskami tlumaczy je wprost: "Wybierz Zaakceptuj, aby wyrazic zgode lub
+  Odrzuc, aby odrzucic przetwarzanie opcjonalnych plikow cookie do tych celow".
+
+  BANER NIE BLOKUJE STRONY. Pasek u gory, tresc pod nim jest widoczna i klikalna, body ma
+  overflow visible. Baner przesuwa zawartosc w dol, nie przykrywa jej.
+
+  BRAK MOZLIWOSCI WERYFIKACJI STANU. LinkedIn nie ma IAB TCF, a ciasteczka po odmowie to
+  JSESSIONID, lang, bcookie, lidc, li_alerts i li_gc. Nie ma czytelnego zapisu decyzji do
+  odczytania, wiec skutecznosc odmowy potwierdza tylko zniknicie banera.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem. 'Zaakceptuj' i 'Odrzuc' to dwa
+  identyczne biale przyciski z obramowaniem, jeden obok drugiego - brak wyroznienia. Po
+  akceptacji ustawiaja sie m.in. AMCV/AMCVS Adobe i aam_uuid.

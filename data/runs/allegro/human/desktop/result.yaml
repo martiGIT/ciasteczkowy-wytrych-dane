@@ -1,0 +1,82 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "allegro"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Zgadzam się"
+  - "Nie zgadzam się"
+  - "Zmieniam zgody"
+layer1_emphasised: "brak wyroznienia - „Zgadzam się” i „Nie zgadzam się” maja identyczny styl"
+m1_reject_on_first_layer: true
+m1_reject_label: "Nie zgadzam się"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Nie zgadzam się"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Skonfiguruj zgody", otwierana linkiem "Zmieniam zgody") ma cztery kategorie:
+  Funkcjonalne, Analityczne, Marketingowe i Niezbedne (zawsze aktywne). Trzy pierwsze sa domyslnie
+  wylaczone, czwarta jest wlaczona i zablokowana, bo dotyczy plikow niezbednych. Do
+  m5_toggles_default_on wpisano 0, bo licze suwaki opcjonalne wlaczone domyslnie; jedyny wlaczony
+  suwak jest zablokowany i nie da sie go wylaczyc z definicji. Nie ma osobnej kolumny ani osobnych
+  suwakow uzasadnionego interesu - Allegro nie stosuje tego mechanizmu w swoim CMP.
+m4_partner_screens: 0
+m4_partner_count_shown: 26
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia plikow cookies' w stopce, y=2871 przy wysokosci strony 3566 px. Baner
+  zapowiadal go wprost.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "allegro_desktop_01-landing_20260902.png"
+  - "allegro_desktop_02-layer1_20260902.png"
+  - "allegro_desktop_03-layer2-defaults_20260902.png"
+  - "allegro_desktop_05-after-reject_20260902.png"
+observations: >-
+  NAJTANSZA ODMOWA W CALEJ GRUPIE POLSKIEJ. Jedno klikniecie, przycisk "Nie zgadzam sie" stoi na
+  pierwszej warstwie tuz pod "Zgadzam sie" i ma dokladnie ten sam styl: czarne wypelnienie, biala
+  czcionka, ta sama szerokosc i wysokosc, tylko inna ikona. Zaden z nich nie jest wyrozniony
+  kolorem ani wielkoscia. Po klknieciu baner znika, ustawia sie ciasteczko OptOutOnRequest, strona
+  dziala normalnie. Zero przewijania.
+
+  MALA LICZBA PARTNEROW. Pierwsza warstwa deklaruje 17 partnerow i, osobno, 9 partnerow w ramach
+  "Zaufani Partnerzy IAB Europe". Razem 26, czyli dwa rzedy wielkosci mniej niz onet (1173),
+  wp (1865) czy interia (1984). Nie ma przewijanej listy dostawcow z suwakami: partnerzy sa
+  odnosnikami w tekscie banera, a nie osobnym ekranem, dlatego m4_partner_screens = 0.
+
+  CMP POTRZEBUJE CHWILI. Pierwsze klikniecie w "Nie zgadzam sie", wykonane 8 sekund po zaladowaniu
+  strony, nie zadzialalo - baner zostal na miejscu i nie ustawilo sie zadne ciasteczko. Drugie
+  klikniecie, okolo 15 sekund po zaladowaniu, zadzialalo od razu. Do m2_clicks_refuse wpisano 1,
+  bo tyle wynosi rzeczywisty koszt odmowy; nieskuteczne klikniecie nie liczy sie zgodnie z
+  definicja z sekcji 2 protokolu. To samo zachowanie widac bylo na onecie.
+
+  BANER NIE BLOKUJE STRONY. body ma overflow auto scroll, tresc nad banerem jest widoczna i
+  nieprzyciemniona. Baner zajmuje dolne okolo 60 procent ekranu.
+
+  PUNKT WYCOFANIA ZGODY. Tekst banera zapowiada go wprost: "Zgode wyrazasz dobrowolnie i jest wazna
+  12 miesiecy. Mozesz ja w kazdym momencie wycofac lub ponowic w zakladce Ustawienia plikow cookies
+  na stronie glownej". Link "Ustawienia plikow cookies" jest w samym banerze. Formalny pomiar m9
+  nalezy do kroku C i zostanie zrobiony w przebiegu 2.
+
+  UWAGI METODOLOGICZNE. Druga warstwa zostala zmierzona osobno, przed sciezka odmowy: klikniecie
+  "Zmieniam zgody", odczyt stanu suwakow, przeladowanie strony (stan nadal dziewiczy, zadna decyzja
+  nie byla zapisana), dopiero potem wlasciwa sciezka odmowy jednym klknieciem. Kolejnosc nie wplywa
+  na m2, bo licze klikniecia najtanszej sciezki od ladowania. Przed wlasciwym przebiegiem wszystkie
+  26 adresow zostalo raz otwartych w celu autoryzacji domen w rozszerzeniu, bez klikania w baner.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. trzy
+  nieskuteczne klikniecia wspolrzednymi, zadzialalo dopiero klikniecie przez referencje

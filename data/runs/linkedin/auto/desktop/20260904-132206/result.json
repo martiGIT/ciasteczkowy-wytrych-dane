@@ -1,0 +1,128 @@
+{
+ "site": "linkedin",
+ "url": "https://www.linkedin.com/",
+ "viewport": "desktop",
+ "run_id": "20260904-132206",
+ "started_at": "2026-09-04T13:22:06",
+ "emulation": false,
+ "device": "1920x1080",
+ "headless": false,
+ "settle_ms": 10000,
+ "banner_wait_ms": 45000,
+ "layer_wait_ms": 3000,
+ "nav_timeout_ms": 60000,
+ "banner_delay_s": 10.0,
+ "banner_delay_by_state": {
+  "pre": 0.0,
+  "reject": 0.0,
+  "refuse_full": 0.0,
+  "accept": 0.0
+ },
+ "exit": {
+  "country": "PL",
+  "network": "Polish residential ISP, not a data centre"
+ },
+ "chromium": "151.0.7922.34",
+ "webdriver_flag": true,
+ "m8_cmp": "none",
+ "m8_tcf_version": null,
+ "no_banner": false,
+ "m1_reject_on_first_layer": true,
+ "m1_reject_label": "Odrzuć",
+ "m2_clicks_accept": 1,
+ "m2_accept_path": [
+  "Zaakceptuj"
+ ],
+ "m2_clicks_refuse": 1,
+ "m2_refuse_path": [
+  "Odrzuć"
+ ],
+ "m2_clicks_refuse_full": 1,
+ "m2_refuse_full_path": [
+  "Odrzuć"
+ ],
+ "li_object_found": false,
+ "m7_consent_wall": null,
+ "m7_wording": null,
+ "m7_price": null,
+ "m7_text": null,
+ "m2_refuse_blocked_by_wall": false,
+ "m9_withdraw_entry_visible": false,
+ "m9_withdraw_entry_labels": [],
+ "m2_clicks_to_wall": null,
+ "m3": null,
+ "m3_by_state": {
+  "pre": null,
+  "reject": null,
+  "refuse_full": null,
+  "accept": null
+ },
+ "m4": null,
+ "m4_method": null,
+ "m6": {
+  "pre": {
+   "cookies_first": 8,
+   "cookies_third": 3,
+   "hosts_first": [
+    "linkedin.com"
+   ],
+   "hosts_third": [
+    "google.com",
+    "gstatic.com",
+    "licdn.com",
+    "protechts.net"
+   ],
+   "requests": 49
+  },
+  "reject": {
+   "cookies_first": 10,
+   "cookies_third": 3,
+   "hosts_first": [
+    "linkedin.com"
+   ],
+   "hosts_third": [
+    "google.com",
+    "gstatic.com",
+    "licdn.com",
+    "protechts.net"
+   ],
+   "requests": 63
+  },
+  "refuse_full": {
+   "cookies_first": 8,
+   "cookies_third": 3,
+   "hosts_first": [
+    "linkedin.com"
+   ],
+   "hosts_third": [
+    "google.com",
+    "gstatic.com",
+    "licdn.com",
+    "protechts.net"
+   ],
+   "requests": 60
+  },
+  "accept": {
+   "cookies_first": 11,
+   "cookies_third": 10,
+   "hosts_first": [
+    "linkedin.com"
+   ],
+   "hosts_third": [
+    "bing.com",
+    "demdex.net",
+    "doubleclick.net",
+    "facebook.com",
+    "google.com",
+    "gstatic.com",
+    "licdn.com",
+    "protechts.net",
+    "trkn.us"
+   ],
+   "requests": 75
+  }
+ },
+ "discrepancy_notes": [
+  "refuse_full: first-layer reject closed the banner; no settings layer to object in"
+ ]
+}

@@ -1,0 +1,105 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "bild"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "de"
+banner_blocks_content: true
+layer1_buttons:
+  - "Datenschutzerklärung"
+  - "FAQ"
+  - "Alle akzeptieren"
+  - "Einstellungen"
+  - "Jetzt BILD PUR abonnieren"
+  - "Jetzt anmelden"
+layer1_emphasised: "Alle akzeptieren"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: null
+m2_scrolls_refuse: null
+m2_refuse_path: []
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa nie ma suwakow, tylko przyciski przy kazdym celu. I tu jest sedno: przy czterech
+  pierwszych celach jest WYLACZNIE przycisk "Einwilligen" (zgadzam sie), bez zadnego "Ablehnen"
+  (odrzucam), a obok kazdego z nich wisi etykieta "Erforderlich fur kostenfreie Nutzung" - wymagane
+  do bezplatnego korzystania. Te cztery cele to: "Speichern von oder Zugriff auf Informationen auf
+  einem Endgerat", "Personalisierte Werbung und Inhalte, Messung von Werbeleistung und der
+  Performance von Inhalten, Zielgruppenforschung sowie Entwicklung und Verbesserung von Angeboten",
+  "Verwendung und Weitergabe von Nutzerkennungen zu Werbezwecken" oraz "Eigene Produkt- und
+  Vertriebsentwicklung". Dopiero kolejne szesc celow (Utiq, netID, identyfikatory na bazie adresu
+  e-mail, dane z chatbota, reklama polityczna, spersonalizowane rekomendacje tresci) ma pare
+  przyciskow Einwilligen / Ablehnen. Zadna pozycja nie jest wstepnie zaznaczona, stad
+  m5_toggles_default_on = 0, ale ta liczba jest mylaca bez powyzszego opisu.
+m4_partner_screens: null
+m4_partner_count_shown: 308
+m7_consent_wall: true
+m7_price: "3,99 EUR/Monat (dla abonentow BILDplus 2,99 EUR/Monat)"
+m7_wording: >-
+  Naglowek prawej kolumny: "Ohne Tracking und Cookies* nutzen". Tresc: "Nutzen Sie BILD.de ohne
+  Tracking und Cookies und damit ohne personalisierte Werbung fur 3,99 EUR/Monat (rabattiert fur
+  BILDplus-Abonnenten 2,99 EUR/Monat)". Przycisk: "Jetzt BILD PUR abonnieren". W drugiej warstwie,
+  w czerwonej ramce: "Um BILD.de kostenfrei nutzen zu konnen, ist fur einige Verarbeitungszwecke
+  Ihre Einwilligung erforderlich. Fur andere Verarbeitungszwecke konnen Sie hier eine Auswahl
+  treffen."
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Stopka, y=27770 przy wysokosci strony 27936 px (okolo 30 ekranow): trzy osobne wejscia obok
+  siebie - 'Privacy-Manager', 'Widerruf Tracking und Cookies' i 'Widerruf Nutzerkennungen'.
+  Baner zapowiadal to wprost: 'Ihre Einwilligung ist jederzeit unter Widerruf Tracking und
+  Cookies am Seitenende widerrufbar'.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Schliessen”."
+screenshots:
+  - "bild_desktop_01-landing_20260902.png"
+  - "bild_desktop_02-layer1_20260902.png"
+  - "bild_desktop_03-layer2-defaults_20260902.png"
+  - "bild_desktop_07-consent-wall_20260902.png"
+observations: >-
+  SCIANA PLATNOSCI Z POZOROWANA GRANULARNOSCIA. To najostrzejszy przypadek w calym badaniu,
+  ostrzejszy niz wp.pl. Pierwsza warstwa jest zbudowana jako dwie rownolegle kolumny: "Mit Tracking
+  und Cookies nutzen" z czerwonym przyciskiem "Alle akzeptieren" oraz "Ohne Tracking und Cookies*
+  nutzen" z przyciskiem "Jetzt BILD PUR abonnieren" za 3,99 EUR miesiecznie. Trzecia opcja,
+  "Einstellungen", sprawia wrazenie drogi posredniej - i tu jest sztuczka. W ustawieniach cztery
+  najwazniejsze cele, w tym spersonalizowana reklama i pomiar jej skutecznosci, maja tylko przycisk
+  "Einwilligen". Nie ma przy nich zadnego "Ablehnen". Zamiast tego wisi etykieta "Erforderlich fur
+  kostenfreie Nutzung". Odmowa tych czterech celow nie jest wiec mozliwa inaczej niz przez
+  wykupienie abonamentu. Wybor granularny dotyczy tylko szesciu pobocznych celow.
+
+  m2_clicks_refuse ZOSTAJE NULL, a nie liczba. Protokol kaze w takim wypadku wpisac liczbe klikniec
+  do najdalszego osiagalnego stanu, ale tu "najdalszy osiagalny stan" bez platnosci nie jest zadna
+  odmowa: to zgoda na cztery kluczowe cele plus ewentualne odrzucenie szesciu pobocznych. Wpisanie
+  tam liczby sugerowaloby, ze odmowa jest osiagalna, a nie jest. Opis stanu faktycznego jest w
+  m5_notes i tutaj.
+
+  BANER PO NIEMIECKU MIMO POLSKIEGO IP I POLSKIEJ PRZEGLADARKI. Drugi po washingtonpost.com serwis,
+  ktory nie przetlumaczyl banera na jezyk uzytkownika. W przypadku BILD-a jest to mniej dziwne niz
+  przy WaPo, bo to serwis krajowy, ale dla polskiego czytelnika oznacza to podjecie decyzji o
+  platnosci i o zgodzie w jezyku, ktorego moze nie znac.
+
+  308 DOSTAWCOW. Tekst mowi o "bis zu 308 von uns eingesetzte Drittanbieter" i wprost przyznaje
+  przekazywanie danych do panstw trzecich, w tym USA, na podstawie art. 49 ust. 1 lit. a RODO,
+  z zastrzezeniem, ze te panstwa moga nie zapewniac odpowiedniego poziomu ochrony i ze moze to
+  oznaczac "fehlende Kontrolle der Weiterverarbeitung und Datenubermittlung sowie Zugriffe
+  staatlicher Stellen zu Kontroll- und Uberwachungszwecken". Rzadka szczerosc.
+
+  UWAGI TECHNICZNE. CMP BILD-a nie jest widoczne z poziomu document.querySelectorAll ani przez
+  shadowRoot - odczyty DOM zwracaly tylko elementy strony pod spodem. Wszystkie ustalenia pochodza
+  ze zrzutow ekranu. Karta wielokrotnie przestawala odpowiadac na Page.captureScreenshot; zrzut
+  drugiej warstwy udalo sie zrobic po okolo 20 sekundach oczekiwania, w skali 0.8.
+
+  UWAGI METODOLOGICZNE. Nie wykupiono abonamentu i nie klikniete zostalo "Alle akzeptieren".
+  Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych przegladarki miedzy
+  przebiegami.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 0 UIA, 216 dostawcow ze zgoda, 0 z UIA. akceptacja jednym
+  klknieciem, 'Alle akzeptieren' czerwony wypelniony. To sciana zgody (m7): alternatywa to BILD
+  PUR za 3,99 EUR/mies. Nie wykupiono subskrypcji. Baner deklaruje 308 dostawcow, po akceptacji
+  zgode ma 216.

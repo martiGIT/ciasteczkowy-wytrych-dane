@@ -1,0 +1,97 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "wyborcza"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x891 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Polityce Prywatności Wyborcza.pl"
+  - "Polityce Prywatności Agora S.A."
+  - "Lista Zaufanych Partnerów"
+  - "USTAWIENIA ZAAWANSOWANE"
+  - "AKCEPTUJĘ"
+layer1_emphasised: "AKCEPTUJĘ"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 3
+m2_scrolls_refuse: 3
+m2_refuse_path:
+  - "USTAWIENIA ZAAWANSOWANE"
+  - "Zgłaszam sprzeciw wobec prawnie uzasadnionych interesów Zaufanych Partnerów IAB oraz celów opartych na prawnie uzasadnionym interesie"
+  - "POTWIERDZAM MOJE WYBORY"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 1
+m5_notes: >-
+  Druga warstwa ("Ustawienia zaawansowane", OneTrust w wariancie IAB TCF) ma 19 wlasciwych pol
+  wyboru zgody, wszystkie domyslnie wylaczone (C0002, C0003, C0004, C0005, IAB2V2_1 do _11,
+  ISF2V2_1 i _2, V2STACK42). Siedem kategorii jest oznaczonych jako "Zawsze aktywne" i nie ma
+  przy nich suwaka. Sprzeciw wobec uzasadnionego interesu jest jednym zbiorczym polem wyboru
+  (partners-legitimate-interest-checkbox) o etykiecie "Zglaszam sprzeciw wobec prawnie
+  uzasadnionych interesow Zaufanych Partnerow IAB oraz celow opartych na prawnie uzasadnionym
+  interesie" - domyslnie odznaczonym. Lezy na samym dole panelu, 1315 px w dol kontenera o
+  wysokosci widocznej 431 px, czyli 4 ekrany. Przyciski panelu: "POTWIERDZAM MOJE WYBORY",
+  "NIE WYRAZAM ZGODY" i "AKCEPTUJE".
+m4_partner_screens: null
+m4_partner_count_shown: 874
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link „Ustawienia prywatności” w stopce, x=1398, y=20798 przy wysokosci strony 20971 px, czyli
+  po okolo 23 ekranach przewijania, obok „Polityka prywatności”.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  USTALENIE KLUCZOWE. Przycisk "NIE WYRAZAM ZGODY" i faktyczna pelna odmowa daja radykalnie rozne
+  wyniki, zmierzone na tym samym serwisie w dwoch osobnych podejsciach ze stanu czystego.
+
+  Sciezka krotka - "Ustawienia zaawansowane", potem "NIE WYRAZAM ZGODY" (2 klikniecia, bez
+  przewijania): purpose.consents = {}, ale purpose.legitimateInterests ma szesc aktywnych celow
+  (2, 7, 8, 9, 10, 11), publisher.legitimateInterests dokladnie te same szesc, a liczba dostawcow
+  z aktywnym uzasadnionym interesem wynosi 333.
+
+  Sciezka pelna - "Ustawienia zaawansowane", przewiniecie panelu o trzy ekrany, zaznaczenie
+  zbiorczego sprzeciwu, "POTWIERDZAM MOJE WYBORY" (3 klikniecia, 3 przewiniecia):
+  purpose.consents = {}, purpose.legitimateInterests = {}, publisher.legitimateInterests = {},
+  a dostawcow z uzasadnionym interesem zostaje 18.
+
+  Roznica miedzy przyciskiem, ktory nazywa sie "nie wyrazam zgody", a rzeczywista odmowa to
+  wiec 333 dostawcow wobec 18 i szesc celow wydawcy wobec zera. To najostrzejsza wersja wzorca,
+  ktory widac tez na onecie i gazecie.pl. tcString po pelnej odmowie:
+  CQp9qhgQp9qhgAcABBPLCuFgAAAAAAAAAAYgAAAZOgJAA4AM-A.
+
+  METODA POROWNANIA. Pelna odmowa zostala zmierzona pierwsza, w stanie dziewiczym. Nastepnie
+  skasowano przez document.cookie ciasteczka OptanonConsent, OptanonAlertBoxClosed i
+  eupubconsent-v2 (nie sa HttpOnly), przeladowano strone - baner wrocil w pelnej postaci - i
+  zmierzono sciezke krotka. Nie jest to reset do stanu nowego uzytkownika w scislym sensie, bo
+  reszta ciasteczek zostala; odnotowuje sie to jako ograniczenie. Do pol m2 wpisano sciezke
+  pelna, zgodnie z definicja pelnej odmowy z protokolu.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Dwie akcje: "USTAWIENIA ZAAWANSOWANE" (biale wypelnienie,
+  ciemny tekst) i "AKCEPTUJE" (czarne wypelnienie rgb(17,17,17), bialy tekst). Slowo "odrzuc"
+  nie pada na pierwszej warstwie.
+
+  SCIANA ZGODY NIEPOTWIERDZONA. Po pelnej odmowie otwarto artykul ze strony glownej (relacja na
+  zywo, wyborcza.pl/14,75398,33001961.html) i wczytal sie normalnie, bez zadnego ekranu "zaplac
+  albo zaakceptuj". Na stronie sa zwykle odnosniki "Prenumerata cyfrowa", "Prenumerata papierowa"
+  i "Kup prenumerate", ale nie sa przedstawione jako alternatywa dla zgody. m7_consent_wall = false,
+  z zastrzezeniem: przetestowano jeden artykul, w dodatku bezplatna relacje na zywo. Nie
+  wykluczam, ze artykul premium zachowuje sie inaczej - do sprawdzenia w kolejnym przebiegu, gdy
+  bedzie mozna wskazac konkretny material platny. Zrzut 07-consent-wall nie powstal, bo nie bylo
+  czego dokumentowac.
+
+  874 ZAUFANYCH PARTNEROW IAB deklarowanych na pierwszej warstwie. Wyborcza i gazeta.pl naleza do
+  tej samej grupy (Agora) i uzywaja tego samego CMP, ale gazeta deklaruje 671, a wyborcza 874.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Kroki A i B
+  wykonano od razu, bez czekania na czyszczenie danych.

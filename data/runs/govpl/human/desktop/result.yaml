@@ -1,0 +1,75 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) do przebiegu 3. Krok D nie dotyczy - brak krzyzyka.
+site: "govpl"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Polityka cookies"
+  - "Odrzuć"
+  - "Spersonalizuj"
+  - "Zezwól na wszystkie"
+layer1_emphasised: "Zezwól na wszystkie"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: null
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: 1
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Spersonalizuj") ma dokladnie dwa pola wyboru: cb2-necessary (zaznaczone,
+  niezbedne) i cb2-stats (odznaczone, statystyki). Jedna kategoria opcjonalna - najmniej ze
+  wszystkich 35 badanych serwisow. Brak IAB TCF, brak OneTrust, Didomi i CookieYes - wlasny
+  mechanizm oparty o Matomo. Caly panel miesci sie na jednym ekranie. Dodatkowy przycisk
+  "Zapisz wybor".
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „Ustawienia prywatności” w stopce, y=3147 przy wysokosci strony 3505 px, tuz pod „Polityka cookies”. Strona jest krotka - to niecale cztery ekrany, wiec wejscie jest realnie osiagalne, inaczej niz na tvn24 (y=30194) czy bild (y=27770)."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  ZERO CIASTECZEK PRZED DECYZJA. Przy pierwszym wejsciu document.cookie jest calkowicie pusty,
+  localStorage i sessionStorage takze. Zaden identyfikator nie jest ustawiany, zanim uzytkownik
+  odpowie na pytanie. Razem z mBankiem i Zabka to najczystszy start w calym badaniu; przeciwienstwo
+  DOZ.pl (komplet Google Analytics przed decyzja) i x-komu (Azure Application Insights przed
+  pojawieniem sie banera).
+
+  ZGODA W LOCAL STORAGE, NIE W CIASTECZKU. Po odmowie document.cookie nadal jest pusty, a decyzja
+  laduje w localStorage: matomoConsentChoice:v2 = "declined", govplMatomoStatsConsent:v1 = "0",
+  matomoConsentId:v1 = identyfikator o dlugosci 36 znakow. To jedyny badany serwis, ktory w ogole
+  nie uzywa ciasteczka do zapisu zgody. Ma to praktyczny skutek dla metodologii: wyczyszczenie
+  samych ciasteczek nie resetuje tu stanu, trzeba wyczyscic dane witryny.
+
+  JEDNA KATEGORIA OPCJONALNA. Panel "Spersonalizuj" oferuje wybor tylko miedzy niezbednymi a
+  statystykami - jedno pole do zaznaczenia. Zadnych kategorii reklamowych, zadnej listy
+  partnerow, zadnego IAB TCF. Dla porownania lidl ma 29 pol, washingtonpost 17, tvn24 19.
+
+  ODMOWA JEDNYM KLKNIECIEM, WYROZNIONA AKCEPTACJA. Trzy akcje w jednym rzedzie, wszystkie
+  wysokosci 42 px: "Odrzuc" i "Spersonalizuj" biale z niebieskim tekstem rgb(0,82,165),
+  "Zezwol na wszystkie" niebieskie z bialym. Odmowa stoi pierwsza w kolejnosci czytania. Ten sam
+  uklad co w mBanku.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow auto scroll, baner to pasek u dolu.
+
+  UWAGA NARZEDZIOWA. Piec klkniec wspolrzednymi i jedno przez referencje elementu nie zadzialalo.
+  Skuteczne bylo dopiero ustawienie ogniska na przycisku i nacisniecie klawisza Enter - czyli
+  obsluga z klawiatury, ktora dla uzytkownika jest rownie wazna sciezka jak mysz. Dla uzytkownika
+  jest to jedna akcja i tak zapisano m2_clicks_refuse.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2. Druga warstwe otwarto i zmierzono
+  przed odmowa, po czym przeladowano strone, zeby wrocic do pierwszej warstwy. Skutecznosc odmowy
+  potwierdzono przeladowaniem strony - baner nie wrocil.

@@ -1,0 +1,136 @@
+{
+ "site": "ikea",
+ "url": "https://www.ikea.com/pl/pl/",
+ "viewport": "desktop",
+ "run_id": "20260904-140141",
+ "started_at": "2026-09-04T14:01:41",
+ "emulation": false,
+ "device": "1920x1080",
+ "headless": false,
+ "settle_ms": 10000,
+ "banner_wait_ms": 45000,
+ "layer_wait_ms": 3000,
+ "nav_timeout_ms": 60000,
+ "banner_delay_s": 10.0,
+ "banner_delay_by_state": {
+  "pre": 0.0,
+  "reject": 0.0,
+  "refuse_full": 0.0,
+  "accept": 0.0
+ },
+ "exit": {
+  "country": "PL",
+  "network": "Polish residential ISP, not a data centre"
+ },
+ "chromium": "151.0.7922.34",
+ "webdriver_flag": true,
+ "m8_cmp": "OneTrust",
+ "m8_tcf_version": null,
+ "no_banner": false,
+ "m1_reject_on_first_layer": true,
+ "m1_reject_label": "Akceptuj tylko niezbędne",
+ "m2_clicks_accept": 1,
+ "m2_accept_path": [
+  "Akceptuj wszystkie cookies"
+ ],
+ "m2_clicks_refuse": 1,
+ "m2_refuse_path": [
+  "Akceptuj tylko niezbędne"
+ ],
+ "m2_clicks_refuse_full": 2,
+ "m2_refuse_full_path": [
+  "Ustawienia cookies",
+  "Akceptuj tylko niezbędne"
+ ],
+ "li_object_found": false,
+ "m7_consent_wall": null,
+ "m7_wording": null,
+ "m7_price": null,
+ "m7_text": null,
+ "m2_refuse_blocked_by_wall": false,
+ "m9_withdraw_entry_visible": true,
+ "m9_withdraw_entry_labels": [
+  "Ustawienia plików cookie"
+ ],
+ "m2_clicks_to_wall": null,
+ "m3": null,
+ "m3_by_state": {
+  "pre": null,
+  "reject": null,
+  "refuse_full": null,
+  "accept": null
+ },
+ "m4": null,
+ "m4_method": null,
+ "m6": {
+  "pre": {
+   "cookies_first": 8,
+   "cookies_third": 0,
+   "hosts_first": [
+    "ikea.com"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "ingka.com",
+    "onetrust.com"
+   ],
+   "requests": 388
+  },
+  "reject": {
+   "cookies_first": 9,
+   "cookies_third": 0,
+   "hosts_first": [
+    "ikea.com"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "ingka.com",
+    "onetrust.com"
+   ],
+   "requests": 390
+  },
+  "refuse_full": {
+   "cookies_first": 9,
+   "cookies_third": 0,
+   "hosts_first": [
+    "ikea.com"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "ingka.com",
+    "onetrust.com"
+   ],
+   "requests": 393
+  },
+  "accept": {
+   "cookies_first": 27,
+   "cookies_third": 9,
+   "hosts_first": [
+    "ikea.com"
+   ],
+   "hosts_third": [
+    "adform.net",
+    "adnxs.com",
+    "contentsquare.net",
+    "cookielaw.org",
+    "creativecdn.com",
+    "doubleclick.net",
+    "facebook.com",
+    "google.com",
+    "google.pl",
+    "googletagmanager.com",
+    "ingka.com",
+    "loyaltypoint.pl",
+    "onetrust.com",
+    "optimizely.com",
+    "pinimg.com",
+    "pinterest.com",
+    "wedare.pl"
+   ],
+   "requests": 479
+  }
+ },
+ "discrepancy_notes": [
+  "refuse_full: no legitimate-interest objection control found; path equals reject"
+ ]
+}

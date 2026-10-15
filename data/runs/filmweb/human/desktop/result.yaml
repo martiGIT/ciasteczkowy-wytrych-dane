@@ -1,0 +1,95 @@
+# STATUS: kroki A, B wykonane. Krok C (m2_clicks_accept) i D (test X) do kolejnego przebiegu.
+site: "filmweb"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x947 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Zaufani partnerzy IAB 1019"
+  - "Dowiedz się więcej"
+  - "Akceptuję i przechodzę do serwisu"
+layer1_emphasised: "Akceptuję i przechodzę do serwisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Dowiedz się więcej"
+  - "Nie akceptuj żadnego"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Witamy na Filmweb", CMP Didomi) ma 13 celow, kazdy z para przyciskow
+  "Nie akceptuje" / "Akceptuje". Zadna z opcji nie jest wstepnie wybrana - oba przyciski w kazdej
+  parze wygladaja identycznie, a przycisk "Zapisz" jest nieaktywny z podpisem "Ustaw wszystkie
+  preferencje, aby zapisac i kontynuowac". To ten sam wzorzec co na inposcie i jeden z lepszych w
+  calym badaniu. Lista celow ma 442 px przy 125 px widocznych, czyli 4 ekrany wewnatrz panelu.
+  Brak osobnych przelacznikow uzasadnionego interesu: cele specjalne i funkcje sa wymienione
+  ciagiem tekstu ("Zezwalajac na powyzsze cele, zezwalasz rowniez tej stronie i jej partnerom na
+  przetwarzanie nastepujacych danych: Dopasowanie i laczenie danych z innych zrodel, Dostarczanie
+  i prezentowanie reklam i tresci, Identyfikacja urzadzen na podstawie informacji przesylanych
+  automatycznie, Laczenie roznych urzadzen, Zapewnienie bezpieczenstwa, zapobieganie oszustwom i
+  naprawianie bledow, oraz Zapisanie decyzji dotyczacych prywatnosci oraz informowanie o nich"),
+  bez zadnej kontrolki. Przyciski panelu: "Nie akceptuj zadnego", "Akceptuj wszystkie" i "Zapisz".
+m4_partner_screens: null
+m4_partner_count_shown: 1019
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak na stronie glownej. Baner zapowiada: „Mozesz wycofac swoja zgode lub sprzeciwic sie
+  przetwarzaniu danych, powolujac sie na prawnie uzasadniony interes w dowolnym momencie, klikajac
+  Dowiedz sie wiecej lub przechodzac do zakladki Ustawienia prywatnosci na naszym serwisie". Po
+  pelnej odmowie skan calej strony glownej (10979 px) znajduje wylacznie „Polityka prywatnosci”
+  (x=603, y=10927). Zakladki „Ustawienia prywatnosci” nie ma - byc moze jest dostepna po
+  zalogowaniu, czego nie sprawdzano, bo protokol zabrania logowania.
+close_x_present: true
+close_x_result: >-
+  Pierwsza warstwa nie ma X. Druga warstwa ma krzyzyk w prawym gornym rogu. Nie testowano jego
+  dzialania - test krzyzyka zostaje na kolejny przebieg, zeby nie zuzyc stanu poczatkowego przed
+  pomiarem sciezki odmowy. Ten sam uklad co na inposcie.
+screenshots: []
+observations: >-
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE, PRZY BARDZO SLABYM KONTRASCIE ALTERNATYWY. Dwie akcje:
+  "Dowiedz sie wiecej" - tekst w kolorze rgb(170,170,170), czyli jasnoszary na bialym tle, bez
+  ramki i bez wypelnienia - oraz "Akceptuje i przechodze do serwisu" - zolty przycisk rgb(255,194,0)
+  z czarnym tekstem, szerszy (239 px wobec 141 px). Roznica nie polega tylko na kolorze: jedna z
+  akcji jest przyciskiem, a druga ledwo widocznym napisem.
+
+  DRUGA WARSTWA NALEZY DO LEPSZYCH W BADANIU. Zadna z 13 par "Nie akceptuje / Akceptuje" nie jest
+  wstepnie wybrana, a przycisk "Zapisz" pozostaje nieaktywny, dopoki uzytkownik sam nie
+  zdecyduje o kazdym celu. Nie ma wiec zadnego ustawienia domyslnego, ktore dzialaloby na
+  korzysc serwisu. Ten sam mechanizm ma inpost - oba serwisy korzystaja z Didomi.
+
+  ODMOWA W DWOCH KLKNIECIACH, ZOSTAJE 17 DOSTAWCOW. Po "Dowiedz sie wiecej" i "Nie akceptuj
+  zadnego" odczyt TCF daje zero celow zgody, zero celow na uzasadnionym interesie i pusty
+  publisher.legitimateInterests, ale 17 dostawcow zachowuje aktywny uzasadniony interes.
+  tcString CQp9zUAQp9zUAAHABBENCuFgAAAAAAAAAB5YAAAZOgIgA. Rzad wielkosci jak na wyborcza.pl (18)
+  i washingtonpost (1 po odmowie), znacznie ponizej gazety (244) czy rmf24 przed sprzeciwem.
+
+  NAJCZYSTSZY STAN CIASTECZEK WSROD POLSKICH SERWISOW MEDIALNYCH. Przed decyzja w przegladarce
+  jest dokladnie jedno ciasteczko: didomi_token. Po pelnej odmowie sa trzy: didomi_token,
+  euconsent-v2 i g_state. Zadnego Google Analytics, zadnego piksela Meta, zadnego identyfikatora
+  reklamowego - w odroznieniu od naTemat (18 ciasteczek po odmowie, w tym _fbp i Microsoft
+  Clarity), wykopu (_ga przed decyzja) i doz.pl.
+
+  ZAPOWIEDZ WYCOFANIA ZGODY BEZ POKRYCIA NA STRONIE GLOWNEJ. Baner odsyla do "zakladki Ustawienia
+  prywatnosci na naszym serwisie". Na stronie glownej takiej zakladki nie ma; jedynym linkiem
+  tematycznym jest "Polityka prywatnosci" w stopce. Nie wykluczam, ze zakladka istnieje w panelu
+  zalogowanego uzytkownika - nie sprawdzano, bo protokol zabrania logowania.
+
+  BANER NIE BLOKUJE STRONY: body ma overflow auto scroll.
+
+  ROZBIEZNOSC ODCZYTU. W DOM znajduje sie tez przycisk "Zaakceptuj i zamknij" (zolty), ktory nie
+  jest widoczny na pierwszej warstwie - to element panelu Didomi. Do layer1_buttons wpisano
+  etykiety widoczne na zrzucie.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Kroki A i B
+  wykonano od razu.

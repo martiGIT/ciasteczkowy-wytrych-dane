@@ -1,0 +1,72 @@
+# STATUS: kroki A, B wykonane w przebiegu 2 (serwis dodany pozniej). Krok C (m2_clicks_accept) i D (test X) do przebiegu 3.
+site: "doz"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1907x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Ustawienia zaawansowane"
+  - "Akceptuję i przechodzę do serwisu"
+layer1_emphasised: "brak wyroznienia - oba przyciski maja identyczne pomaranczowe wypelnienie rgb(244,121,32) i bialy tekst, roznia sie tylko szerokoscia wynikajaca z dlugosci napisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: null
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Ustawienia zaawansowane"
+  - "Zapisz"
+m5_toggles_default_on: 1
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Twoja prywatnosc") ma trzy kategorie z licznikami: "Niezbedne 2" (wlaczone,
+  bez mozliwosci wylaczenia), "Analityczne 3" i "Marketing i reklama 8" - obie opcjonalne
+  domyslnie wylaczone. Wlaczona jest wiec tylko kategoria niezbedna. Brak mechanizmu
+  uzasadnionego interesu, brak IAB TCF (window.__tcfapi nie istnieje), brak OneTrust i Didomi -
+  wlasne rozwiazanie DOZ.pl. Przyciski panelu: "Wroc" (bialy), "Zapisz" (pomaranczowy) i
+  "Wlacz wszystko i przejdz do serwisu" (pomaranczowy). Caly panel miesci sie na jednym ekranie.
+m4_partner_screens: 0
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: "Link „Ustawienia Cookie” w stopce, y=3171 przy wysokosci strony 3394 px, czyli okolo trzech i pol ekranu w dol. Baner zapowiadal go wprost: „Zgoda na pliki cookies jest dobrowolna i mozna ja wycofac w dowolnym momencie z poziomu strony Ustawienia Cookie”."
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  GOOGLE ANALYTICS DZIALA PRZED DECYZJA I PO PELNEJ ODMOWIE. W chwili, gdy baner jest jeszcze
+  wyswietlony i uzytkownik niczego nie kliknal, w przegladarce sa juz ustawione __utma, __utmb,
+  __utmc, __utmt i __utmz, czyli komplet ciasteczek Google Analytics, oraz _snrs_sa, _snrs_sb,
+  _snrs_uuid, _snrs_puuid i _snrs_p, czyli identyfikatory platformy Synerise. Po pelnej odmowie
+  wszystkie one nadal tam sa. Odmowa zapisuje sie poprawnie w wlasnym mechanizmie DOZ
+  (user-consents: analytics_storage denied, ad_storage denied, ad_user_data denied,
+  ad_personalization denied, personalization_storage denied, external_multimedia denied,
+  functionality_storage granted), ale nie usuwa tego, co juz zostalo ustawione.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Dwie akcje: "Ustawienia zaawansowane" i "Akceptuje i
+  przechodze do serwisu". Slowo "odrzuc" nie pada nigdzie. Pelna odmowa wymaga wejscia w
+  ustawienia i klkniecia "Zapisz" - dwa klikniecia, bez przewijania, bo oba suwaki opcjonalne
+  sa juz wylaczone.
+
+  PRZYCISKI SA IDENTYCZNE, ALE TO NIE JEST ROWNOWAGA. Oba maja to samo pomaranczowe wypelnienie
+  rgb(244,121,32). Brak wyroznienia kolorem nie oznacza tu jednak rownosci wyboru, bo jedna
+  z akcji konczy sprawe zgoda, a druga tylko otwiera kolejny ekran.
+
+  DZIWNY SZCZEGOL W ZAPISIE ODMOWY. W ciasteczku user-consents pole security_storage ma wartosc
+  "denied", mimo ze w panelu kategoria "Niezbedne" jest oznaczona jako wlaczona i niemozliwa do
+  wylaczenia. Nie ustalono, czy to blad mapowania, czy swiadoma decyzja.
+
+  BANER BLOKUJE STRONE: modal na przyciemnionym tle na srodku ekranu, tresc pod spodem
+  niedostepna.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania po zakonczeniu przebiegu 1 dla pierwszych 26
+  adresow, wiec kroki A i B wykonano w trakcie przebiegu 2, w stanie po recznym wyczyszczeniu
+  wszystkich danych przegladarki. Krok C (sciezka akceptacji) i krok D (test krzyzyka) do
+  przebiegu 3.

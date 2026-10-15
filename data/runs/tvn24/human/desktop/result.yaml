@@ -1,0 +1,83 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "tvn24"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "podmioty stowarzyszone"
+  - "Polityka Prywatności"
+  - "Lista partnerów (dostawców)"
+  - "Akceptuję"
+  - "Pokaż cele"
+layer1_emphasised: "Akceptuję"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Pokaż cele"
+  - "Tylko niezbędne pliki cookie"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel "Informacje o prywatnosci" (OneTrust, wariant IAB TCF) ma 19 pol wyboru, wszystkie
+  domyslnie wylaczone. Kategoria "Zapewnienie bezpieczenstwa, zapobieganie oszustwom i naprawianie
+  bledow" jest oznaczona jako "Zawsze aktywne" i nie ma suwaka. Przy kazdym celu podana jest liczba
+  partnerow, ktorzy moga go uzyc: 149 przy przechowywaniu informacji na urzadzeniu, 161 przy
+  reklamach, 143 przy wykorzystywaniu ograniczonych danych do wyboru reklam, 72 przy personalizacji
+  tresci, 116 przy bezpieczenstwie. Przyciski panelu: "Zezwolenie na wszystkie" (u gory),
+  "Tylko niezbedne pliki cookie" i "Potwierdzenie moich wyborow" (na dole).
+m4_partner_screens: 2
+m4_partner_count_shown: 191
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia cookie' w stopce, y=30194 przy wysokosci strony 30313 px, czyli na samym
+  koncu okolo 30 ekranow.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "tvn24_desktop_01-landing_20260902.png"
+  - "tvn24_desktop_02-layer1_20260902.png"
+  - "tvn24_desktop_03-layer2-defaults_20260902.png"
+  - "tvn24_desktop_05-after-reject_20260902.png"
+observations: >-
+  PELNA ODMOWA W DWOCH KLKNIECIACH, POTWIERDZONA. "Pokaz cele", potem "Tylko niezbedne pliki
+  cookie". Odczyt TCF po zapisie: purpose.consents = {}, purpose.legitimateInterests = {}, zero
+  dostawcow z uzasadnionym interesem. tcString
+  CQp6XlgQp6XlgAcABBPLCuFwAAAAAAAAAB5YAAAAAAFhAAgADg. Ustawiaja sie OptanonAlertBoxClosed,
+  OptanonConsent i eupubconsent-v2. Oba przyciski widoczne bez przewijania, wiec
+  m2_scrolls_refuse = 0.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Baner na gorze ekranu ma tylko "Akceptuje" (granatowy,
+  wypelniony) i "Pokaz cele" (bialy, obramowany). Nie ma zadnej akcji, ktora konczylaby sprawe
+  odmowa jednym klknieciem. Warto zauwazyc roznice w obrebie tego samego CMP: OLX i otomoto,
+  rowniez na OneTrust, maja "Zezwol tylko na niezbedne" juz na pierwszej warstwie. To jest wiec
+  decyzja wydawcy, nie ograniczenie narzedzia.
+
+  BANER BLOKUJE STRONE. Nakladka .onetrust-pc-dark-filter o z-index 2147483645 przykrywa cala
+  strone, sam baner ma 185 px i siedzi na gorze.
+
+  LICZBA PARTNEROW. Baner deklaruje 161 Zaufanych Partnerow IAB oraz 30 innych Zaufanych
+  Partnerow, razem 191 - i taka liczbe wpisano do m4_partner_count_shown. To najmniej sposrod
+  duzych polskich wydawcow: onet 1173, wp 1865, interia 1984, gazeta 671. Panel preferencji ma
+  779 px przy 618 px widocznych, czyli 2 ekrany.
+
+  UWAGI METODOLOGICZNE. Zrzut 05-after-reject zrobiony po przeladowaniu strony, bo bezposrednio po
+  zamknieciu panelu Page.captureScreenshot zwracal obrazy w zlej skali. Badanie prowadzone w trzech
+  przebiegach z recznym czyszczeniem danych przegladarki miedzy przebiegami; przed przebiegiem
+  wszystkie 26 adresow zostalo raz otwartych w celu autoryzacji domen w rozszerzeniu, bez klikania
+  w baner.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 10 celow zgody, 0 UIA, 161 dostawcow ze zgoda, 0 z UIA. tcString
+  CQp6XlgQp6XlgAcABBPLCuFwAP_AAAAAAB5YI3NB...; zero UIA takze po akceptacji

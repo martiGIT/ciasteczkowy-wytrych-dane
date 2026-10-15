@@ -1,0 +1,132 @@
+{
+  "pl": {
+    "rows": 19,
+    "sites": 19,
+    "m2_accept": {
+      "median": 1,
+      "max": 1
+    },
+    "m2_refuse": {
+      "median": 2,
+      "max": 4
+    },
+    "m3_vendors_consent": {
+      "median": 715,
+      "max": 935
+    },
+    "m4_minutes": {
+      "median": 14.1,
+      "max": 33.2
+    },
+    "m6_cookies_third_accept": {
+      "median": 25,
+      "max": 417
+    },
+    "m1_true": 6,
+    "m7_true": 1
+  },
+  "nonEU": {
+    "rows": 12,
+    "sites": 12,
+    "m2_accept": {
+      "median": 1,
+      "max": 1
+    },
+    "m2_refuse": {
+      "median": 1,
+      "max": 1
+    },
+    "m3_vendors_consent": {
+      "median": 111,
+      "max": 877
+    },
+    "m4_minutes": {
+      "median": 5,
+      "max": 10.15
+    },
+    "m6_cookies_third_accept": {
+      "median": 0,
+      "max": 129
+    },
+    "m1_true": 10,
+    "m7_true": 0
+  },
+  "eu": {
+    "rows": 6,
+    "sites": 6,
+    "m2_accept": {
+      "median": 1,
+      "max": 1
+    },
+    "m2_refuse": {
+      "median": 1,
+      "max": 1
+    },
+    "m3_vendors_consent": {
+      "median": 154,
+      "max": 216
+    },
+    "m4_minutes": {
+      "median": 15,
+      "max": 15
+    },
+    "m6_cookies_third_accept": {
+      "median": 5.5,
+      "max": 146
+    },
+    "m1_true": 4,
+    "m7_true": 1
+  },
+  "pl_daily": {
+    "rows": 11,
+    "sites": 11,
+    "m2_accept": {
+      "median": 1,
+      "max": 1
+    },
+    "m2_refuse": {
+      "median": 1,
+      "max": 2
+    },
+    "m3_vendors_consent": {
+      "median": 3,
+      "max": 6
+    },
+    "m4_minutes": {
+      "median": 2.9,
+      "max": 17.7
+    },
+    "m6_cookies_third_accept": {
+      "median": 1,
+      "max": 29
+    },
+    "m1_true": 8,
+    "m7_true": 0
+  },
+  "inst": {
+    "rows": 2,
+    "sites": 2,
+    "m2_accept": {
+      "median": null,
+      "max": null
+    },
+    "m2_refuse": {
+      "median": 1,
+      "max": 1
+    },
+    "m3_vendors_consent": {
+      "median": null,
+      "max": null
+    },
+    "m4_minutes": {
+      "median": null,
+      "max": null
+    },
+    "m6_cookies_third_accept": {
+      "median": 0,
+      "max": 0
+    },
+    "m1_true": 2,
+    "m7_true": 0
+  }
+}

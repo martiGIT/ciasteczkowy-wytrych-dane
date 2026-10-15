@@ -1,0 +1,115 @@
+# One file per site and viewport: data/runs/<site>/human/<viewport>/result.yaml
+# STATUS: kroki A, B i D wykonane. Krok C (sciezka akceptacji, m9) do uzupelnienia w przebiegu 2.
+site: "onet"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "ekran 2560x1440 CSS px (3840x2160 fiz. @150%), okno Chrome viewport 1416x912 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Ustawienia zaawansowane"
+  - "Przejdź do serwisu"
+layer1_emphasised: "Przejdź do serwisu"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 3
+m2_scrolls_refuse: 8
+m2_refuse_path:
+  - "Ustawienia zaawansowane"
+  - "suwak zbiorczy UIA w sekcji „Sprzeciw na UIA Zaufanych Partnerów”"
+  - "Zapisz i zamknij"
+m5_toggles_default_on: 7
+m5_li_toggles_separate: 7
+m5_notes: >-
+  Druga warstwa ma 25 przelacznikow w sekcjach: Cele przetwarzania danych przez Wydawce (RASP),
+  Cele, Cele specjalne, Funkcje, Funkcje specjalne. Wszystkie przelaczniki zgody sa domyslnie
+  wylaczone i opisane slowem "Nieaktywna". Wlaczonych domyslnie jest dokladnie 7 i wszystkie 7 to
+  przelaczniki oznaczone "UIA" (uzasadniony interes administratora). Jeden z nich, w sekcji
+  "Sprzeciw na UIA Zaufanych Partnerow", jest zbiorczy: jego przelaczenie gasi pozostale szesc
+  oraz wszystkie indywidualne suwaki UIA przy 1173 partnerach. Dzieki temu pelna odmowa kosztuje
+  3 klikniecia, a nie 9. Suwak zbiorczy lezy 2997 px w dol wewnetrznego kontenera przewijania,
+  czyli okolo 8 pelnych ekranow ponizej poczatku drugiej warstwy, i nie ma zadnego odnosnika ani
+  skrotu, ktory by do niego prowadzil.
+m4_partner_screens: 104
+m4_partner_count_shown: 1173
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Skan calej strony (12863 px) po akceptacji: jedyne trafienie to link 'Prywatnosc' w
+  stopce, czyli polityka prywatnosci, nie ustawienia cookies. Brak plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”. Jedyne wyjscia to „Przejdz do serwisu” albo druga warstwa."
+screenshots:
+  - "onet_desktop_01-landing_20260902.png"
+  - "onet_desktop_02-layer1_20260902.png"
+  - "onet_desktop_03-layer2-defaults_20260902.png"
+  - "onet_desktop_04-partners-p1_20260902.png"
+  - "onet_desktop_04-partners-end_20260902.png"
+  - "onet_desktop_05-after-reject_20260902.png"
+  - "onet_desktop_90-extra-uia-domyslnie-wlaczone_20260902.png"
+  - "onet_desktop_90-extra-uia-po-sprzeciwie_20260902.png"
+  - "onet_desktop_90-extra-po-nie-wyrazam-zgody_20260902.png"
+observations: >-
+  USTALENIE 1. Po pelnej odmowie (3 klikniecia, wszystkie suwaki zgody wylaczone, zbiorczy sprzeciw
+  UIA zlozony, zapisane przez "Zapisz i zamknij") TC string nadal deklaruje zgode na cel 1.
+  Odczyt przez __tcfapi getTCData v2 daje purpose.consents = {1: true} oraz
+  publisher.consents = {1: true}, przy purpose.legitimateInterests = {} i zerowej liczbie zgod
+  oraz UIA dla dostawcow. Niezalezne zdekodowanie tcString potwierdza: PurposesConsent = [1],
+  PurposesLITransparency = [], SpecialFeatureOptIns = [], PurposeOneTreatment = 0.
+  Pelny tcString: CQp6gYAQp6gYAEYACAENCtFgAIAAAAAAAB5YMxQAAZigAAAA (cmpId 280, cmpVersion 2).
+  Innymi slowy interfejs pokazuje uzytkownikowi wszystkie zgody wylaczone, a sygnal wysylany do
+  rynku reklamowego niesie zgode na cel 1, czyli przechowywanie informacji na urzadzeniu lub
+  dostep do nich.
+
+  USTALENIE 2. Po tej samej pelnej odmowie publisher.legitimateInterests = {1:false, 2:false,
+  3:false, 4:false, 5:true, 6:true, 7:false, 8:true, 9:true, 10:true}. Wydawca zachowuje wiec
+  uzasadniony interes dla celow 5, 6, 8, 9 i 10 (tworzenie i uzywanie profili do personalizacji
+  tresci, pomiar efektywnosci tresci, statystyki odbiorcow, rozwoj uslug), mimo ze suwak zbiorczego
+  sprzeciwu UIA zostal przelaczony i zapisany.
+
+  USTALENIE 3. Przycisk "Nie wyrazam zgody" na drugiej warstwie NIE daje pelnej odmowy. Po dwoch
+  klknieciach (Ustawienia zaawansowane, Nie wyrazam zgody) baner znika i strona jest uzywalna, ale
+  purpose.legitimateInterests = {1:false, 2:true, 3:false, 4:false, 5:false, 6:false, 7:true,
+  8:true, 9:true, 10:true, 11:true}, czyli szesc celow na uzasadnionym interesie zostaje aktywnych.
+  Uzytkownik, ktory klika przycisk o nazwie "Nie wyrazam zgody", dostaje wiec wynik istotnie
+  slabszy niz ten, ktory znajdzie i przelaczy ukryty 8 ekranow nizej suwak zbiorczy.
+  Zrzut: onet_desktop_90-extra-po-nie-wyrazam-zgody_20260902.png.
+
+  PIERWSZA WARSTWA. Brak jakiejkolwiek akcji odmowy. Dwa przyciski: "Ustawienia zaawansowane"
+  (bialy, obramowany) i "Przejdz do serwisu" (zolty, kolor marki). Slowo "zgoda" nie pada w
+  etykiecie akceptacji: przycisk mowi "Przejdz do serwisu", a dopiero tekst nad nim wyjasnia, ze
+  klikniecie go jest udzieleniem zgody. Etykiety w DOM sa zapisane mieszana wielkoscia liter i
+  renderuja sie wersalikami (CSS text-transform: uppercase); w polu layer1_buttons zapisano wersje
+  z DOM. Baner blokuje strone: body i html maja overflow: hidden, tresc za banerem jest
+  przyciemniona. Brak przycisku X.
+
+  LICZBY PARTNEROW. Pierwsza warstwa deklaruje 1013 Zaufanych Partnerow IAB i 332 innych Zaufanych
+  Partnerow. Druga warstwa przy celu "Przechowywanie informacji na urzadzeniu lub dostep do nich"
+  podaje "Liczba partnerow: 1173" i taka liczbe wpisano do m4_partner_count_shown, bo to ona stoi
+  bezposrednio nad lista, ktora faktycznie przewijalem.
+
+  METODA POMIARU EKRANOW. Modal ma wlasne kontenery przewijania, wiec PgDn nie przewija strony.
+  Kontener listy partnerow (.cmp-vendors_vendors) ma scrollHeight 42306 px przy clientHeight 408 px,
+  co daje 104 pelne ekrany. Lista celow (.cmp-purposes_purposeDescription) to 8552 px przy 423 px
+  widocznych, czyli 21 ekranow. Wartosci policzone jako ceil(scrollHeight/clientHeight) z odczytu
+  DOM; sekcja 2 protokolu dopuszcza wartosc przyblizona zaokraglona w gore. m2_scrolls_refuse = 8
+  to odleglosc od poczatku drugiej warstwy do suwaka zbiorczego UIA (2997 px / 423 px).
+
+  UWAGI METODOLOGICZNE. Reset miedzy sciezkami: ciasteczka zgody lpubconsent i leuconsent sa
+  HttpOnly, wiec czyszczenie przez document.cookie ich nie usuwa. Badanie prowadzone jest w trzech
+  przebiegach przez cala liste serwisow, z recznym wyczyszczeniem danych przegladarki miedzy
+  przebiegami, zamiast resetu po kazdej sciezce. Efekt jest rownowazny, bo kazdy serwis w danym
+  przebiegu odwiedzany jest raz, ze stanu nowego uzytkownika. Ten wynik pochodzi z przebiegu 1
+  (kroki A i B) plus krok D rozstrzygniety obserwacyjnie, bo baner nie ma X.
+  CMP potrzebuje okolo 10 sekund od zaladowania strony, zanim klikniecia zaczynaja dzialac;
+  wczesniejsze klikniecia sa gubione przy przemontowaniu komponentu.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 6 UIA, 1013 dostawcow ze zgoda, 810 z UIA.

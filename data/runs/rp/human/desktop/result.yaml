@@ -1,0 +1,112 @@
+# STATUS: kroki A, B, C wykonane. Krok D nie dotyczy - brak krzyzyka. UWAGA: pomiar poprawiony po pierwszym bledzie - patrz observations.
+site: "rp"
+viewport: "desktop"
+date: "2026-09-03"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1909x947 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "tutaj"
+  - "Lista partnerów (dostawców)"
+  - "Nie wyrażam zgody"
+  - "Ustawienia zaawansowane"
+  - "Akceptuję"
+layer1_emphasised: "Akceptuję"
+m1_reject_on_first_layer: true
+m1_reject_label: "Nie wyrażam zgody"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 4
+m2_refuse_path:
+  - "Nie wyrażam zgody"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Zaawansowane ustawienia", CMP consentmanager.net) to lista rozwijanych kategorii:
+  "Przechowywanie informacji na urzadzeniu lub dostep do nich", "Uzycie dokladnych danych
+  geolokalizacyjnych", "Identyfikowanie urzadzen na podstawie aktywnie zadanych informacji",
+  "Niezbedne", "Marketing", "Ustawienia", "Inne". Po rozwinieciu kategorii pokazuje sie tabela
+  "Cel" i "Dostawcy", gdzie kazda pozycja ma wlasny przelacznik z podpisem "Nieaktywny" (czerwony,
+  wylaczony). Wszystkie sprawdzone przelaczniki byly domyslnie wylaczone. Panel siedzi w ramce z
+  innej domeny, wiec nie da sie odczytac DOM i policzyc ich dokladnie - liczby ustalono z
+  obserwacji. Panel ma tylko jeden przycisk: "Powrot". Nie ma ani "zapisz", ani "odrzuc wszystko",
+  ani "potwierdz moje wybory" - druga warstwa nie pozwala niczego zatwierdzic.
+m4_partner_screens: null
+m4_partner_count_shown: 1094
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po pelnej odmowie skan calej strony (9074 px) znajduje wylacznie „Polityka Prywatności”
+  (x=424, y=8793). Baner odsyla do „strony polityki prywatnosci”, a nie do panelu ustawien; nie ma
+  tez plywajacej ikony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots: []
+observations: >-
+  USTALENIE KLUCZOWE. ODMOWA JEST NA PIERWSZEJ WARSTWIE, ALE SCHOWANA WEWNATRZ PRZEWIJANEGO
+  AKAPITU. W rzedzie przyciskow na dole banera sa tylko dwie akcje: "Ustawienia zaawansowane"
+  (bialy, zielony tekst rgb(52,110,74)) i "Akceptuje" (zielone wypelnienie, bialy tekst).
+  Przycisk odmowy - zielony, z napisem "Nie wyrazam zgody" - nie znajduje sie w tym rzedzie,
+  tylko wewnatrz ramki z tekstem informacyjnym, ktora ma wlasny pasek przewijania. Ramka ma 280 px
+  wysokosci widocznej przy 1394 px tresci, a przycisk lezy 1352 px od jej gory, czyli praktycznie
+  na samym dnie. Zeby go zobaczyc, trzeba przewinac zawartosc ramki o cztery pelne ekrany, przy
+  czym kolko myszy nad ramka przewija strone pod banerem, a nie ramke - trzeba trafic w jej waski
+  pasek przewijania. Element w DOM: A.cmpboxbtn.cmpboxbtnno.
+
+  Dla uzytkownika oznacza to: akceptacja jest jednym klknieciem w widocznym przycisku, a odmowa
+  wymaga zorientowania sie, ze akapit ma pasek przewijania, przewiniecia go do konca i dopiero
+  wtedy klkniecia. Stad m2_clicks_refuse = 1 przy m2_scrolls_refuse = 4. Poza onetem (3 klikniecia
+  i 8 przewiniec) to najwyzszy koszt przewijania w calym badaniu, i jedyny przypadek, w ktorym
+  odmowa jest ukryta wewnatrz tresci, a nie ponizej niej.
+
+  ODMOWA DZIALA CZYSTO. Po klknieciu odczyt TCF daje zero we wszystkich polach: zero celow zgody,
+  zero celow na uzasadnionym interesie, pusty publisher.legitimateInterests, zero dostawcow ze
+  zgoda i zero z uzasadnionym interesem. tcString CQp9qhgQp9qhgAfY5BPLCuFgAAAAAAAAAB5YAAAYCgJgA.
+  Baner znika, body wraca z overflow hidden do auto.
+
+  AKCEPTACJA WLACZA WSZYSTKO, MIMO ZE PRZELACZNIKI POKAZUJA "NIEAKTYWNY". Klikniecie "Akceptuje"
+  bez dotykania czegokolwiek w panelu zaawansowanym daje: 11 celow zgody, 6 celow na uzasadnionym
+  interesie, 915 dostawcow ze zgoda i 915 dostawcow z uzasadnionym interesem. Stan przelacznikow
+  widoczny w panelu nie ma wiec przelozenia na to, co zostaje zapisane, o ile uzytkownik ich sam
+  nie przestawi - tego nie testowano.
+
+  DRUGA WARSTWA NIE MA CZYM ZATWIERDZIC. Panel "Zaawansowane ustawienia" ma jeden przycisk:
+  "Powrot". Nie ma "zapisz", nie ma "odrzuc wszystko". Instrukcja w panelu brzmi: "Masz prawo
+  sprzeciwic sie przetwarzaniu. Aby to zrobic, kliknij Ustawienia zaawansowane, nastepnie
+  dezaktywuj odpowiedniego dostawce" - przy 1094 dostawcach i bez przycisku zapisu.
+
+  ZGODA W LOCAL STORAGE, NIE TYLKO W CIASTECZKU. Decyzja zapisuje sie w localStorage pod kluczami
+  __cmpconsentx167593_.rp.pl i __cmpcccx167593_.rp.pl, obok ciasteczek o tych samych nazwach.
+  Skasowanie samych ciasteczek nie przywraca banera - trzeba wyczyscic takze localStorage. To
+  drugi taki przypadek w badaniu po gov.pl.
+
+  CIASTECZKA PRZED DECYZJA: __rppl_uid, __gfp_64b, smuuid, _ga, ___nrbi, compass_uid, _cc_id,
+  cto_bundle (Criteo), _gcl_au (Google Ads), ___nrbic, __gads, __gpi, __eoi, smvr,
+  _ga_SSW1TBTVLD, _ga_Q5M7845HMR. Google Analytics, Google Ads i Criteo sa wiec ustawione, zanim
+  uzytkownik cokolwiek kliknie.
+
+  BANER BLOKUJE STRONE: body ma overflow hidden do momentu decyzji. Tresc pod banerem daje sie
+  przewijac kolkiem myszy, ale to wlasnie ta wlasciwosc utrudnia przewiniecie ramki z tekstem
+  wewnatrz banera.
+
+  SPROSTOWANIE WLASNEGO BLEDU. W pierwszym podejsciu zapisalem, ze rp.pl nie ma zadnej akcji
+  odmowy, i zostawilem m2_clicks_refuse puste. To bylo bledne. Probowalem przewinac ramke z
+  tekstem, przewinela sie strona pod banerem, i uznalem widoczny rzad przyciskow za komplet.
+  Blad wskazal zlecajacy, przysylajac zrzut z widocznym przyciskiem. Pomiar powtorzono: skasowano
+  ciasteczka i klucze localStorage CMP, przeladowano strone, baner wrocil w pelnej postaci i
+  sciezke odmowy zmierzono od nowa. Wartosci w polach m1 i m2 pochodza z tego powtorzonego
+  pomiaru.
+
+  UWAGI METODOLOGICZNE. Serwis dodany do badania 3 wrzesnia, w stanie dziewiczym. Kolejnosc byla
+  nietypowa: najpierw akceptacja (krok C), bo w pierwszym, blednym podejsciu wygladalo to na
+  jedyna dostepna akcje, potem reset przez skasowanie ciasteczek i localStorage CMP i wlasciwy
+  pomiar odmowy (krok B). Reset nie jest resetem do stanu nowego uzytkownika w scislym sensie -
+  pozostale ciasteczka zostaly. Do przewiniecia ramki z tekstem uzyto ustawienia scrollTop przez
+  JavaScript, bo kolko myszy przewijalo strone pod banerem; samo klikniecie w przycisk odmowy bylo
+  zwyklym klknieciem wspolrzednymi.

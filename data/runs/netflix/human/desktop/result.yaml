@@ -1,0 +1,73 @@
+# STATUS: kroki A, B, C wykonane. Krok D (test krzyzyka X) do przebiegu 3.
+site: "netflix"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "plików cookie i podobnych technologii"
+  - "Więcej informacji"
+  - "Odrzuć"
+  - "Zaakceptuj"
+  - "X (zamknij)"
+layer1_emphasised: "brak wyroznienia - „Odrzuć” i „Zaakceptuj” maja identyczne czerwone wypelnienie rgb(229,9,20), kolor marki"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Pierwsza akcja "Wiecej informacji" prowadzi do drugiej warstwy, ktorej nie
+  otwierano, bo odmowa dostepna jest jednym klknieciem. Do uzupelnienia w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Dwa osobne wejscia w stopce: 'Ustawienia plikow cookie' (y=2727) i 'Ustawienia reklam'
+  (y=2760), przy wysokosci strony 3075 px - okolo trzech ekranow.
+close_x_present: true
+close_x_result: >-
+  Niesprawdzone. Baner ma krzyzyk w prawym gornym rogu, ale go nie klikano: na reddit.com
+  klikniecie X okazalo sie zapisem decyzji i zuzylo stan nowego uzytkownika przed pomiarem odmowy.
+  Zeby nie powtorzyc tego bledu, na Netflixie wykonano najpierw krok B. Test X nalezy do przebiegu 3.
+screenshots:
+  - "netflix_desktop_01-landing_20260902.png"
+  - "netflix_desktop_02-layer1_20260902.png"
+  - "netflix_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE, ODMOWA PIERWSZA. "Odrzuc" i "Zaakceptuj" maja to
+  samo czerwone wypelnienie rgb(229,9,20), czyli kolor marki Netflixa, te sama wysokosc i podobna
+  szerokosc. "Odrzuc" stoi PO LEWEJ, czyli pierwszy w kolejnosci czytania - to rzadkie, wiekszosc
+  serwisow stawia akceptacje pierwsza albo po prawej w miejscu domyslnego klikniecia. Trzeci
+  przycisk, "Wiecej informacji", jest bialy.
+
+  BANER NIE BLOKUJE STRONY. Pasek u gory na bialym tle, tresc pod nim jest widoczna i klikalna,
+  body ma overflow visible.
+
+  BANER MA X. Krzyzyk w prawym gornym rogu paska. Jego dzialania nie testowano w tym przebiegu -
+  patrz close_x_result.
+
+  BRAK MOZLIWOSCI ODCZYTU STANU. Netflix nie ma IAB TCF. Proba odczytania wartosci ciasteczka
+  OptanonConsent zostala zablokowana przez filtr narzedzia, wiec skutecznosc odmowy potwierdza
+  tylko zniknicie banera.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie i nie wykupiono zadnej subskrypcji.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF (OneTrust bez wariantu IAB). akceptacja jednym klknieciem. 'Odrzuc' i
+  'Zaakceptuj' to dwa identyczne czerwone przyciski obok siebie, trzecia akcja 'Wiecej
+  informacji' biala z obramowaniem. Baner ma tez krzyzyk X w prawym gornym rogu - jego test
+  zostaje na przebieg 3.

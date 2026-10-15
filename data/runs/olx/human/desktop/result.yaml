@@ -1,0 +1,87 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+# Brak zrzutu 03-layer2-defaults i 04-partners (powod w observations).
+site: "olx"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Polityka cookies,"
+  - "Polityka Prywatności"
+  - "Lista partnerów (dostawców)"
+  - "Akceptuj wszystkie"
+  - "Akceptuj niezbędne"
+  - "Ustaw preferencje"
+layer1_emphasised: "brak wyroznienia miedzy „Akceptuj wszystkie” a „Akceptuj niezbędne” - oba ciemne, wypelnione, tej samej wielkosci"
+m1_reject_on_first_layer: true
+m1_reject_label: "Akceptuj niezbędne"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Akceptuj niezbędne"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Panel preferencji OneTrust ("Ustaw preferencje") ma 25 pol wyboru i wszystkie sa domyslnie
+  wylaczone. Nie znaleziono osobnych przelacznikow uzasadnionego interesu jako oddzielnych
+  kontrolek. Przyciski panelu: "Zezwolenie na wszystkie", "Odrzucenie wszystkich",
+  "Potwierdzenie moich wyborow". Kontener panelu ma 719 px przy 618 px widocznych, czyli 2 ekrany.
+m4_partner_screens: null
+m4_partner_count_shown: 446
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia plikow cookie' w stopce, y=4548 przy wysokosci strony 4746 px.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "olx_desktop_01-landing_20260902.png"
+  - "olx_desktop_02-layer1_20260902.png"
+  - "olx_desktop_05-after-reject_20260902.png"
+observations: >-
+  NAJCZYSTSZY WYNIK W CALEJ DOTYCHCZASOWEJ PROBIE. Jedno klikniecie w "Akceptuj niezbedne" na
+  pierwszej warstwie daje pelna odmowe potwierdzona odczytem TCF: purpose.consents = {},
+  purpose.legitimateInterests = {}, zero zgod i zero uzasadnionych interesow dla dostawcow.
+  tcString CQp6XlgQp6XlgAcABBPLCuFwAAAAAAAAAAYgAAAAAAFBACIADg. Ustawiaja sie ciasteczka
+  OptanonAlertBoxClosed, OptanonConsent i eupubconsent-v2, baner znika, strona dziala.
+  Zero przewijania.
+
+  ETYKIETA NIE MOWI "ODRZUC". Przycisk odmowy nazywa sie "Akceptuj niezbedne", a nie "Odrzuc
+  wszystkie". Uzytkownik szukajacy slowa "odrzuc" nie znajdzie go na pierwszej warstwie - pojawia
+  sie dopiero w panelu preferencji, jako "Odrzucenie wszystkich". Mimo to oba przyciski na
+  pierwszej warstwie maja identyczny styl: ciemnozielone wypelnienie, biala czcionka, ta sama
+  szerokosc, ulozone jeden pod drugim. Trzeci, "Ustaw preferencje", jest bialy z obramowaniem.
+
+  BANER BLOKUJE STRONE. Nakladka .onetrust-pc-dark-filter o wymiarach 1891x986 px i z-index
+  2147483645 przykrywa cala strone, sam baner ma 210 px wysokosci i siedzi na dole. CMP to
+  OneTrust w wariancie IAB TCF v2 (klasa ot-iab-2).
+
+  CMP POTRZEBUJE CHWILI. Pierwsze klikniecie w "Akceptuj niezbedne", wykonane okolo 10 sekund po
+  zaladowaniu, nie zadzialalo. Drugie, kilkanascie sekund pozniej, zadzialalo od razu. To trzeci
+  serwis z rzedu (po onecie i allegro) z tym samym zachowaniem. Do m2_clicks_refuse wpisano 1,
+  bo nieskuteczne klikniecie nie liczy sie zgodnie z sekcja 2 protokolu.
+
+  LISTA PARTNEROW NIEZMIERZONA. Baner deklaruje 446 partnerow i ma odnosnik "Lista partnerow
+  (dostawcow)". Nie udalo sie otworzyc tej listy z poziomu panelu preferencji w rozsadnej liczbie
+  prob, a karta w tym czasie kilkakrotnie przestawala odpowiadac na zadania zrzutu ekranu.
+  m4_partner_screens zostaje null; liczba 446 pochodzi z tekstu banera.
+
+  ZRZUTY DRUGIEJ WARSTWY. Po otwarciu panelu preferencji Page.captureScreenshot znowu zaczal
+  wygasac po 30 sekundach albo zwracac obraz w zlej skali - to samo, co na wp.pl i interii.
+  Wszystkie liczby pochodza z odczytu DOM. Zrzut 03-layer2-defaults trzeba dorobic recznie.
+
+  UWAGI METODOLOGICZNE. Druga warstwa zmierzona osobno przed sciezka odmowy, potem przeladowanie
+  strony i wlasciwa sciezka jednym klknieciem. Badanie prowadzone w trzech przebiegach z recznym
+  czyszczeniem danych przegladarki miedzy przebiegami. Przed przebiegiem wszystkie 26 adresow
+  zostalo raz otwartych w celu autoryzacji domen w rozszerzeniu, bez klikania w baner.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 0 UIA, 433 dostawcow ze zgoda, 0 z UIA.

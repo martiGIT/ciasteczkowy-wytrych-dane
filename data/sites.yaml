@@ -1,0 +1,50 @@
+- {slug: onet, name: "Onet", group: pl, url: "https://www.onet.pl/"}
+- {slug: wp, name: "WP", group: pl, url: "https://www.wp.pl/"}
+- {slug: interia, name: "Interia", group: pl, url: "https://www.interia.pl/"}
+- {slug: allegro, name: "Allegro", group: pl, url: "https://allegro.pl/"}
+- {slug: olx, name: "OLX", group: pl, url: "https://www.olx.pl/"}
+- {slug: otomoto, name: "Otomoto", group: pl, url: "https://www.otomoto.pl/"}
+- {slug: gazeta, name: "Gazeta.pl", group: pl, url: "https://www.gazeta.pl/"}
+- {slug: tvn24, name: "TVN24", group: pl, url: "https://tvn24.pl/"}
+- {slug: inpost, name: "InPost", group: pl, url: "https://inpost.pl/"}
+- {slug: xkom, name: "x-kom", group: pl, url: "https://www.x-kom.pl/"}
+- {slug: wykop, name: "Wykop", group: pl, url: "https://wykop.pl/"}
+- {slug: youtube, name: "YouTube", group: nonEU, url: "https://www.youtube.com/"}
+- {slug: facebook, name: "Facebook", group: nonEU, url: "https://www.facebook.com/"}
+- {slug: tiktok, name: "TikTok", group: nonEU, url: "https://www.tiktok.com/"}
+- {slug: amazon, name: "Amazon.de", group: nonEU, url: "https://www.amazon.de/"}
+- {slug: msn, name: "MSN", group: nonEU, url: "https://www.msn.com/pl-pl"}
+- {slug: apple, name: "Apple", group: nonEU, url: "https://www.apple.com/pl/"}
+- {slug: reddit, name: "Reddit", group: nonEU, url: "https://www.reddit.com/"}
+- {slug: linkedin, name: "LinkedIn", group: nonEU, url: "https://www.linkedin.com/"}
+- {slug: wapo, name: "Washington Post", group: nonEU, url: "https://www.washingtonpost.com/"}
+- {slug: netflix, name: "Netflix", group: nonEU, url: "https://www.netflix.com/pl/"}
+- {slug: chatgpt, name: "ChatGPT", group: nonEU, url: "https://chatgpt.com/"}
+- {slug: bild, name: "Bild.de", group: eu, url: "https://www.bild.de/"}
+- {slug: spotify, name: "Spotify", group: eu, url: "https://open.spotify.com/"}
+- {slug: zalando, name: "Zalando", group: eu, url: "https://www.zalando.pl/"}
+- {slug: booking, name: "Booking.com", group: eu, url: "https://www.booking.com/"}
+- {slug: ikea, name: "IKEA", group: eu, url: "https://www.ikea.com/pl/pl/"}
+- {slug: rmf24, name: "RMF24", group: pl, url: "https://www.rmf24.pl/"}
+- {slug: wyborcza, name: "Wyborcza.pl", group: pl, url: "https://wyborcza.pl/"}
+- {slug: rp, name: "Rzeczpospolita", group: pl, url: "https://www.rp.pl/"}
+- {slug: ceneo, name: "Ceneo", group: pl, url: "https://www.ceneo.pl/"}
+- {slug: natemat, name: "naTemat", group: pl, url: "https://natemat.pl/"}
+- {slug: filmweb, name: "Filmweb", group: pl, url: "https://www.filmweb.pl/"}
+- {slug: doz, name: "DOZ.pl", group: pl_daily, url: "https://www.doz.pl/"}
+- {slug: gemini, name: "Gemini", group: pl_daily, url: "https://gemini.pl/"}
+- {slug: biedronka, name: "Biedronka", group: pl_daily, url: "https://www.biedronka.pl/"}
+- {slug: lidl, name: "Lidl", group: pl_daily, url: "https://www.lidl.pl/"}
+- {slug: rossmann, name: "Rossmann", group: pl_daily, url: "https://www.rossmann.pl/"}
+- {slug: zabka, name: "Żabka", group: pl_daily, url: "https://www.zabka.pl/"}
+- {slug: mbank, name: "mBank", group: pl_daily, url: "https://www.mbank.pl/"}
+- {slug: ec, name: "European Commission", group: inst, url: "https://commission.europa.eu/"}
+- {slug: govpl, name: "gov.pl", group: inst, url: "https://www.gov.pl/"}
+- {slug: tvrepublika, name: "TV Republika", group: pl, url: "https://tvrepublika.pl/"}
+- {slug: tvpinfo, name: "TVP Info", group: pl, url: "https://www.tvp.info/"}
+- {slug: ing, name: "ING", group: pl_daily, url: "https://www.ing.pl/"}
+- {slug: alior, name: "Alior Bank", group: pl_daily, url: "https://www.aliorbank.pl/"}
+- {slug: empik, name: "Empik", group: pl_daily, url: "https://www.empik.com/"}
+- {slug: pyszne, name: "Pyszne.pl", group: pl_daily, url: "https://www.pyszne.pl/"}
+- {slug: ryanair, name: "Ryanair", group: eu, url: "https://www.ryanair.com/pl/pl/"}
+- {slug: wikipedia, name: "Wikipedia", group: nonEU, url: "https://pl.wikipedia.org/"}

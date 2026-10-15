@@ -1,0 +1,84 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "inpost"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "Polityce cookies"
+  - "Zobacz naszych partnerów"
+  - "ODRZUĆ WSZYSKO"
+  - "DOSTOSUJ"
+  - "ZAAKCEPTUJ WSZYSTKO"
+layer1_emphasised: "ZAAKCEPTUJ WSZYSTKO"
+m1_reject_on_first_layer: true
+m1_reject_label: "ODRZUĆ WSZYSKO"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "ODRZUĆ WSZYSKO"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: 0
+m5_notes: >-
+  Druga warstwa ("Ustawienia prywatnosci", Didomi) ma tylko trzy pozycje: Analityczne pliki cookie
+  i Marketingowe pliki cookie, kazda z para przyciskow NIE / TAK, oraz Niezbedne pliki cookie
+  oznaczone jako WYMAGANE bez zadnej kontrolki. Zadna z opcji nie jest wstepnie zaznaczona: obie
+  pary NIE/TAK sa puste, a przycisk "Zapisz moje ustawienia" jest nieaktywny z podpisem "Ustaw
+  wszystkie preferencje, aby zapisac i kontynuowac". Brak mechanizmu uzasadnionego interesu -
+  InPost nie implementuje IAB TCF (window.__tcfapi nie istnieje).
+m4_partner_screens: 0
+m4_partner_count_shown: 16
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Pokaz ustawienia cookie' w stopce, y=2420 przy wysokosci strony 2471 px - strona jest
+  krotka, wiec to okolo 2,5 ekranu.
+close_x_present: true
+close_x_result: >-
+  Pierwsza warstwa nie ma X. Druga warstwa ("Ustawienia prywatnosci") ma w prawym gornym rogu
+  krzyzyk zamykajacy. Nie testowano jego dzialania w tym przebiegu, bo krok D dotyczy X na
+  pierwszej warstwie; do sprawdzenia w przebiegu 3.
+screenshots:
+  - "inpost_desktop_01-landing_20260902.png"
+  - "inpost_desktop_02-layer1_20260902.png"
+  - "inpost_desktop_03-layer2-defaults_20260902.png"
+  - "inpost_desktop_05-after-reject_20260902.png"
+observations: >-
+  LITEROWKA W ETYKIECIE ODMOWY. Przycisk odmowy nazywa sie doslownie "ODRZUC WSZYSKO", bez litery
+  T w slowie "wszystko". Odczytane z DOM i widoczne na zrzucie. Przycisk akceptacji obok jest
+  napisany poprawnie: "ZAAKCEPTUJ WSZYSTKO". Warto to zacytowac w raporcie: firma dopilnowala
+  pisowni tam, gdzie zalezy jej na klknieciu.
+
+  ODMOWA JEDNYM KLKNIECIEM, ALE TRZECH DOSTAWCOW ZOSTAJE. "Odrzuc wszysko" wylacza obie opcjonalne
+  kategorie (analityczna i marketingowa) i 13 dostawcow, ale w tokenie Didomi po odmowie zostaje
+  3 dostawcow w stanie enabled. Odczyt z ciasteczka didomi_token: purposes.disabled zawiera
+  analityczn-7QtTiiGG i marketing-eERpaUy4, vendors.enabled = 3, vendors.disabled = 13.
+  Prawdopodobnie chodzi o dostawcow niezbednych, ale CMP tego nie wyjasnia w interfejsie.
+
+  WYROZNIENIE PRZYCISKOW. "ZAAKCEPTUJ WSZYSTKO" jest zolty (kolor marki InPost), "ODRZUC WSZYSKO"
+  i "DOSTOSUJ" sa szare, w odcieniach rgb(224,224,224) i rgb(238,238,238). Wszystkie trzy maja
+  podobna wielkosc, ale tylko akceptacja ma kolor.
+
+  BANER BLOKUJE STRONE. Nakladka didomi-popup-backdrop o z-index 2147483641 przykrywa cala strone,
+  body ma overflow hidden. Po odmowie overflow wraca do visible.
+
+  KLIKNIECIA. Potrzebne bylo kilka prob: klikniecie po 10 sekundach od zaladowania nie zadzialalo,
+  klikniecie przez referencje elementu tez nie, dopiero kolejne dwa klikniecia we wspolrzedne
+  zamknely baner. elementFromPoint potwierdzal przez caly czas, ze pod kursorem jest wlasciwy
+  przycisk. Do m2_clicks_refuse wpisano 1, bo tyle wynosi rzeczywisty koszt dla uzytkownika.
+
+  UWAGI METODOLOGICZNE. Druga warstwa zmierzona osobno przed sciezka odmowy, potem przeladowanie
+  i wlasciwa sciezka. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF (window.__tcfapi nie istnieje). akceptacja jednym klknieciem,
+  przycisk 'ZAAKCEPTUJ WSZYSTKO' zolty wypelniony

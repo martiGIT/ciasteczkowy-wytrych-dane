@@ -1,0 +1,81 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "amazon"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "Usługi Amazon"
+  - "Informacje o plikach cookie"
+  - "Inne podmioty (129)"
+  - "Zaakceptuj"
+  - "Odrzuć"
+  - "Dostosuj"
+layer1_emphasised: "Zaakceptuj"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Trzecia akcja "Dostosuj" prowadzi do osobnego ekranu ustawien, ktorego nie
+  otwierano, bo odmowa dostepna jest juz na pierwszej warstwie jednym klknieciem. Do uzupelnienia
+  w przebiegu 2. Brak IAB TCF.
+m4_partner_screens: null
+m4_partner_count_shown: 129
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Cookies' w stopce, y=5676 przy wysokosci strony 6253 px, w jednym rzedzie z 'Zasady
+  ochrony prywatnosci' i 'Reklamy dopasowane do zainteresowan'. Baner zapowiada wprost: 'W
+  dowolnym momencie mozesz zaktualizowac swoje preferencje, odwiedzajac strone Pliki cookie i
+  wybory dotyczace reklam'.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "amazon_desktop_01-landing_20260902.png"
+  - "amazon_desktop_02-layer1_20260902.png"
+  - "amazon_desktop_05-after-reject_20260902.png"
+  - "amazon_desktop_90-extra-amazon-pl_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM. "Odrzuc" stoi tuz obok "Zaakceptuj" na dole banera. Roznica wizualna
+  jest, ale niewielka: akceptacja ma zolte tlo marki, odmowa jest biala z szarym obramowaniem,
+  obie tej samej wysokosci i podobnej szerokosci. Trzecia opcja, "Dostosuj", to zwykly odnosnik.
+  Po klknieciu baner znika i nie wraca po przeladowaniu.
+
+  BANER PO POLSKU MIMO NIEMIECKIEJ DOMENY. Wejscie na amazon.de z polskim IP i polskim jezykiem
+  przegladarki daje interfejs i baner w calosci po polsku (document.documentElement.lang = "pl-pl"),
+  z adresem dostawy ustawionym na Polska. To wazne dla porownywalnosci: serwis rozpoznaje kraj
+  uzytkownika, a nie tylko domene.
+
+  AMAZON.PL MA IDENTYCZNY BANER I NIE DZIEDZICZY DECYZJI. Zrzut 90-extra-amazon-pl pokazuje ten sam
+  uklad, ten sam tekst i te same trzy akcje. Odmowa zapisana chwile wczesniej na amazon.de nie
+  przeniosla sie na amazon.pl - baner pojawil sie od nowa. Uzytkownik kupujacy w obu sklepach musi
+  odmowic dwa razy.
+
+  BANER NIE BLOKUJE STRONY. body ma overflow visible, tresc nad banerem jest widoczna i klikalna.
+  Baner zajmuje dolna czesc ekranu.
+
+  LICZBA PARTNEROW. Tekst banera podaje "Inne podmioty (129)" jako odnosnik. Nie ma przewijanej
+  listy dostawcow z suwakami w rozumieniu IAB TCF.
+
+  UWAGI METODOLOGICZNE. Zrzut 05-after-reject powstal po przeladowaniu strony, bo bezposrednio po
+  klknieciu Page.captureScreenshot zwracal obraz w zlej skali. Badanie prowadzone w trzech
+  przebiegach z recznym czyszczeniem danych przegladarki miedzy przebiegami. Nie logowano sie
+  na zadne konto i nie dokonano zadnego zakupu.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem, 'Zaakceptuj' zolty wypelniony. Baner
+  pojawia sie z opoznieniem - przy pierwszym zrzucie 5 s po wejsciu jeszcze go nie bylo, przy
+  drugim juz byl.

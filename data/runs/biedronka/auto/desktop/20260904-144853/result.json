@@ -1,0 +1,153 @@
+{
+ "site": "biedronka",
+ "url": "https://www.biedronka.pl/",
+ "viewport": "desktop",
+ "run_id": "20260904-144853",
+ "started_at": "2026-09-04T14:48:53",
+ "emulation": false,
+ "device": "1920x1080",
+ "headless": false,
+ "settle_ms": 10000,
+ "banner_wait_ms": 45000,
+ "layer_wait_ms": 3000,
+ "nav_timeout_ms": 60000,
+ "banner_delay_s": 10.0,
+ "banner_delay_by_state": {
+  "pre": 0.0,
+  "reject": 0.0,
+  "refuse_full": 0.0,
+  "accept": 0.0
+ },
+ "exit": {
+  "country": "PL",
+  "network": "Polish residential ISP, not a data centre"
+ },
+ "chromium": "151.0.7922.34",
+ "webdriver_flag": true,
+ "m8_cmp": "OneTrust",
+ "m8_tcf_version": null,
+ "no_banner": false,
+ "m1_reject_on_first_layer": false,
+ "m1_reject_label": null,
+ "m2_clicks_accept": 1,
+ "m2_accept_path": [
+  "Akceptuj"
+ ],
+ "m2_clicks_refuse": 2,
+ "m2_refuse_path": [
+  "Ustawienia plików cookie",
+  "Odrzucenie wszystkich"
+ ],
+ "m2_clicks_refuse_full": 2,
+ "m2_refuse_full_path": [
+  "Ustawienia plików cookie",
+  "Odrzucenie wszystkich"
+ ],
+ "li_object_found": false,
+ "m7_consent_wall": null,
+ "m7_wording": null,
+ "m7_price": null,
+ "m7_text": null,
+ "m2_refuse_blocked_by_wall": false,
+ "m9_withdraw_entry_visible": false,
+ "m9_withdraw_entry_labels": [],
+ "m2_clicks_to_wall": null,
+ "m3": null,
+ "m3_by_state": {
+  "pre": null,
+  "reject": null,
+  "refuse_full": null,
+  "accept": null
+ },
+ "m4": {
+  "scroll_screens": 5.6,
+  "words": 504,
+  "reading_minutes": 2.5
+ },
+ "m4_method": "document",
+ "m6": {
+  "pre": {
+   "cookies_first": 5,
+   "cookies_third": 0,
+   "hosts_first": [
+    "biedronka.pl"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "createjs.com",
+    "google-analytics.com",
+    "googleapis.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "gstatic.com",
+    "onetrust.com",
+    "typekit.net"
+   ],
+   "requests": 158
+  },
+  "reject": {
+   "cookies_first": 6,
+   "cookies_third": 0,
+   "hosts_first": [
+    "biedronka.pl"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "createjs.com",
+    "google-analytics.com",
+    "googleapis.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "gstatic.com",
+    "onetrust.com",
+    "typekit.net"
+   ],
+   "requests": 162
+  },
+  "refuse_full": {
+   "cookies_first": 6,
+   "cookies_third": 0,
+   "hosts_first": [
+    "biedronka.pl"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "createjs.com",
+    "google-analytics.com",
+    "googleapis.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "gstatic.com",
+    "onetrust.com",
+    "typekit.net"
+   ],
+   "requests": 162
+  },
+  "accept": {
+   "cookies_first": 14,
+   "cookies_third": 0,
+   "hosts_first": [
+    "biedronka.pl"
+   ],
+   "hosts_third": [
+    "cookielaw.org",
+    "crazyegg.com",
+    "createjs.com",
+    "doubleclick.net",
+    "google-analytics.com",
+    "google.com",
+    "google.pl",
+    "googleapis.com",
+    "googlesyndication.com",
+    "googletagmanager.com",
+    "gstatic.com",
+    "onetrust.com",
+    "typekit.net"
+   ],
+   "requests": 174
+  }
+ },
+ "discrepancy_notes": [
+  "refuse_full: no legitimate-interest objection control found; path equals reject"
+ ]
+}

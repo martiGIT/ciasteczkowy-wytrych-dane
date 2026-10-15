@@ -1,0 +1,80 @@
+# STATUS: kroki A, B, C wykonane. Krok D (test krzyzyka X) do przebiegu 3.
+site: "chatgpt"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: false
+layer1_buttons:
+  - "zarządzać"
+  - "polityce plików cookie"
+  - "Preferencje plików cookie"
+  - "Odrzuć niepotrzebne pliki cookie"
+  - "Zaakceptuj wszystkie"
+  - "X (zamknij)"
+layer1_emphasised: "Zaakceptuj wszystkie"
+m1_reject_on_first_layer: true
+m1_reject_label: "Odrzuć niepotrzebne pliki cookie"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "Odrzuć niepotrzebne pliki cookie"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Akcja "Preferencje plikow cookie" otwiera druga warstwe, ktorej nie otwierano, bo
+  odmowa dostepna jest jednym klknieciem. Z nazw ciasteczek wynika, ze kategorie sa trzy:
+  analityczna, marketingowa i personalizacja. Do uzupelnienia w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: null
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: false
+m9_withdraw_entry_where: >-
+  Brak. Po akceptacji skan calej strony nie znajduje zadnego linku ani przycisku ze slowem
+  cookie, ciasteczka czy preferencje. Link 'zarzadzac' byl tylko w tresci banera i znika razem z
+  nim. W lewym pasku jest 'Ustawienia', ale to ustawienia aplikacji dla wylogowanego
+  uzytkownika.
+close_x_present: true
+close_x_result: >-
+  Niesprawdzone. Pasek ma krzyzyk w prawym gornym rogu, ale go nie klikano - patrz notatka przy
+  netflixie i reddicie. Test X nalezy do przebiegu 3.
+screenshots:
+  - "chatgpt_desktop_01-landing_20260902.png"
+  - "chatgpt_desktop_02-layer1_20260902.png"
+  - "chatgpt_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM. "Odrzuc niepotrzebne pliki cookie" jest bialym przyciskiem z szarym
+  obramowaniem, "Zaakceptuj wszystkie" czarnym z bialym tekstem. Roznica wizualna jest wyrazna,
+  ale obie akcje sa na pierwszej warstwie, obok siebie, tej samej wysokosci i widoczne bez
+  przewijania. Trzecia opcja, "Preferencje plikow cookie", to zwykly tekst.
+
+  ZAPIS DECYZJI JEST CZYTELNY Z NAZW CIASTECZEK. Po odmowie w przegladarce pojawiaja sie
+  oai_consent_analytics, oai_consent_marketing, oai_consent_personalization oraz
+  oai-logged-out-consent-chosen. Sama struktura pokazuje trzy odrebne kategorie zgody i osobny
+  znacznik "decyzja podjeta". Wartosci nie odczytano, bo filtr narzedzia blokuje zwracanie
+  zawartosci ciasteczek.
+
+  BANER NIE BLOKUJE STRONY. Pasek na dole ekranu, pole "Zapytaj ChatGPT" dziala przed decyzja i po
+  niej, body ma overflow clip visible.
+
+  BRAK IAB TCF. Nie ma TC stringa ani listy dostawcow w rozumieniu protokolu.
+
+  UWAGI TECHNICZNE. Karta trzykrotnie przestala odpowiadac na Page.captureScreenshot i raz zwrocila
+  obraz w zlej skali; poprawne zrzuty powstaly po przeladowaniu strony i dluzszym odczekaniu.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto i nie wpisano zadnego zapytania.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: brak IAB TCF. akceptacja jednym klknieciem, 'Zaakceptuj wszystkie' czarny
+  wypelniony, 'Odrzuc niepotrzebne pliki cookie' bialy obramowany, 'Preferencje plikow cookie'
+  bez tla. Po akceptacji: oai_consent_analytics=true, oai_consent_marketing=true,
+  oai_consent_personalization=true, oai-logged-out-consent-chosen=true. Baner ma krzyzyk X -
+  jego test zostaje na przebieg 3.

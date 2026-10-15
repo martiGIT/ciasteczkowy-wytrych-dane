@@ -1,0 +1,78 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "gazeta"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "USTAWIENIA ZAAWANSOWANE"
+  - "AKCEPTUJĘ"
+layer1_emphasised: "AKCEPTUJĘ"
+m1_reject_on_first_layer: false
+m1_reject_label: ""
+m2_clicks_accept: 1
+m2_clicks_refuse: 2
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "USTAWIENIA ZAAWANSOWANE"
+  - "NIE WYRAŻAM ZGODY"
+m5_toggles_default_on: 0
+m5_li_toggles_separate: null
+m5_notes: >-
+  Panel "Ustawienia zaawansowane" (OneTrust) ma 22 pola wyboru w sekcji "Zarzadzaj preferencjami
+  zgody", wszystkie domyslnie wylaczone: Pliki cookie wydajnosci, Funkcjonalne pliki cookie i
+  dalsze kategorie oraz cele IAB. Przyciski panelu, od lewej: "POTWIERDZAM MOJE WYBORY",
+  "NIE WYRAZAM ZGODY", "AKCEPTUJE". Nie udalo sie ustalic, gdzie w interfejsie siedza przelaczniki
+  uzasadnionego interesu - w panelu glownym ich nie widac, a lista Zaufanych Partnerow nie otworzyla
+  sie w rozsadnej liczbie prob. Stad m5_li_toggles_separate = null, mimo ze z odczytu TCF wiadomo,
+  ze uzasadniony interes jest wlaczony dla 244 dostawcow.
+m4_partner_screens: null
+m4_partner_count_shown: 671
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia prywatnosci' w stopce, y=22686 przy wysokosci strony 22899 px.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "gazeta_desktop_01-landing_20260902.png"
+  - "gazeta_desktop_02-layer1_20260902.png"
+  - "gazeta_desktop_03-layer2-defaults_20260902.png"
+  - "gazeta_desktop_05-after-reject_20260902.png"
+observations: >-
+  USTALENIE KLUCZOWE. Przycisk "NIE WYRAZAM ZGODY" zostawia 244 dostawcow przetwarzajacych dane na
+  podstawie uzasadnionego interesu. Odczyt TCF zaraz po klknieciu: purpose.consents = {},
+  ale purpose.legitimateInterests = {1:false, 2:true, 3:false, 4:false, 5:false, 6:false, 7:true,
+  8:true, 9:true, 10:true, 11:true}, publisher.legitimateInterests identycznie, a liczba dostawcow
+  z aktywnym uzasadnionym interesem wynosi 244. tcString
+  CQp6XlgQp6XlgAcABBPLCuFgAAAAAEPgAAYgAAAXAABMNDogBL. To ten sam wzorzec co na onecie: przycisk
+  o nazwie "nie wyrazam zgody" nie jest pelna odmowa w rozumieniu protokolu.
+
+  BRAK ODMOWY NA PIERWSZEJ WARSTWIE. Sa tylko dwa przyciski: "USTAWIENIA ZAAWANSOWANE" (bialy,
+  obramowany) i "AKCEPTUJE" (jaskrawozielony, kolor marki). Zeby dojsc do czegokolwiek, co
+  przypomina odmowe, trzeba wejsc na druga warstwe.
+
+  BANER BLOKUJE STRONE. body ma overflow hidden, nakladka .onetrust-pc-dark-filter o z-index
+  2147483645 przykrywa cala strone. Po odmowie overflow wraca do visible.
+
+  LICZBA PARTNEROW. Baner deklaruje 671 Zaufanych Partnerow IAB. Lista partnerow zawiera 817 pol
+  wyboru, ale nie udalo sie jej rozwinac na tyle, zeby zmierzyc liczbe ekranow - stad
+  m4_partner_screens = null.
+
+  UWAGI METODOLOGICZNE. m9 zmierzone po odmowie, nie po akceptacji jak chce krok C protokolu -
+  odnotowuje to, bo link w stopce moze wygladac inaczej w obu stanach. Badanie prowadzone w trzech
+  przebiegach z recznym czyszczeniem danych przegladarki miedzy przebiegami; przed przebiegiem
+  wszystkie 26 adresow zostalo raz otwartych w celu autoryzacji domen w rozszerzeniu, bez klikania
+  w baner.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 11 celow zgody, 6 UIA, 630 dostawcow ze zgoda, 244 z UIA. 244 dostawcow z UIA to
+  dokladnie tyle samo co po pelnej odmowie w przebiegu 1 - uzasadniony interes na gazeta.pl jest
+  staly niezaleznie od wyboru uzytkownika

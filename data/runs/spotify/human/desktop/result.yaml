@@ -1,0 +1,74 @@
+# STATUS: kroki A, B, C, D wykonane. KOMPLET.
+site: "spotify"
+viewport: "desktop"
+date: "2026-09-02"
+tester: "Marcin"
+browser: 'Chrome 152.0.7977.76 (64-bit, Windows 11), jezyk pl, sterowany rozszerzeniem Claude in Chrome. Wedlug testera instalacja przegladarki uzywana wylacznie do tego badania.'
+device: "viewport 1906x986 CSS px, devicePixelRatio 1.5, zoom strony 100%"
+exit_ip_country: "PL"
+exit_ip_asn: "polski dostawca internetu (ISP), nie centrum danych"
+banner_language: "pl"
+banner_blocks_content: true
+layer1_buttons:
+  - "polityki prywatności"
+  - "LISTA PARTNERÓW (DOSTAWCÓW)"
+  - "AKCEPTUJĘ"
+  - "ODRZUĆ WSZYSTKIE"
+  - "POKAŻ CELE"
+layer1_emphasised: "brak wyroznienia - „AKCEPTUJĘ” i „ODRZUĆ WSZYSTKIE” maja identyczne ciemne wypelnienie rgb(24,24,24)"
+m1_reject_on_first_layer: true
+m1_reject_label: "ODRZUĆ WSZYSTKIE"
+m2_clicks_accept: 1
+m2_clicks_refuse: 1
+m2_scrolls_refuse: 0
+m2_refuse_path:
+  - "ODRZUĆ WSZYSTKIE"
+m5_toggles_default_on: null
+m5_li_toggles_separate: null
+m5_notes: >-
+  Nie zmierzone. Trzecia akcja "POKAZ CELE" otwiera druga warstwe, ktorej nie otwierano, bo pelna
+  odmowa dostepna jest jednym klknieciem. Do uzupelnienia w przebiegu 2.
+m4_partner_screens: null
+m4_partner_count_shown: 95
+m7_consent_wall: false
+m7_price: ""
+m7_wording: ""
+m9_withdraw_entry_visible: true
+m9_withdraw_entry_where: >-
+  Link 'Ustawienia plikow cookie' w stopce panelu glownego odtwarzacza, obok 'Polityka
+  prywatnosci' i 'Centrum ochrony prywatnosci i bezpieczenstwa'. Widoczny po przewinieciu
+  glownego panelu do konca, bez opuszczania strony.
+close_x_present: false
+close_x_result: "Baner nie ma przycisku X ani „Zamknij”."
+screenshots:
+  - "spotify_desktop_01-landing_20260902.png"
+  - "spotify_desktop_02-layer1_20260902.png"
+  - "spotify_desktop_05-after-reject_20260902.png"
+observations: >-
+  ODMOWA JEDNYM KLKNIECIEM, PRZYCISKI IDENTYCZNE. "AKCEPTUJE" i "ODRZUC WSZYSTKIE" maja to samo
+  ciemne wypelnienie rgb(24,24,24), ta sama wysokosc, obok siebie. Trzecia opcja, "POKAZ CELE",
+  jest jasnoszara. Etykieta odmowy mowi wprost "odrzuc wszystkie", bez oslabiajacych przymiotnikow
+  w rodzaju "opcjonalne" czy "niepotrzebne", ktore widac na Facebooku, TikToku, Reddicie i ChatGPT.
+
+  JEDEN DOSTAWCA ZOSTAJE NA UZASADNIONYM INTERESIE. Po odmowie purpose.consents = {} i
+  purpose.legitimateInterests = {}, ale liczba dostawcow z aktywnym uzasadnionym interesem wynosi 1
+  - dokladnie tak jak na washingtonpost.com. tcString
+  CQp6XlgQp6XlgAcABBPLCuFgAAAAAAAAAAYgAAAJVgAgJ. Nie ustalono, ktory to dostawca. Warto sprawdzic
+  w przebiegu 2, czy w obu serwisach chodzi o ten sam podmiot.
+
+  BANER BLOKUJE STRONE. body ma overflow hidden przed decyzja i, co ciekawe, po niej rowniez -
+  to jednak wlasciwosc ukladu aplikacji webowej Spotify, a nie banera.
+
+  MALA LISTA PARTNEROW. 95 dostawcow, czyli mniej niz OLX (446) czy tvn24 (191), i o dwa rzedy
+  wielkosci mniej niz polscy wydawcy prasowi.
+
+  UWAGI TECHNICZNE. Karta dwukrotnie przestala odpowiadac na Page.captureScreenshot i raz zwrocila
+  obraz w zlej skali; zrzut 05-after-reject powstal po przeladowaniu strony.
+
+  UWAGI METODOLOGICZNE. Badanie prowadzone w trzech przebiegach z recznym czyszczeniem danych
+  przegladarki miedzy przebiegami. Nie logowano sie na zadne konto.
+
+  PRZEBIEG 2 - SCIEZKA AKCEPTACJI I PUNKT WYCOFANIA ZGODY. Akceptacja: 1 klikniecie. Odczyt po
+  akceptacji: 10 celow zgody, 4 UIA, 92 dostawcow ze zgoda, 50 z UIA. akceptacja jednym
+  klknieciem, 'AKCEPTUJE' i 'ODRZUC WSZYSTKIE' to dwa identyczne czarne przyciski obok siebie,
+  trzecia akcja 'POKAZ CELE' bez tla. Baner deklaruje 95 partnerow, po akceptacji zgode ma 92.
