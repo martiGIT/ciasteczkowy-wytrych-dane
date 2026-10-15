@@ -6,6 +6,8 @@ Dane do raportu „Ciasteczkowy wytrych. Co naprawdę wyłącza przycisk „nie 
 
 Raport: https://headflash.news/pl/raporty/ciasteczkowy-wytrych/
 
+Wersja angielska: https://headflash.news/reports/the-cookie-loophole/
+
 ## Co tu jest
 
 Ścieżki są takie same jak w przypisach raportu.
@@ -92,7 +94,7 @@ Wyniki i zapisy: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/deed.pl)
 
 ## English
 
-Data behind the report "The Cookie Loophole. What the "reject" button actually switches off on 50 large websites" (Marcin Rybak, HeadFlash.news, October 2026). The full report is in Polish.
+Data behind the report "The Cookie Loophole. What the 'I do not consent' button really switches off on 50 big websites" (Marcin Rybak, HeadFlash.news, October 2026). The report is available in Polish and English.
 
 Report page: https://headflash.news/reports/the-cookie-loophole/
 
@@ -148,7 +150,7 @@ In `merged.csv` the browser pass takes precedence for M1, M2, M5, M7 and M9, the
 
 ### How to read the browser pass notes
 
-The `observations` field in `result.yaml` holds the AI agent's working notes, written during the pass, in Polish without diacritics. I publish them unedited. I removed only details of my computer and connection, and one identifier a site showed in its consent panel. So the notes contain:
+The `observations` field in `result.yaml` holds the AI agent's working notes, written during the pass, in Polish without diacritics. I publish them unedited and do not translate them, so the record stays exactly as it was written; machine translation works well on them. I removed only details of my computer and connection, and one identifier a site showed in its consent panel. So the notes contain:
 
 - work markers ("STATUS", "do uzupelnienia w przebiegu 2", "krok C"), also where the step was done later;
 - additions from the second run, cut off in places;
